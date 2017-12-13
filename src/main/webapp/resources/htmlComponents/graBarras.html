@@ -1,0 +1,201 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+<div id="barras">
+   <div class="form-group">
+      <div id="chartContainer" style="height: 500px; width: 100%;"></div>
+   </div>
+</div>
+<div id="barrasScript">
+   <script type="text/javascript">
+     $(function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+        text: "Solicitudes de Enrolamiento Biom\u00E9trico"
+      },
+      axisY: {
+        title: "Cifras en Miles",
+        maximum: 200
+      },
+      data: [
+      {
+        type: "bar",
+        showInLegend: true,
+        legendText: "Empleados",
+        color: "#191970",
+        dataPoints: [
+        { y: 5.984, label: "530"},
+        { y: 9.352, label: "534"},
+        { y: 2.431, label: "538"},
+        { y: 3.873, label: "544"},
+        { y: 11.087, label: "550"},
+        { y: 3.634, label: "552"},
+        { y: 2.452, label: "556"},
+        { y: 4.393, label: "562"},
+        { y: 2.484, label: "564"},
+        { y: 7.321, label: "568"},
+        { y: 1.633, label: "578"}
+        ]
+      },
+      {
+        type: "bar",
+        showInLegend: true,
+        legendText: "Trabajadores",
+        color: "#228B22",
+        dataPoints: [
+        { y: 80.173, label: "530"},
+        { y: 54.645, label: "534"},
+        { y: 10.924, label: "538"},
+        { y: 77.264, label: "544"},
+        { y: 14.662, label: "550"},
+        { y: 190.351, label: "552"},
+        { y: 165.411, label: "556"},
+        { y: 31.802, label: "562"},
+        { y: 9.996, label: "564"},
+        { y: 184.404, label: "568"},
+        { y: 19.113, label: "578"}
+        ]
+      }
+      ]
+    });
+
+chart.render();
+});
+   </script>
+</div>
+<!-- end code -->
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+<div id="barrasDoc">
+   <h3><strong>Gr&aacute;fica de Barras</strong></h3>
+
+   <h3>Conocimientos Requeridos</h3>
+   <p>Conceptos b&aacute;sicos de HTML y Javascript</p>
+
+   <h3>CanvasJS</h3>
+   <p>CanvasJS es una biblioteca f&aacute;cil de utilizar HTML5 y Javascript de gr&aacute;ficos. Se ejecuta a trav&eacute;s de dispositivos como el iPhone, iPad, Android, Windows Phone, Microsoft Surface, ordenadores de sobremesa, etc.
+      Esto le permite crear cuadros de mando ricos que funcionan a trav&eacute;s de dispositivos sin comprometer la funcionalidad o la mantenibilidad.</p>
+
+	<h3>Requisitos del Navegador</h3>
+	<p>Es compatible con todos los navegadores modernos. A partir de la versión 1.3, CanvasJS tambi&eacute;n es compatible con los navegadores más antiguos como IE6, IE7 y IE8.
+	<br/>
+	A continuación se muestra una lista de los navegadores probados con la biblioteca CanvasJS.
+	</p>
+	<ul> 
+		<dir><li>Chrome</li>
+			<li>Firefox</li>
+			<li>Opera</li>
+			<li>IE 6+</li>
+			<li>Safari</li>
+			<li>iPhone</li>
+			<li>iPad</li>
+			<li>Android</li>
+		</dir>
+	</ul>
+
+	<h3>Agregar la biblioteca CanvasJS</h3>
+	<pre class="prettyprint linenums">
+	&lt;head&gt;
+	  &lt;script type=&quot;text/javascript&quot; src=&quot;canvasjs.min.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	</pre>
+
+
+	<h3>Descripci&oacute;n del Gr&aacute;fico</h3>
+   <p>Un gr&aacute;fico de barras es un gr&aacute;fico de barras rectangulares con longitudes proporcionales a los valores que representan.
+   Un gr&aacute;fico de barras es &uacute;til para comparar puntos de datos en una o m&aacute;s dataSeries.
+   En la gr&aacutefica de barras axisX es vertical y axisY es horizontal.
+   No se puede combinar con: Cualquier tipo de gr&aacute;fico, excepto gr&aacute;ficos de barras y de barras apiladas.</p>
+   <br/>
+   
+    <h3>Propiedades Espec&iacute;ficas</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Aplicable a</th>
+            <th style="width: 100px;">Atributo</th>
+            <th style="width: 50px;">Tipo</th>
+            <th>Default</th>
+            <th>Opciones/Ejemplos</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr>
+              <td>dataSeries</td>
+              <td>bevelEnabled</td>
+              <td>Boolean</td>
+              <td>false</td>
+              <td>true,false</td>
+            </tr>
+            <tr>
+              <td>dataSeries/ dataPoint</td>
+              <td>indexLabelPlacement</td>
+              <td>String</td>
+              <td><code>&#8220;outside&#8221;</code></td>
+              <td><code>&#8220;inside&#8221;,&#8221;outside&#8221;</code></td>
+            </tr>
+            <tr>
+              <td>dataSeries/ dataPoint</td>
+              <td>indexLabelOrientation</td>
+              <td>String</td>
+              <td><code>&#8220;outside&#8221;</code></td>
+              <td><code>&#8220;inside&#8221;,&#8221;outside&#8221;</code></td>
+            </tr>
+            <tr>
+              <td>dataSeries</td>
+              <td>fillOpacity</td>
+              <td>Number</td>
+              <td>1</td>
+              <td>.2,.4,1 etc</td>
+            </tr> 
+        </tbody>
+      </table>
+    </div>
+   <br/>
+   <h3>Propiedades Generales</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Personalizaci&oacute;n</th>
+            <th style="width: 100px;">Objeto</th>
+            <th style="width: 50px;">Propiedad</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+               <td>Set Chart Title Size </td>
+               <td>title</td>
+               <td>fontSize &#8211; 12,13,14, etc. </td>        
+            </tr>
+            <tr>
+               <td>Set Chart Title Color </td>
+               <td>title</td>
+               <td>fontColor &#8211; red, blue, green, etc </td>        
+            </tr>
+            <tr>
+               <td>Show Axis Y line </td>
+               <td>axisY</td>
+               <td>lineThickness &#8211; 0, 1, 2, etc. </td>        
+            </tr>	
+            <tr>
+               <td>Show value (indexLabels)<br/> on top of Column / Bar </td>
+               <td>dataSeries</td>
+               <td>indexLabel &#8211; &#8220;{y}&#8221;, &#8220;${y}K&#8221;, &#8220;any text&#8221; </td>        
+            </tr>
+            <tr>
+               <td>Set Axis X label angle </td>
+               <td>axisX</td>
+               <td>labelAngle &#8211; 30, 45, 90, etc </td>        
+            </tr>
+         </tbody>
+      </table>
+    </div>
+</div>
+
+<!-- end documentation -->
+

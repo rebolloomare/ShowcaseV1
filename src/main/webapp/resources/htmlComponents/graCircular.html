@@ -1,0 +1,185 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+<div id="circular">
+   <div class="form-group">
+      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+   </div>
+</div>
+<div id="circularScript">
+   <script type="text/javascript">
+     $(function () {
+   var chart = new CanvasJS.Chart("chartContainer",
+   {
+      theme: "theme2",
+      title:{
+         text: "Enrolamientos Aceptados"
+      },
+      data: [
+      {       
+         type: "pie",
+         showInLegend: true,
+         toolTipContent: "{y} - #percent %",
+         yValueFormatString: "#,##0.##",
+         legendText: "{indexLabel}",
+         dataPoints: [
+            {  y: 76163,  indexLabel: "XXI Banorte"},
+            {  y: 59876,  indexLabel: "Profuturo GNP"},
+            {  y: 12178,  indexLabel: "Principal"},
+            {  y: 78272,  indexLabel: "Sura"},
+            {  y: 22011,  indexLabel: "Inbursa"},
+            {  y: 189692, indexLabel: "Banamex"},
+            {  y: 153577, indexLabel: "Azteca"},
+            {  y: 34570,  indexLabel: "Invercap"},
+            {  y: 9879,   indexLabel: "Metlife"},
+            {  y: 266417, indexLabel: "Coppel"},
+            {  y: 11556,  indexLabel: "Pension ISSSTE"}
+         ]
+      }
+      ]
+   });
+   chart.render();
+});
+   </script>
+</div>
+<!-- end code -->
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+<div id="circularDoc">
+
+   <h3><strong>Gr&aacute;fica Circular</strong></h3>
+
+   <h3>Conocimientos Requeridos</h3>
+   <p>Conceptos b&aacute;sicos de HTML y Javascript</p>
+
+   <h3>CanvasJS</h3>
+   <p>CanvasJS es una biblioteca f&aacute;cil de utilizar HTML5 y Javascript de gr&aacute;ficos. Se ejecuta a trav&eacute;s de dispositivos como el iPhone, iPad, Android, Windows Phone, Microsoft Surface, ordenadores de sobremesa, etc.
+      Esto le permite crear cuadros de mando ricos que funcionan a trav&eacute;s de dispositivos sin comprometer la funcionalidad o la mantenibilidad.</p>
+
+	<h3>Requisitos del Navegador</h3>
+	<p>Es compatible con todos los navegadores modernos. A partir de la versión 1.3, CanvasJS tambi&eacute;n es compatible con los navegadores más antiguos como IE6, IE7 y IE8.
+	<br/>
+	A continuación se muestra una lista de los navegadores probados con la biblioteca CanvasJS.
+	</p>
+	<ul> 
+		<dir><li>Chrome</li>
+			<li>Firefox</li>
+			<li>Opera</li>
+			<li>IE 6+</li>
+			<li>Safari</li>
+			<li>iPhone</li>
+			<li>iPad</li>
+			<li>Android</li>
+		</dir>
+	</ul>
+
+	<h3>Agregar la biblioteca CanvasJS</h3>
+	<pre class="prettyprint linenums">
+	&lt;head&gt;
+	  &lt;script type=&quot;text/javascript&quot; src=&quot;canvasjs.min.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	</pre>
+
+   <h3>Descripci&oacute;n del Gr&aacute;fico</h3>
+   <p>Un gr&aacute;fico de sectores es un diagrama circular dividido en sectores, cada sector (y en consecuencia su &aacute;ngulo central y el &aacute;rea), es proporcional a la cantidad que representa.
+      En conjunto, los sectores crean un disco completo.
+      IndexLabels describe cada rebanada de gr&aacute;fico circular. Se muestra al lado de cada rebanada.</p>
+   <br/>
+
+    <h3>Propiedades Espec&iacute;ficas</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Aplicable a</th>
+            <th style="width: 100px;">Atributo</th>
+            <th style="width: 50px;">Tipo</th>
+            <th>Default</th>
+            <th>Opciones/Ejemplos</th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr>
+              <td>dataSeries/ dataPoint</td>
+              <td>exploded</td>
+              <td>Boolean</td>
+              <td>false</td>
+              <td>false, true</td>
+            </tr>
+            <tr>
+              <td>dataSeries/ dataPoint</td>
+              <td>explodeOnClick</td>
+              <td>Boolean</td>
+              <td>true</td>
+              <td>false, true</td>
+            </tr>
+            <tr>
+              <td>dataSeries/ dataPoint</td>
+              <td>startAngle</td>
+              <td>Number</td>
+              <td>0</td>
+              <td>30, -45, 140..</td>
+            </tr>
+            <tr>
+              <td>dataSeries</td>
+              <td>fillOpacity</td>
+              <td>Number</td>
+              <td>1</td>
+              <td>.2,.4,1 etc</td>
+            </tr> 
+            <tr>
+              <td>dataPoint</td>
+              <td>legendText</td>
+              <td>String</td>
+              <td><code>&#8220;dataPoint1&#8221;</code></td>
+              <td><code>&#8220;apple&#8221;, &#8220;mango&#8221;</code></td>
+            </tr> 
+          </tbody>
+      </table>
+    </div>
+   <br/>
+   <h3>Propiedades Generales</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Personalizaci&oacute;n</th>
+            <th style="width: 100px;">Objeto</th>
+            <th style="width: 50px;">Propiedad</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+               <td>Set Chart Title Size </td>
+               <td>title</td>
+               <td>fontSize &#8211; 12,13,14, etc. </td>        
+            </tr>
+            <tr>
+               <td>Set Chart Title Color </td>
+               <td>title</td>
+               <td>fontColor &#8211; red, blue, green, etc </td>        
+            </tr>
+            <tr>
+               <td>Show Axis Y line </td>
+               <td>axisY</td>
+               <td>lineThickness &#8211; 0, 1, 2, etc. </td>        
+            </tr>	
+            <tr>
+               <td>Show value (indexLabels)<br/> on top of Column / Bar </td>
+               <td>dataSeries</td>
+               <td>indexLabel &#8211; &#8220;{y}&#8221;, &#8220;${y}K&#8221;, &#8220;any text&#8221; </td>        
+            </tr>
+            <tr>
+               <td>Set Axis X label angle </td>
+               <td>axisX</td>
+               <td>labelAngle &#8211; 30, 45, 90, etc </td>        
+            </tr>
+         </tbody>
+      </table>
+    </div>
+</div>
+
+<!-- end documentation -->
+

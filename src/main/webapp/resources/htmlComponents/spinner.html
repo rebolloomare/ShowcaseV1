@@ -1,0 +1,890 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+
+<div id="spinner">
+	<h5>
+		<strong>Spinner con M&eacute;todos</strong>
+	</h5>
+	<br />
+	<!-- Invocacion de Spinner -->
+	<div class="form-group">
+		<label for="spinner">Selecciona un Valor:</label> <input id="spinner"
+			name="value">
+	</div>
+	<br />
+	<div>
+		<!-- Botones para invocar los metodos -->
+		<button class="btn btn-primary" id="disable">Desabilitar/Habilitar</button>
+		<button class="btn btn-primary" id="getvalue">Obtener Valor</button>
+		<button class="btn btn-primary" id="setvalue">Establecer
+			Valor a 5</button>
+	</div>
+</div>
+
+
+<!-- #################### -->
+<!-- 	Java Script 	  -->
+<!-- #################### -->
+<div id="spinnerScript">
+	<script type="text/javascript">
+		$(document).ready(function() {
+			creaSpinner();
+		});
+	</script>
+</div>
+
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+
+<div id="spinnerDoc">
+	<h3>
+		<strong>Widget de Spinner</strong>
+	</h3>
+	<p>
+		El Spinner, o Widget Num&eacute;rico paso a paso, es perfecto para el
+		manejo de todo tipo de entrada num&eacute;rica. Permite a los usuarios
+		escribir un valor directamente, o modificar un valor existente
+		haciendo girar con el teclado, el mouse o la rueda del mouse. Cuando
+		se combina con
+		<code>Globalize</code>
+		, incluso se puede hacer girar las monedas y las fechas en una
+		variedad de lugares. <br /> Spinner contiene una entrada de texto con
+		dos botones para aumentar y disminuir el valor actual, se
+		a&ntilde;aden eventos clave para que el mismo incremento y decremento
+		se pueden hacer con el teclado.
+	</p>
+	<h5><strong>Manejo del Teclado</strong></h5>
+	<ul>
+		<li style="list-style-position: inside;"><code>UP</code>: Incrementa el valor en un paso.</li>
+		<li style="list-style-position: inside;"><code>DOWN</code>: Decrementa el valor en un paso.</li>
+		<li style="list-style-position: inside;"><code>PAGE UP</code>: Incrementa el valor en una p&aacute;gina.</li>
+		<li style="list-style-position: inside;"><code>PAGE DOWN</code>: Decrementa el valor en una p&aacute;gina.</li>
+	</ul>
+	<h5><strong>Notas adicionales:</strong></h5>	
+	<ul>
+		<li style="list-style-position: inside;">
+		Este widget requiere funcionalidad CSS, de lo contrario no funcionar&aacute;. Si se construye un tema personalizado, utilice el archivo CSS espec&iacute;fico del widget como punto de partida.
+		</li>
+		<li style="list-style-position: inside;">
+		Este widget puede manipular el valor de su elemento mediante programaci&aacute;n, por lo tanto, un evento nativo <code>change</code> no puede ser ejecutado cuando cambia el valor del elemento.
+		</li>
+		<li style="list-style-position: inside;">
+		La creaci&oacute;n de una ruleta en un <code>&lt;input type=&quot;number&quot;&gt;</code> no se admite debido a un conflicto con la interfaz de usuario nativa.
+		</li>
+	</ul>
+	<br/>
+	<h4><strong>Tipos de Spinner</strong></h4>
+	Se puede dar formato al valor del Spinner, esto es, usando las <code>opciones</code> del widget, a continuaci&oacute;n se muestra dos tipos:
+	<ul>
+		<li style="list-style-position: inside;">Monetario</li>
+		<li style="list-style-position: inside;">Hora</li>
+	</ul>
+	Se presentar&aacute; la funci&oacute;n en <code>JavaScript</code> y la invocaci&oacute;n en <code>Html</code>.
+	<br/>
+	<h4><font color="SteelBlue"><strong>Spinner: Monetario</strong></font></h4>
+	El formato del valor del Spinner es en Decimal, as&iacute; como se agrega la etiqueta de la moneda, de acuerdo a la selecci&oacute;n del <code>Globalize</code>.
+	<h5><strong>Funci&oacute;n JavaScript</strong></h5>
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+			<td>
+			<!-- codigo javascript de spinner monetario -->
+<pre class="code">$(function() {
+	$(&quot;#currency&quot;).on(&quot;change&quot;, function() {
+		$(&quot;#spinner&quot;).spinner(&quot;option&quot;, &quot;culture&quot;, $(this).val());
+	});
+
+	$(&quot;#spinner&quot;).spinner({
+		min : 5,
+		max : 2500,
+		step : 25,
+		start : 1000,
+		numberFormat : &quot;C&quot;
+	});
+});</pre>
+			</td>
+			</tr>
+		</tbody>
+	</table>
+	<h5><strong>Invocaci&oacute;n HTML</strong></h5>
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+			<td>
+			<!-- llamado html spinner monetario -->
+<pre class="code">&lt;p&gt;
+  &lt;label for=&quot;spinner&quot;&gt;Amount to donate:&lt;/label&gt;
+  &lt;input id=&quot;spinner&quot; name=&quot;spinner&quot; value=&quot;5&quot;&gt;
+&lt;/p&gt; 
+&lt;p&gt;
+  &lt;label for=&quot;currency&quot;&gt;Currency to donate&lt;/label&gt;
+  &lt;select id=&quot;currency&quot; name=&quot;currency&quot;&gt;
+    &lt;option value=&quot;en-US&quot;&gt;US $&lt;/option&gt;
+    &lt;option value=&quot;de-DE&quot;&gt;EUR &#8364;&lt;/option&gt;
+    &lt;option value=&quot;ja-JP&quot;&gt;YEN &#165;&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/p&gt;</pre>
+			</td>
+			</tr>
+		</tbody>
+	</table>		
+	<h4><font color="SteelBlue"><strong>Spinner: Hora</strong></font></h4>
+	El formato del valor del Spinner es formateado para hora (time), as&iacute; como se agrega la etiqueta de tiempo: PM o AM, de acuerdo a la selecci&oacute;n del <code>Globalize</code>.
+	<h5><strong>Funci&oacute;n JavaScript</strong></h5>
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+			<td>
+			<!-- codigo javascript de spinner monetario -->
+<pre class="code">$(function() {
+	$.widget(&quot;ui.timespinner&quot;, $.ui.spinner, {
+		options : {
+			// seconds
+			step : 60 * 1000,
+			// hours
+			page : 60
+		},
+		_parse : function(value) {
+			if (typeof value === &quot;string&quot;) {
+				// already a timestamp
+				if (Number(value) == value) {
+					return Number(value);
+				}
+				return +Globalize.parseDate(value);
+			}
+			return value;
+		},
+		_format : function(value) {
+			return Globalize.format(new Date(value), &quot;t&quot;);
+		}
+	});
+	$(&quot;#spinner&quot;).timespinner();
+	$(&quot;#culture&quot;).on(&quot;change&quot;, function() {
+		var current = $(&quot;#spinner&quot;).timespinner(&quot;value&quot;);
+		Globalize.culture($(this).val());
+		$(&quot;#spinner&quot;).timespinner(&quot;value&quot;, current);
+	});
+});</pre>
+			</td>
+			</tr>
+		</tbody>
+	</table>
+	<h5><strong>Invocaci&oacute;n HTML</strong></h5>
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+			<td>
+			<!-- llamado html spinner monetario -->
+<pre class="code">&lt;p&gt;
+  &lt;label for=&quot;spinner&quot;&gt;Time spinner:&lt;/label&gt;
+  &lt;input id=&quot;spinner&quot; name=&quot;spinner&quot; value=&quot;08:30 PM&quot;&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;label for=&quot;culture&quot;&gt;Select a culture to use for formatting:&lt;/label&gt;
+  &lt;select id=&quot;culture&quot;&gt;
+    &lt;option value=&quot;en-EN&quot; selected=&quot;selected&quot;&gt;English&lt;/option&gt;
+    &lt;option value=&quot;de-DE&quot;&gt;German&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/p&gt;</pre>
+			</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- ############# -->
+	<!--    OPCIONES   -->
+	<!-- ############# -->
+	<br/>	
+	<h3><strong>Opciones</strong></h3>
+	<!-- #### inicia culture #### -->
+	<h4><font color="SteelBlue">culture</font></h4>
+	Establece el tipo de cultura a usar para analizar y dar formato al valor. Si es <code>null</code>, se usa la cultura establecida por defecto en el plugin <code>Globalize</code>.	
+	<br />
+	<strong>Tipos: </strong><code>String</code>
+	<br />
+	<strong>Default: </strong><code>null</code>	
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Spinner con la opci&oacute;n <code>culture</code> especificada:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  culture: <span class="string">&quot;fr&quot;</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>culture</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> culture = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;culture&quot;</span> );</code></div></div><div class="container"><div class="line"><code></code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;culture&quot;</span>, <span class="string">&quot;fr&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina culture #### -->	
+	<!-- #### inicia disabled #### -->
+	<h4><font color="SteelBlue">disabled</font></h4>
+	Desabilita el Spinner al establecer el valor <code>true</code>.	
+	<br />
+	<strong>Tipos: </strong><code>Boolean</code>
+	<br />
+	<strong>Default: </strong><code>false</code>	
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Spinner con la opci&oacute;n <code>disabled</code> especificada:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  disabled: <span class="literal">true</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>disabled</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> disabled = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;disabled&quot;</span> );</code></div></div><div class="container"><div class="line"><code></code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;disabled&quot;</span>, <span class="literal">true</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina disabled #### -->
+	<!-- #### inicia icons #### -->
+	<h4><font color="SteelBlue">icons</font></h4>
+	Los iconos a utilizar para los botones, iconos proporcionados por el framework de jQuery UI CSS.
+	<ul>
+		<li style="list-style-position: inside;">up (string, default: &quot;ui-icon-triangle-1-n&quot;)</li>
+		<li style="list-style-position: inside;">down (string, default: &quot;ui-icon-triangle-1-s&quot;)</li>
+	</ul>	
+	<strong>Tipos: </strong><code>Object</code>
+	<br />
+	<strong>Default: </strong><code>{ down: &quot;ui-icon-triangle-1-s&quot;, up: &quot;ui-icon-triangle-1-n&quot; }</code>	
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Spinner con la opci&oacute;n <code>icons</code> especificada:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  icons: { down: <span class="string">&quot;custom-down-icon&quot;</span>, up: <span class="string">&quot;custom-up-icon&quot;</span> }</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>icons</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> icons = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;icons&quot;</span> );</code></div></div><div class="container"><div class="line"><code></code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;icons&quot;</span>, { down: <span class="string">&quot;custom-down-icon&quot;</span>, up: <span class="string">&quot;custom-up-icon&quot;</span> } );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina icons #### -->
+	<!-- #### inicia incremental #### -->
+	<h4><font color="SteelBlue">incremental</font></h4>
+	Controla el n&uacute;mero de pasos dados cuando se mantiene pulsado un bot&oacute;n de giro.		
+	<br />
+	<strong>Tipos: </strong><code>Boolean</code> o <code>Function(Integer count)</code>
+	<br />
+	<strong>Default: </strong><code>true</code>	
+	<br /><br />
+	M&uacute;ltiples valores soportados:
+	<br />
+	<strong>Boolean</strong>: Cuando se define como <strong>true</strong>, el paso tipo &quot;delta&quot; se incrementará cuando se gire sin cesar.
+	 Cuando se establece en <strong>false</strong>, todos los pasos son iguales (como se define por la opci&oacute;n <code>step</code>).
+	<br />
+	<strong>Function</strong>: Recibe un par&aacute;metro: el n&uacute;mero de giros que se han producido. Debe devolver el n&uacute;mero de pasos que deben darse para el giro actual.
+	
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Spinner con la opci&oacute;n <code>incremental</code> especificada:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  incremental: <span class="literal">false</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>incremental</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> incremental = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;incremental&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;incremental&quot;</span>, <span class="literal">false</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina incremental #### -->
+	<!-- #### inicia max #### -->
+	<h4><font color="SteelBlue">max</font></h4>
+	El valor m&aacute;ximo permitido, este atributo <code>max</code> del elemento se utiliza si existe ya que la opci&oacute;n no se establece expl&iacute;citamente. Si es null, no hay un valor m&aacute;ximo l&iacute;mite.
+	<br />
+	<strong>Tipos: </strong><code>Number</code> o <code>String</code>
+	<br />
+	<strong>Default: </strong><code>null</code>	
+	<br /><br />
+	M&uacute;ltiples valores soportados:
+	<br />
+	<strong>Number</strong>: El valor m&aacute;ximo permitido.	 
+	<br />
+	<strong>String</strong>: Si se incluye <code>Globalize</code>, la opci&oacute;n <code>max</code> se puede pasar como una cadena que ser&aacute; analizada en funci&oacute;n de las opciones <code>numberFormat</code> y <code>culture</code>;
+	 de lo contrario se caer&aacute; de nuevo al m&eacute;todo nativo <code>parseFloat()</code>.
+		
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Spinner con la opci&oacute;n <code>max</code> especificada:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  max: <span class="number">50</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>max</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> max = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;max&quot;</span> );</code></div></div><div class="container"><div class="line"><code></code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;max&quot;</span>, <span class="number">50</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina max #### -->
+	<!-- #### inicia min #### -->
+	<h4><font color="SteelBlue">min</font></h4>
+	El valor m&iacute;nimo permitido, este atributo <code>min</code> del elemento se utiliza si existe ya que la opci&oacute;n no se establece expl&iacute;citamente. Si es null, no hay un valor m&iacute;nimo l&iacute;mite.
+	<br />
+	<strong>Tipos: </strong><code>Number</code> o <code>String</code>
+	<br />
+	<strong>Default: </strong><code>null</code>	
+	<br /><br />
+	M&uacute;ltiples valores soportados:
+	<br />
+	<strong>Number</strong>: El valor m&iacute;nimo permitido.	 
+	<br />
+	<strong>String</strong>: Si se incluye <code>Globalize</code>, la opci&oacute;n <code>min</code> se puede pasar como una cadena que ser&aacute; analizada en funci&oacute;n de las opciones <code>numberFormat</code> y <code>culture</code>;
+	 de lo contrario se caer&aacute; de nuevo al m&eacute;todo nativo <code>parseFloat()</code>.
+		
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Spinner con la opci&oacute;n <code>min</code> especificada:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  min: <span class="number">0</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>min</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> min = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;min&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;min&quot;</span>, <span class="number">0</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina min #### -->
+	<!-- #### inicia numberFormat #### -->
+	<h4><font color="SteelBlue">numberFormat</font></h4>
+	Formatos de n&uacute;meros basados en <code>Globalize</code>. Las m&aacute;s comunes son &quot;n&quot; para un n&uacute;mero decimal y un &quot;C&quot; para un valor de moneda.
+	 Consulte la opci&oacute;n <code>culture</code>.	
+	<br />
+	<strong>Tipos: </strong><code>String</code>
+	<br />
+	<strong>Default: </strong><code>null</code>	
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Spinner con la opci&oacute;n <code>numberFormat</code> especificada:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  numberFormat: <span class="string">&quot;n&quot;</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>numberFormat</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> numberFormat = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;numberFormat&quot;</span> );</code></div></div><div class="container"><div class="line"><code></code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;numberFormat&quot;</span>, <span class="string">&quot;n&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina numberFormat #### -->
+	<!-- #### inicia page #### -->
+	<h4><font color="SteelBlue">page</font></h4>
+	El n&uacute;mero de pasos que se tomar&aacute;n cuando el avance sea v&iacute;a los m&eacute;todos <code>pageUp</code> / <code>pageDown</code>. 	
+	<br />
+	<strong>Tipos: </strong><code>Number</code>
+	<br />
+	<strong>Default: </strong><code>10</code>	
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Spinner con la opci&oacute;n <code>page</code> especificada:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  page: <span class="number">5</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>page</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> page = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;page&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;page&quot;</span>, <span class="number">5</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina page #### -->
+	<!-- #### inicia step #### -->
+	<h4><font color="SteelBlue">step</font></h4>
+	El tama&ntilde;o del paso que se toma en el avance por medio de los botones o por los m&eacute;todos <code>stepUp</code> / <code>stepDown</code>.
+	<br />
+	<strong>Tipos: </strong><code>Number</code> o <code>String</code>
+	<br />
+	<strong>Default: </strong><code>1</code>	
+	<br /><br />
+	M&uacute;ltiples valores soportados:
+	<br />
+	<strong>Number</strong>: El valor del tama&ntilde;o del paso.	 
+	<br />
+	<strong>String</strong>: Si se incluye <code>Globalize</code>, la opci&oacute;n <code>step</code> se puede pasar como una cadena que ser&aacute; analizada en funci&oacute;n de las opciones <code>numberFormat</code> y <code>culture</code>;
+	 de lo contrario se caer&aacute; de nuevo al m&eacute;todo nativo <code>parseFloat()</code>.
+		
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Spinner con la opci&oacute;n <code>step</code> especificada:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  step: <span class="number">2</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>step</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> step = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;step&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;step&quot;</span>, <span class="number">2</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina step #### -->
+	<!-- ############# -->
+	<!--    METODOS   -->
+	<!-- ############# -->
+	<br/>	
+	<h3><strong>M&eacute;todos</strong></h3>
+	<table class="table table-striped">
+		<thead>
+			<tr class="table-bordered">
+				<th>M&eacute;todo</th>
+				<th>Descripci&oacute;n</th>
+				<th>Ejemplo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- #### Cada fila corresponde a un método #### -->
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">destroy()</font></strong></h5></td>
+				<td>Elimina la funcionalidad por completo. Esto devolver&aacute; el elemento de nuevo a su estado previo de inicio.
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;destroy&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">disable()</font></strong></h5></td>
+				<td>Inhabilita el Spinner.
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;disable&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">enable()</font></strong></h5></td>
+				<td>Habilita el Spinner.
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;enable&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">instance()</font></strong></h5></td>
+				<td>Recupera el objeto de instancia del control deslizante. Si el elemento no tiene una instancia asociada,
+				<br />devuelve undefined. A diferencia de otros m&eacute;todos de controles, <code>instance()</code> es seguro
+				<br />llamar en cualquier elemento despu&eacute;s de que el plugin de Spinner se ha cargado.
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;instance&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">isValid()</font></strong></h5></td>
+				<td>Devuelve el valor del Spinner si es v&aacute;lido de acuerdo a los valores de la opciones 
+				<br /> <code>min</code>, <code>max</code> y <code>step</code>.
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;isValid&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">option(optionName)</font></strong></h5></td>
+				<td>Obtiene el valor especificado en <code>optionName</code>.
+				<br />Para las opciones que tienen objetos como su valor, se puede obtener el valor de una clave espec&iacute;fica
+				<br />mediante el uso de la notaci&oacute;n de punto. Por ejemplo, &quot;foo.bar&quot; obtendr&iacute;a el valor de
+				<br />la propiedad de barra en la opci&oacute;n foo.
+				<br /><strong>optionName</strong>: el nombre de la opci&oacute;n a obtener.
+				<br />Type: <code>String</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> isDisabled = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;disabled&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">option()</font></strong></h5></td>
+				<td>Recupera un objeto que contiene los pares de atributo/valor que representan las actuales opciones del Spinner. 
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> options = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">option(optionName, value)</font></strong></h5></td>
+				<td>Establece el valor de la opci&oacute;n del Spinner especificada en <code>optionName</code>.
+				<br />Para las opciones que tienen objetos como su valor, se puede establecer el valor de una propiedad
+				<br />espec&iacute;fica	mediante el uso de la notaci&oacute;n de punto. Por ejemplo, &quot;foo.bar&quot;
+				<br /> actualiza el valor de la propiedad de barra en la opci&oacute;n foo.
+				<br /><strong>optionName</strong>: el nombre de la opci&oacute;n a obtener.
+				<br />Type: <code>String</code>
+				<br /><strong>value</strong>: el valor a establecer en la opci&oacute;n.
+				<br />Type: <code>Object</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;disabled&quot;</span>, <span class="literal">true</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">option(options)</font></strong></h5></td>
+				<td>Establece uno o m&aacute;s opciones al Spinner.
+				<br /><strong>options</strong>: un mapa de pares de opciones-valores a establecer.
+				<br />Type: <code>Object</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;option&quot;</span>, { disabled: <span class="literal">true</span> } );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">pageDown([pages])</font></strong></h5></td>
+				<td>Reduce el valor por el n&uacute;mero especificado de p&aacute;ginas, como se define por la opci&oacute;n <code>page</code>. Sin el
+				<br /> par&aacute;metro, una sola p&aacute;gina se decrementa. Si el valor resultante est&aacute; por encima de <code>max</code>,				
+				<br /> o debajo de <code>min</code>, o resulta en una falta de coincidencia, el valor se ajusta al valor v&aacute;lido m&aacute;s
+				<br />  cercano.
+				<br />Invocando el m&eacute;todo <code>pageDown</code> causar&aacute; que los eventos <code>start</code>, <code>spin</code> y <code>stop</code> sean activados.
+				<br /><strong>pages</strong>: n&uacute;mero de p&aacute;ginas a decrementar, por default es 1.
+				<br />Type: <code>Number</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;pageDown&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">pageUp([pages])</font></strong></h5></td>
+				<td>Incrementa el valor por el n&uacute;mero especificado de p&aacute;ginas, como se define por la opci&oacute;n <code>page</code>. Sin el
+				<br /> par&aacute;metro, una sola p&aacute;gina se incrementa. Si el valor resultante est&aacute; por encima de <code>max</code>,				
+				<br /> o debajo de <code>min</code>, o resulta en una falta de coincidencia, el valor se ajusta al valor v&aacute;lido m&aacute;s
+				<br />  cercano.
+				<br />Invocando el m&eacute;todo <code>pageUp</code> causar&aacute; que los eventos <code>start</code>, <code>spin</code> y <code>stop</code> sean activados.
+				<br /><strong>pages</strong>: n&uacute;mero de p&aacute;ginas a incrementa, por default es 1.
+				<br />Type: <code>Number</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;pageUp&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">stepDown([steps])</font></strong></h5></td>
+				<td>Reduce el valor de pasos por el n&uacute;mero especificado, como se define por la opci&oacute;n <code>steps</code>. Sin el
+				<br /> par&aacute;metro, un solo paso se decrementa. Si el valor resultante est&aacute; por encima de <code>max</code>,				
+				<br /> o debajo de <code>min</code>, o resulta en una falta de coincidencia, el valor se ajusta al valor v&aacute;lido m&aacute;s
+				<br />  cercano.
+				<br />Invocando el m&eacute;todo <code>stepDown</code> causar&aacute; que los eventos <code>start</code>, <code>spin</code> y <code>stop</code> sean activados.
+				<br /><strong>steps</strong>: n&uacute;mero de pasos a decrementar, por default es 1.
+				<br />Type: <code>Number</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;stepDown&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">stepUp([steps])</font></strong></h5></td>
+				<td>Aumenta el valor de pasos por el n&uacute;mero especificado, como se define por la opci&oacute;n <code>steps</code>. Sin el
+				<br /> par&aacute;metro, un solo paso se incrementa. Si el valor resultante est&aacute; por encima de <code>max</code>,				
+				<br /> o debajo de <code>min</code>, o resulta en una falta de coincidencia, el valor se ajusta al valor v&aacute;lido m&aacute;s
+				<br />  cercano.
+				<br />Invocando el m&eacute;todo <code>stepUp</code> causar&aacute; que los eventos <code>start</code>, <code>spin</code> y <code>stop</code> sean activados.
+				<br /><strong>steps</strong>: n&uacute;mero de pasos a incrementar, por default es 1.
+				<br />Type: <code>Number</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;stepUp&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">value()</font></strong></h5></td>
+				<td>Obtiene el valor del Spinner. 
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> selection = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;value&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">value(value)</font></strong></h5></td>
+				<td>Establece el valor al Spinner.
+				<br /><strong>value</strong>: el valor a establecer.
+				<br />Type: <code>Number</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;value&quot;</span>, <span class="number">55</span> );</code></div></div>
+				</td>
+			</tr>					
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">widget()</font></strong></h5></td>
+				<td>Regresa un objeto <code>jQuery</code> conteniendo el Spinner. 
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> widget = $( <span class="string">&quot;.selector&quot;</span> ).spinner( <span class="string">&quot;widget&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<br />
+	<h3><strong>Eventos</strong></h3>
+	<!-- #### inicia change #### -->
+	<h4><font color="SteelBlue">change(event, ui)</font></h4>
+	Se activa cuando el valor del Spinner ha cambiado y la entrada ha perdido el foco.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">El objeto <code>ui</code> es vac&iacute;o pero es incluido para consistencia con los otros eventos.</p>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Spinner con la llamada al evento <code>change</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container"><div class="line">
+					<code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  change: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	<!-- #### termina change #### -->
+	<!-- #### inicia create #### -->
+	<h4><font color="SteelBlue">create(event, ui)</font></h4>
+	Se activa cuando el Spinner es creado.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">El objeto <code>ui</code> es vac&iacute;o pero es incluido para consistencia con los otros eventos.</p>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Spinner con la llamada al evento <code>create</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  create: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	<!-- #### termina create #### -->
+	<!-- #### inicia spin #### -->
+	<h4><font color="SteelBlue">spin(event, ui)</font></h4>
+	Se activa durante el incremento/decremento del valor en el Spinner (para determinar la direcci&oacute;n de giro compara el valor actual con el del <code>ui.value</code>). 
+	Se puede cancelar, evitando que el valor se actualice.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Object</code></p>
+		<ul>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>value</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>Number</code>
+			<br/>
+			El nuevo valor que se determine, a menos que el evento se cancele.</p>
+			</li>			
+		</ul>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Spinner con la llamada al evento <code>spin</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  spin: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- #### termina spin #### -->
+	<!-- #### inicia start #### -->
+	<h4><font color="SteelBlue">start(event, ui)</font></h4>
+	Se activa antes de dar una vuelta. Se puede cancelar, impidiendo el giro que se produzca.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">El objeto <code>ui</code> es vac&iacute;o pero es incluido para consistencia con los otros eventos.</p>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Spinner con la llamada al evento <code>start</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  start: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- #### termina start #### -->
+	<!-- #### inicia stop #### -->
+	<h4><font color="SteelBlue">stop(event, ui)</font></h4>
+	Se activa despu&eacute;s de una vuelta.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">El objeto <code>ui</code> es vac&iacute;o pero es incluido para consistencia con los otros eventos.</p>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Spinner con la llamada al evento <code>stop</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).spinner({</code></div></div><div class="container"><div class="line"><code>  stop: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- #### termina stop #### -->
+	
+</div> <!-- fin de documentacion -->

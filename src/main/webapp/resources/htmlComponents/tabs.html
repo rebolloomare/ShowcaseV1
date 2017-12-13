@@ -1,0 +1,318 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+<div id="tabs">
+
+<div class="panel-group" id="accordion">
+
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel1">
+			<strong>Tab con Pesta&ntilde;a Deshabilitada</strong></a>
+		</h3>
+	</div>
+	<div id="panel1" class="panel-collapse collapse">
+		<div class="panel-body">
+		<div id="panelTab1">
+		<!-- inicia codigo de tabs -->
+		<ul id="navTab" class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#tabs-1">Pesta&ntilde;a 1</a></li>
+			<li><a data-toggle="tab" href="#tabs-2">Pesta&ntilde;a 2</a></li>
+			<li class="disabled"><a href="#">Pesta&ntilde;a 3</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="tabs-1" class="tab-pane well active">
+				<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a,
+				risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris.
+				Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem.
+				Mauris dapibus lacus auctor risus.</p>
+			</div>
+			<div id="tabs-2" class="tab-pane well">
+				<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus
+				gravida ante, ut pharetra massa metus id nunc. Duis scelerisque
+				molestie turpis. Sed fringilla, massa eget luctus malesuada, metus
+				eros molestie lectus, ut tempus eros massa ut dolor.</p>
+			</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel2">
+			<strong>Tab Justificado</strong></a>
+		</h3>
+	</div>
+	<div id="panel2" class="panel-collapse collapse">
+		<div class="panel-body">
+		<div id="panelTab2">
+		<!-- inicia codigo de tabs -->
+		<ul id="navTab" class="nav nav-tabs nav-justified">
+			<li class="active"><a data-toggle="tab" href="#tabj1">Pesta&ntilde;a 1</a></li>
+			<li><a data-toggle="tab" href="#tabj2">Pesta&ntilde;a 2</a></li>
+			<li><a data-toggle="tab" href="#tabj3">Pesta&ntilde;a 3</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="tabj1" class="tab-pane well active">
+				<label for="usr">Entrada de Texto:</label>
+				<input class="form-control" id="usr" type="text">
+			</div>
+			<div id="tabj2" class="tab-pane well">
+				<button class="btn btn-success">&Eacute;xito</button>
+			</div>
+			<div id="tabj3" class="tab-pane well">
+				<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at,
+				semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent
+				viverra justo vitae neque. Praesent blandit adipiscing velit.
+				Suspendisse potenti. Donec mattis, pede vel pharetra blandit,
+				magna ligula faucibus eros, id euismod lacus dolor eget odio.</p>
+			</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel3">
+			<strong>Tab con Dropdown</strong></a>
+		</h3>
+	</div>
+	<div id="panel3" class="panel-collapse collapse">
+		<div class="panel-body">
+		<div id="panelTab3">
+		<!-- inicia codigo de tabs -->
+		<ul id="navTab" class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#tabd1">Pesta&ntilde;a 1</a></li>
+			<li><a data-toggle="tab" href="#tabd2">Pesta&ntilde;a 2</a></li>
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+				aria-expanded="false" href="#">Menu<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="#sub1" role="tab" data-toggle="tab">Submenu 1</a></li>
+					<li><a href="#sub2" role="tab" data-toggle="tab">Submenu 2</a></li>
+				</ul>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div id="tabd1" class="tab-pane well active">
+				<label for="usr">Entrada de Texto:</label>
+				<input class="form-control" id="usr" type="text">
+			</div>
+			<div id="tabd2" class="tab-pane well">
+				<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at,
+				semper at, magna. Nullam ac lacus.
+				<br/> Nulla facilisi. Praesent
+				viverra justo vitae neque.
+				<br/> Praesent blandit adipiscing velit.
+				Suspendisse potenti.</p>
+			</div>
+			<div id="sub1" class="tab-pane well">
+				<div><strong>Contenido Submenu 1</strong></div>
+			</div>
+			<div id="sub2" class="tab-pane well">
+				<div><strong>Contenido Submenu 2</strong></div>
+			</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+</div> <!-- end accordion -->
+
+</div> <!-- end code tabs -->
+
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+<div id="tabsDoc">
+	<h3>
+		<strong>Tabs</strong>
+	</h3>
+	<p>
+		Las fichas se utilizan generalmente para romper el contenido en
+		m&uacute;ltiples secciones que se pueden intercambiar para ahorrar
+		espacio. <br /> Las Tabs est&aacute;n contenidas en una lista
+		ordenada
+		<code>&lt;ol&gt;</code>
+		o no ordenada
+		<code>&lt;ul&gt;</code>
+		. Cada &quot;t&iacute;tulo&quot; pesta&ntilde;a debe estar dentro de
+		un elemento de la lista
+		<code>&lt;li&gt;</code>
+		y envuelto por un ancla
+		<code>&lt;a&gt;</code>
+		con un atributo <strong>&quot;href&quot;</strong>. <br /> Cada panel
+		o pesta&ntilde;a puede ser cualquier elemento v&aacute;lido, teniendo
+		un identificador que corresponda con el hash del anclaje.
+	</p>
+	<br />
+	<h4>
+		<strong>Forma de Uso</strong>
+	</h4>
+	Las <strong>Tabs</strong> son creadas con la clase
+	<code>&lt;ul class=&quot;nav nav-tabs&quot;&gt;</code>
+	. Note que la clase
+	<code>.nav-tabs</code>
+	requiere la clase padre
+	<code>.nav base</code>
+	. <br /> <strong>Tip:</strong> se recomienda marcar la pesta&ntilde;a
+	activa por defecto con
+	<code>&lt;li class=&quot;active&quot;&gt;</code>
+	. <br /> <br />
+	<h4>
+		<strong>Clases</strong>
+	</h4>
+	<p>
+		Las clases usadas por el plugin
+		<code>tabs</code>
+		son para crear la navegaci&oacute;n, agrupar contenido, hacer las
+		pesta&ntilde;as din&aacute;micas y responsivas en pantallas m&aacute;s
+		peque&ntilde;as (recomendado para m&oacute;viles). <br /> A
+		continuaci&oacute;n se presentan las clases usadas:
+	</p>
+	<table class="table table-striped">
+		<thead>
+			<tr class="table-bordered">
+				<th>Clase</th>
+				<th>Descripci&oacute;n</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="table-bordered">
+				<td><strong><font color="SteelBlue">.nav
+							nav-tabs</font></strong></td>
+				<td>Crea los tabs de navegaci&oacute;n.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><strong><font color="SteelBlue">.nav-justified</font></strong></td>
+				<td>Hace los tabs de navegaci&oacute;n de la medida del
+					contenedor &quot;padre&quot;. En pantallas peque&ntilde;as, los
+					tabs se apilan.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><strong><font color="SteelBlue">.tab-content</font></strong></td>
+				<td>Usado para crear tabs din&aacute;micos. Se usa en conjunto
+					con la clase <code>.tab-pane</code> y el atributo <code>data-toggle=&quot;tab&quot;</code>.
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><strong><font color="SteelBlue">.tab-pane</font></strong></td>
+				<td>Usado para crear tabs din&aacute;micos. Se usa en conjunto
+					con la clase <code>.tab-content</code> y el atributo <code>data-toggle=&quot;tab&quot;</code>.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		El atributo
+		<code>data-toggle=&quot;tab&quot;</code>
+		se coloca en el elemento de referencia <strong>a</strong>, es decir,
+		cuando se crean los tabs de navegaci&oacute;n, en el listado
+		<code>&lt;ul&gt;</code>
+		. <br> La clase
+		<code>.tab-pane</code>
+		se coloca dentro de la clase contenedora
+		<code>.tab-content</code>
+		.
+		<br> La clase <code>.well</code> se usa para darle un contorno al panel.
+	</p>
+	<div style="font-style: italic;">
+		Ver el c&oacute;digo de ejemplo en la pesta&ntilde;a <strong>Demo</strong>.
+	</div>
+	<br />
+	<h4>
+		<strong>Desactivar Pesta&ntilde;a</strong>
+	</h4>
+	<p>
+		Para desactivar una pesta&ntilde;a de navegaci&oacute;n, se debe
+		agregar la clases
+		<code>.disabled</code>
+		para establecer el enlace en color gris y agregar el efecto
+		&quot;desactivado&quot;. <br /> <strong>Nota: </strong>Esta clase
+		s&oacute;lo cambiar&aacute; la apariencia de
+		<code>&lt;a&gt;</code>
+		, no sus funciones. Se debe usar una funci&oacute;n JavaScript
+		personalizada para desactivar los enlaces.
+	</p>
+
+	<br /> <br />
+	<h3>
+		<strong>Opciones</strong>
+	</h3>
+	<pre>No tiene opciones.</pre>
+
+	<br />
+	<h3>
+		<strong>M&eacute;todos</strong>
+	</h3>
+	<table class="table table-striped">
+		<thead>
+			<tr class="table-bordered">
+				<th>M&eacute;todo</th>
+				<th>Descripci&oacute;n</th>
+				<th>Ejemplo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="table-bordered">
+				<td><h5>
+						<strong><font color="SteelBlue">show()</font></strong>
+					</h5></td>
+				<td>Muestra la pesta&ntilde;a o tab. <br />
+					<div style="font-style: italic;">Este m&eacute;todo no acepta
+						ning&uacute;n argumento.</div></td>
+				<td><pre class="code">&lt;script&gt;<br />$(document).ready(function(){<br />   $(&quot;.nav-tabs a&quot;).click(function(){<br />      $(this).tab(&#39;show&#39;);<br />   });<br />});<br />&lt;/script&gt;</pre>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>
+		<strong>Eventos</strong>
+	</h3>
+	<table class="table table-striped">
+		<thead>
+			<tr class="table-bordered">
+				<th>Evento</th>
+				<th>Descripci&oacute;n</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="table-bordered">
+				<td><h5>
+						<strong><font color="SteelBlue">show.bs.tab</font></strong>
+					</h5></td>
+				<td>Ocurre cuando la pesta&ntilde;a est&aacute; a punto de ser
+					mostrada.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5>
+						<strong><font color="SteelBlue">shown.bs.tab</font></strong>
+					</h5></td>
+				<td>Ocurre cuando la pesta&ntilde;a est&aacute; totalmente
+					mostrada (despu&eacute;s de haber completado transiciones CSS).</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5>
+						<strong><font color="SteelBlue">hide.bs.tab</font></strong>
+					</h5></td>
+				<td>Ocurre cuando la pesta&ntilde;a est&aacute; a punto de ser
+					ocultada.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5>
+						<strong><font color="SteelBlue">hidden.bs.tab</font></strong>
+					</h5></td>
+				<td>Ocurre cuando la pesta&ntilde;a est&aacute; totalmente
+					ocultada (despu&eacute;s de haber completado transiciones CSS).</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>

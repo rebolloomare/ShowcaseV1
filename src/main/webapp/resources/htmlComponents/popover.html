@@ -1,0 +1,317 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+<div id="popover">
+
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<strong>Popover tipo Etiqueta</strong>
+	</div>
+	<div class="panel-body">
+		<!-- Popover Tipo Etiqueta -->
+		<a href="#" data-toggle="popover" title="Encabezado de Popover"
+			data-content="Click de nuevo en la etiqueta para desaparecer.">Click
+			para visualizar</a>
+	</div>
+</div>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<strong>Popover tipo Bot&oacute;n</strong>
+	</div>
+	<div class="panel-body">
+		<!-- Popover Tipo Boton -->
+		<button class="btn btn-md btn-primary" data-toggle="popover"
+			title="Encabezado de Popover"
+			data-content="Click de nuevo en el bot&oacute;n para desaparecer.">Popover tipo Bot&oacute;n</button>
+	</div>
+</div>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<strong>Popover en Diferentes Posiciones</strong>
+	</div>
+	<div class="panel-body">
+		<!-- Popover en Diferentes Posiciones -->
+		<ul class="list-inline">
+			<li><a href="#" data-toggle="popover" data-placement="top"
+				title="Popover Superior" data-content="Info mostrada arriba.">Arriba</a></li>
+			<li><a href="#" data-toggle="popover" data-placement="bottom"
+				title="Popover Inferior" data-content="Info mostrada abajo.">Abajo</a></li>
+			<li><a href="#" data-toggle="popover" data-placement="right"
+				title="Popover a la Derecha"
+				data-content="Info mostrada a la derecha.">Derecha</a></li>
+			<li><a href="#" data-toggle="popover" data-placement="left"
+				title="Popover a la Izquierda"
+				data-content="Info mostrada a la izquierda.">Izquierda</a></li>
+		</ul>
+	</div>
+</div>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<strong>Popover tipo Flotante</strong>
+	</div>
+	<div class="panel-body">
+		<!-- Popover Tipo Flotante -->
+		<button class="btn btn-md btn-primary" data-toggle="popover"
+			data-trigger="hover" title="Popover Flotante"
+			data-content="Para desaparecer: mover el puntero del mouse fuera.">Popover Flotante</button>
+	</div>
+</div>
+
+</div><!-- end code -->
+
+
+<!-- #################### -->
+<!-- 	Java Script 	  -->
+<!-- #################### -->
+<div id="popoverScript">
+	<script type="text/javascript">
+		$(document).ready(function() {
+			creaPopover();
+		});
+	</script>
+</div>
+
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+<div id="popoverDoc">
+	<h3>
+		<strong>Widget de Popover</strong>
+	</h3>
+	<p>El plug-in <strong>Popover</strong> es similar a los &quot;ToolTips&quot;. Se trata de un cuadro emergente que aparece cuando el usuario hace clic en un elemento.
+	<br/>La diferencia es que el <strong>Popover</strong> puede contener mucho m&aacute;s contenido.</p>
+	<br />
+	<h5><strong>Forma de Uso</strong></h5>
+	<p>Para crear un <strong>Popover</strong> basta agregar el atributo <code>data-toggle=&quot;popover&quot;</code> a un elemento.
+	<br />
+	Use el atributo <code>title</code> para especificar el texto como t&iacute;tulo del Popover, y use el atributo <code>data-content</code> para especificar el texto que se mostrar&aacute; dentro del cuerpo del Popover.
+	<br /><br />
+	<strong>Nota: </strong>Es necesario inicializar mediante jQuery, haciendo la invocaci&oacute;n del m&eacute;todo <code>popover()</code> (ver la pesta&ntilde;a <strong>C&oacute;digo</strong> de este widget).
+	</p>
+	<h5><font color="SteelBlue">Posiciones del Popover</font></h5>
+	Por defecto, un Popover se posiciona al <strong>lado derecho</strong> del elemento. Para cambiar dicha posici&oacute;n, es necesario usar el atributo <code>data-placement</code> para visualizar el Popover en diferentes lados del elementos,
+	 los cuales pueden ser:
+	<ul>
+		<li style="list-style-position: inside;">Arriba</li>
+		<li style="list-style-position: inside;">Abajo</li>
+		<li style="list-style-position: inside;">Derecha</li>
+		<li style="list-style-position: inside;">Izquierda</li>
+	</ul>
+	<h5><font color="SteelBlue">Opciones de Cerrado del Popover</font></h5>
+	Por defecto, el Popover se cierra cuando se hace clic en el elemento de nuevo. Sin embargo, se puede utilizar el atributo <code>data-trigger=&quot;focus&quot;</code> que cerrar&aacute; la Popover al hacer clic fuera del elemento.
+	<br /><br />
+	Si se desea que el Popover se visualice cuando se mueva el puntero del mouse sobre el elemento, y desaparezca cuando el puntero est&eacute; fuera del mismo; se debe usar el atributo <code>data-trigger=&quot;hover&quot;</code>.
+	 Esto crear&aacute; un <strong>Popover tipo Flotante</strong>.
+	
+	<!-- #### ATRIBUTOS #### -->
+	<br/>	
+	<h3><strong>Atributos: data-*</strong></h3>
+	<table class="table table-striped">
+		<thead>
+			<tr class="table-bordered">
+				<th>Atributo</th>
+				<th>Descripci&oacute;n</th>
+			</tr>
+		</thead>
+		<tbody>			
+			<tr class="table-bordered">
+				<td><code>data-toggle=&quot;popover&quot;</code></td>
+				<td>Activa el Popover.
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><code>title</code></td>
+				<td>Especifica el texto como t&iacute;tulo del Popover.
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><code>data-content</code></td>
+				<td>Especifica el texto que se mostrar&aacute; dentro del cuerpo del Popover.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- #### OPCIONES #### -->	
+	<h3><strong>Opciones</strong></h3>
+	Las opciones de un <strong>Popover</strong> pueden ser enviadas mediante atributos o por JavaScript.
+	<br />
+	Si se usan los atributos, se debe agregar el nombre de la opci&oacute;n al prefijo <code>data-</code>, como por ejemplo <code>data-placement = &quot;&quot;</code>.
+	<br /><br />
+	Se muestra la siguiente tabla de atributos:
+	<br /><br />
+	<table class="table table-striped">
+		<thead>
+			<tr class="table-bordered">
+				<th>Opci&oacute;n</th>
+				<th>Tipo</th>
+				<th>Valor Default</th>
+				<th>Descripci&oacute;n</th>
+			</tr>
+		</thead>
+		<tbody>			
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">animation</font></td>
+				<td><code>Boolean</code></td>
+				<td><strong>true</strong></td>
+				<td>Especifica si se agrega un efecto CSS de transici&oacute;n de desvanecimiento cuando se abre o se cierra el Popover.
+				<ul>
+					<li style="list-style-position: inside;">true: se agrega el efecto.</li>
+					<li style="list-style-position: inside;">false: no se agrega el efecto.</li>
+				</ul>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">container</font></td>
+				<td><code>String, Boolean</code></td>
+				<td><strong>false</strong></td>
+				<td>Agrega el Popover a un elemento espec&iacute;fico. Ejemplo <code>container: &#39;body&#39;</code></td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">content</font></td>
+				<td><code>String</code></td>
+				<td><strong>&quot;&quot;</strong></td>
+				<td>Especifica el texto que se muestra dentro del cuerpo del Popover.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">delay</font></td>
+				<td><code>Number, Object</code></td>
+				<td><strong>0</strong></td>
+				<td>Especifica el n&uacute;mero de milisegundos que tomar&aacute; el Popover en abrir o cerrar.
+				<br/>Para especificar un tiempo de <code>delay</code> para abrir y otro para cerrar el Popover, se debe usar la siguiente estructura:
+				<br/><code>delay: {show: 500, hide: 100}</code> el cual tomar&aacute; 500ms en abrir el Popover, pero solo 100ms para cerrarlo.
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">html</font></td>
+				<td><code>Boolean</code></td>
+				<td><strong>false</strong></td>
+				<td>Especifica si se aceptan tags <code>html</code> en el Popover.
+				<ul>
+					<li style="list-style-position: inside;">true: acepta tags HTML.</li>
+					<li style="list-style-position: inside;">false: no se aceptan tags HTML.</li>
+				</ul> 
+				<strong>Nota: </strong>el HTML debe ser insertado en el atributo <code>title</code> o usando la misma opci&oacute;n.
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">placement</font></td>
+				<td><code>String</code></td>
+				<td><strong>&quot;right&quot;</strong></td>
+				<td>Especifica la posici&oacute;n del Popover. Posibles valores:
+				<ul>
+					<li style="list-style-position: inside;">top: arriba</li>
+					<li style="list-style-position: inside;">buttom: abajo</li>
+					<li style="list-style-position: inside;">left: lado izquierdo</li>
+					<li style="list-style-position: inside;">right: lado derecho</li>
+					<li style="list-style-position: inside;">auto: El <strong>Navegador</strong> decide la posici&oacute;n, es decir, si el valor es &quot;auto left&quot; el Popover se visualizar&aacute;
+					 a la izquierda mientras sea posible, de lo contrario,
+					<br>se mostrar&aacute; a la derecha;
+					si el valor es &quot;auto bottom&quot; el Popover se visualizar&aacute; abajo mientras sea posible, de lo contrario se mostrar&aacute; arriba.</li>
+				</ul>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">selector</font></td>
+				<td><code>String, Boolean</code></td>
+				<td><strong>false</strong></td>
+				<td>Agrega el Popover a un selector espec&iacute;fico.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">template</font></td>
+				<td><code>String</code></td>
+				<td><strong> </strong></td>
+				<td>
+				Se usa como base HTML para crear el Popover
+				<br>El t&iacute;tulo del Popover debe ser inyectado dentro de <code>.popover-title</code>
+				<br>El contenido del Popover debe ser inyectado dentro de <code>.popover-content</code>
+				<br><code>.arrow</code> se convertir&aacute; en la flecha del Popover
+				<br>El elemento m&aacute;s externo es quien contendr&aacute; la clase <code>.popover</code></td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">title</font></td>
+				<td><code>String</code></td>
+				<td><strong>&quot;&quot;</strong></td>
+				<td>Especifica el texto que se muestra en el t&iacute;tulo del Popover.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">trigger</font></td>
+				<td><code>String</code></td>
+				<td><strong>&quot;click&quot;</strong></td>
+				<td>Especifica como el Popover ser&aacute; activado. Posibles valores:
+				<ul>
+					<li style="list-style-position: inside;">&quot;click&quot;: activa el Popover con un click.</li>
+					<li style="list-style-position: inside;">&quot;hover&quot;: activa el Popover con el puntero del mouse.</li>
+					<li style="list-style-position: inside;">&quot;focus&quot;: activa el Popover cuando tiene el foco.</li>					
+				</ul>
+				<strong>Nota: </strong>para pasar m&uacute;ltiples valores, se deben separar mediante un espacio.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- #### METODOS #### -->	
+	<h3><strong>M&eacute;todos</strong></h3>	
+	Se muestra la siguiente tabla de m&eacute;todos disponibles:
+	<br /><br />
+	<table class="table table-striped">
+		<thead>
+			<tr class="table-bordered">
+				<th>M&eacute;todo</th>
+				<th>Descripci&oacute;n</th>
+			</tr>
+		</thead>
+		<tbody>			
+			<tr class="table-bordered">
+				<td><code>.popover(options)</code></td>
+				<td>Activa el Popover con una opci&oacute;n. Ver la tabla de <strong>Opciones</strong> con los valores v&aacute;lidos.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><code>.popover(&quot;show&quot;)</code></td>
+				<td>Muestra el Popover.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><code>.popover(&quot;hide&quot;)</code></td>
+				<td>Oculta el Popover</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><code>.popover(&quot;toggle&quot;)</code></td>
+				<td>Alterna el Popover.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><code>.popover(&quot;destroy&quot;)</code></td>
+				<td>Oculta y destruye el Popover.</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- #### EVENTOS #### -->	
+	<h3><strong>Eventos</strong></h3>	
+	Se muestra la siguiente tabla de eventos disponibles:
+	<br /><br />
+	<table class="table table-striped">
+		<thead>
+			<tr class="table-bordered">
+				<th>Evento</th>
+				<th>Descripci&oacute;n</th>
+			</tr>
+		</thead>
+		<tbody>			
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">show.bs.popover</font></td>
+				<td>Se produce cuando el Popover est&aacute; a punto de ser mostrado.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">shown.bs.popover</font></td>
+				<td>Ocurre cuando el Popover est&aacute; totalmente muestrado (despu&eacute;s de que la transici&oacute;n CSS es completada).</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">hide.bs.popover</font></td>
+				<td>Se produce cuando el Popover est&aacute; a punto de ser ocultado.</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><font color="SteelBlue" style="font-weight: bold;">hidden.bs.popover</font></td>
+				<td>Ocurre cuando el Popover est&aacute; totalmente ocultado (despu&eacute;s de que la transici&oacute;n CSS es completada).</td>
+			</tr>			
+		</tbody>
+	</table>
+	<br/><br/>
+</div> <!-- end documentation -->

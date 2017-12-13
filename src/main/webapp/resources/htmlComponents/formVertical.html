@@ -1,0 +1,104 @@
+<div id="frmVertical">
+	
+	<h4>Vertical (basic)</h4>
+
+	<form class="form">				<!-- inicio de la forma -->
+		
+		<!-- email -->
+		<div class="form-group">
+			<label for="email">Email:</label> <input type="email"
+				class="form-control" id="ieEmail" placeholder="email" placeholder="Email" oninvalid="setCustomValidity('Por favor capture un email valido')">
+		</div>
+		<!-- email -->
+		
+		
+		<!-- texto -->
+		<div class="form-group">
+			<label for="text">Texto:</label> <input type="text"
+				class="form-control" id="itText" placeholder="text">
+		</div>
+		<!-- texto -->
+		
+		
+		<!-- seleccione una opcion -->
+		<div class="form-group">
+			<label for="sel1">Seleccione una Opci&oacute;n:</label> 
+				<select class="form-control"id="selSelect">
+					<option>Opci&oacute;n 1</option>
+					<option>Opci&oacute;n 2</option>
+					<option>Opci&oacute;n 3</option>
+					<option>Opci&oacute;n 4</option>
+				</select>
+		</div>
+		<!-- seleccione una opcion -->
+		
+		
+		<!-- captura de numero -->
+		<div class="form-group">
+			<label for="inNumber">Numero:</label> 
+			<input type="number" min="1" max ="99" class="form-control" id="inNumber" placeholder="Numero">
+		</div>
+		<!-- captura de numero -->
+		
+		
+		<!-- checkbox -->
+		<div class="checkbox">
+			<label><input type="checkbox" id="chbRemember">Recuerdame</label>
+		</div>
+		<!-- checkbox -->
+		
+		
+		<!-- radio button -->
+		<div class="radiobutton">
+			<label for="rb">Radio Button:</label>
+			
+			<label class="radio-inline">
+				<input type="radio" id="rbOpt1" name="optradio">Opci&oacute;n 1
+			</label> 
+			
+			<label class="radio-inline"> 
+				<input type="radio"	id="rbOpt2" name="optradio">Opci&oacute;n 2
+			</label> 
+			
+			<label class="radio-inline"> 
+				<input type="radio" id="rbOpt3" name="optradio">Opci&oacute;n 3
+			</label>
+		</div>
+		<!-- radio button -->
+		
+		<!-- boton submit -->
+		<button type="submit" class="btn btn-default">Enviar</button>
+		
+		
+	</form>						<!-- fin de la forma -->
+
+		
+</div>
+
+<div id="frmVerticalDoc">
+
+	<h4>Forma b&aacute;sica (Vertical)</h4>
+
+	<p>Para construir una forma, necesitamos la etiqueta <code>form</code> con la clase <code>form</code> agregada:
+	</p>
+	
+	<h4>Ejemplo:</h4>		
+	<pre> 
+	<code>	
+	&lt;form class="<b>form"&gt;</b>;
+	&lt;/form&gt;	
+	</code>
+	</pre>
+	
+	
+	<p>
+	Se recomienda usar los siguientes estandares:</p>
+	<ul>
+    <li>Siempre usar <code>&lt;form role="form"&gt;</code> (ayuda en la accesibilidad para personas que usan pantallas lectoras) </li>    
+    <li>Rodear a las etiquetas y controles de la forma entre <code>&lt;div class="form-group"&gt;</code> (necesarios para optimizar espacio)</li>
+    <li>Agregar la clase <code>.form-control</code> a todo los elementos de texto como <code>&lt;input&gt;, &lt;textarea&gt;</code>, y <code>&lt;select&gt;</code>
+    	con esto se ocupar&aacute; el 100% de ancho</li>
+	</ul>
+		
+
+</div>

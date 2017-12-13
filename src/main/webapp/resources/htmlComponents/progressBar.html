@@ -1,0 +1,167 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+<div id="progressBar">
+
+<div class="panel-group" id="accordion">
+	<!-- Panel Basic Progress Bar -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel1">Barra
+				de Progreso B&aacute;sica</a>
+		</h3>
+	</div>
+	<div id="panel1" class="panel-collapse collapse">
+	<div class="panel-body">	
+	<div class="progress">
+	<!-- barra de progreso basica llenado a 70% -->
+	<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
+	</div>
+	</div>
+	</div>
+</div>
+
+<!-- Panel Progress Bar with Label -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel2">Barra
+				de Progreso con Etiqueta</a>
+		</h3>
+	</div>
+	<div id="panel2" class="panel-collapse collapse">
+	<div class="panel-body">
+	<div class="progress">
+	<!-- barra de progreso basica llenado a 60% con etiqueta -->
+	<div class="progress-bar" role="progressbar" aria-valuenow="60"
+		aria-valuemin="0" aria-valuemax="100" style="width: 60%">60%</div>
+	</div>
+	</div>
+	</div>
+</div>
+
+<!-- Panel Progress Bar Contextual -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel3">Barra
+				de Progreso Contextual</a>
+		</h3>
+	</div>
+	<div id="panel3" class="panel-collapse collapse">
+	<div class="panel-body">
+	<div>
+	<div class="progress">
+	<!-- Success -->
+	<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+		aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+		40% Completado (success)</div>
+	</div>
+	<div class="progress">
+	<!-- Info -->
+	<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60"
+		aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+		60% Completado (info)</div>
+	</div>
+	<div class="progress">
+	<!-- Warning -->
+	<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80"
+		aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+		80% Completado (warning)</div>
+	</div>
+	<div class="progress">
+	<!-- Danger -->
+	<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100"
+		aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		100% Completado (danger)</div>
+	</div>
+	</div>
+	</div>
+	</div>
+</div>
+
+<!-- Panel Progress Bar Striped -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel4">Barra
+				de Progreso Tipo Cebra</a>
+		</h3>
+	</div>
+	<div id="panel4" class="panel-collapse collapse">
+	<div class="panel-body">
+	<div>
+	<div class="progress">
+	<!-- Striped Success -->
+	<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40"
+		aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+		40% Completado (success)</div>
+	</div>
+	<div class="progress">
+	<!-- Striped Info -->
+	<div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="60"
+		aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+		60% Completado (info)</div>
+	</div>
+	<div class="progress">
+	<!-- Striped Warning -->
+	<div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="80"
+		aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+		80% Completado (warning)</div>
+	</div>
+	<div class="progress">
+	<!-- Striped Danger -->
+	<div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="100"
+		aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		100% Completado (danger)</div>
+	</div>
+	</div>
+	</div>
+	</div>
+</div>
+
+</div> <!-- end accordion -->
+</div> <!-- code end -->
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+<div id="progressBarDoc">
+	<h3>
+		<strong>Barra de Progreso/ProgressBar</strong>
+	</h3>
+	<br />
+	<p>
+	Una barra de progreso se puede utilizar para mostrar al usuario qu&eacute; tan avanzado est&aacute; un proceso. <code>Bootstrap</code> ofrece varios tipos de barras de progreso.
+	<br /><br />
+	Para crear una barra de progreso b&aacute;sica, se debe agregar la clase <code>.progress</code> al elemento <code>&lt;div&gt;</code>.
+	<br />
+	Por ejemplo:</p>
+	<pre>&lt;div class=&quot;progress&quot;&gt;<br>&lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; 
+	aria-valuenow=&quot;70&quot;&nbsp; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width:70%&quot;&gt;&lt;/div&gt;<br>&lt;/div&gt;</pre>	
+	<p>
+	Para agregar una etiqueta, basta agregar el texto con el signo de porcentaje (<strong>ver c&oacute;digo Demo de este ejemplo</strong>).
+	</p>
+	<br />
+	<h4><font color="SteelBlue">Barras de Progreso Contextuales</font></h4>
+	<p>Las clases contextuales son utilizadas para dar significado a trav&eacute;s del color. Las clases contextuales que pueden usarse con las barras de progreso son:</p>
+	<ul>
+		<li style="list-style-position: inside;"><code>.progress-bar-success</code></li>
+		<li style="list-style-position: inside;"><code>.progress-bar-info</code></li>
+		<li style="list-style-position: inside;"><code>.progress-bar-warning</code></li>
+		<li style="list-style-position: inside;"><code>.progress-bar-danger</code></li>
+	</ul>
+	En la pesta&ntilde;a Demo podr&aacute; ver ejemplos de barras de progreso con clases contextuales.
+	<br/><br />
+	<h4><font color="SteelBlue">Barras de Progreso Tipo Cebra</font></h4>
+	Las barras de progreso tipo &quot;Cebra&quot; o con rayas (Striped) son un estilo caracter&iacute;stico de las barras de progreso. Para utilizar este estilo se debe agregar la clase 
+	<code>.progress-bar-striped</code>
+	<br /><br />
+	En la pesta&ntilde;a Demo podr&aacute; ver ejemplos de barras de progreso con clases contextuales.
+	<br /><br /><br />
+	<pre><strong>Nota: </strong>Las barras de progreso no son compatibles con Internet Explorer 9 y versiones anteriores,
+porque utilizan las transiciones y animaciones CSS3 para alcanzar algunos de sus efectos.</pre>	
+	<br /><br />
+</div> <!-- end documentation -->

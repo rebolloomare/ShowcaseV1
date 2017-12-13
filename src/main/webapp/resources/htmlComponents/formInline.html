@@ -1,0 +1,115 @@
+<div id="frmLinea">
+
+	
+	  <h4>Inline</h4>
+	  
+	  <form class="form-inline" >		<!-- inicio de la forma -->
+	  	
+	  	<!-- email -->
+	    <div class="form-group">
+	      <label for="email">Email:</label>
+	      <input type="email" class="form-control" id="ieEmail" placeholder="Email" placeholder="Email" oninvalid="setCustomValidity('Por favor capture un email valido')">
+	    </div>
+	    <!-- email -->
+	    
+	    <!-- texto -->
+	    <div class="form-group">
+	      <label for="text">Texto:</label>
+	      <input type="text" class="form-control" id="itText" placeholder="Texto">
+	    </div>
+	    <!-- texto -->
+	    
+	    
+	    <!-- seleccione una opcion -->
+	    <div class="form-group">
+	  		<label for="sel1">Seleccione una opci&oacute;n:</label>
+	  		<select class="form-control" id="selSelect">
+	    		<option>Opci&oacute;n 1</option>
+	    		<option>Opci&oacute;n 2</option>
+	    		<option>Opci&oacute;n 3</option>
+	    		<option>Opci&oacute;n 4</option>
+	  		</select>
+		</div>
+		<!-- seleccione una opcion -->
+		
+		<!-- numero -->
+	    <div class="form-group">
+	      <label for="num">Numero:</label>
+	      <input type="number" class="form-control" id="inNumber" placeholder="Numero">
+	    </div>
+	    <!-- numero -->
+	    
+	    <!-- recuerdame -->
+	    <div class="checkbox">
+	      <label><input type="checkbox" id="chbRemember">Recuerdame:</label>
+	    </div>
+	    <!-- recuerdame -->
+	    
+	    
+	    <!-- radio button -->
+	    <div class="radiobutton"> 
+	    <label for="rb">Radio Button:</label>
+	    	<label class="radio-inline">
+	      		<input type="radio" id="rbOpt1" name="optradio">Opci&oacute;n
+	    	</label>
+	    	<label class="radio-inline">
+	      		<input type="radio"id="rbOpt2" name="optradio">Opci&oacute;n
+	    	</label>
+	    	<label class="radio-inline">
+	      		<input type="radio" id="rbOpt3" name="optradio">Opci&oacute;n
+	    	</label>
+		</div>
+		<!-- radio button -->
+		
+		<!-- boton submit -->
+	    <button type="submit" class="btn btn-default">Enviar</button>
+	    
+	  </form>				<!-- fin de la forma -->
+	 
+
+</div>
+
+
+
+
+<div id="frmLineaDoc">
+
+
+<h4>Formas l&iacute;neales</h4>
+  
+  
+	  <p>En una forma l&iacute;neal todo los elementos estan en una l&iacute;nea, al&iacute;neados a la izquierda y las etiquetas estan a un lado. 
+	  <br />
+	  <br />
+		<b>Nota:</b> Esto solo aplica a formas dentro de pantallas de al menos 768 pixeles de ancho.
+		<br />
+		<br />
+		Regla adicional para una forma l&iacute;neal:</p>
+		<br />
+		<ul>
+		
+		<li>Agregar la clase <code>.form-inline</code> al elemento <code>&lt;form&gt;</code></li>
+		</ul>
+		
+		<h4>Ejemplo:</h4>
+		
+		<pre><code>
+		&lt;form class="<b>form-inline</b>" role="form"&gt;
+		  &lt;div class="form-group"&gt;
+		    &lt;label for="email"&gt;Email address:&lt;/label&gt;
+		    &lt;input type="email" class="form-control" id="email"&gt;
+		  &lt;/div&gt;
+		  &lt;div class="form-group"&gt;
+		    &lt;label for="pwd"&gt;Password:&lt;/label&gt;
+		    &lt;input type="password" class="form-control" id="pwd"&gt;
+		  &lt;/div&gt;
+		  &lt;div class="checkbox"&gt;
+		    &lt;label&gt;&lt;input type="checkbox"&gt; Remember me&lt;/label&gt;
+		  &lt;/div&gt;
+		  &lt;button type="submit" class="btn btn-default"&gt;Submit&lt;/button&gt;
+		&lt;/form&gt;
+		</code>
+		</pre>
+    
+
+</div>

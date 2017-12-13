@@ -1,0 +1,197 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+
+<div id="fileInput">
+
+<div class="panel-group" id="accordion">
+
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel1">Carga de Archivo con Etiqueta</a>
+		</h3>
+	</div>
+	<div id="panel1" class="panel-collapse collapse in">
+		<div class="panel-body">
+		<div id="fileInput1">
+		<!-- Start: Code of File Input :: Simple with Label -->
+			<div class="fileinput fileinput-new" data-provides="fileinput">
+				<span class="btn btn-primary btn-file">
+				<span class="fileinput-new">Seleccionar Archivo</span>
+				<span class="fileinput-exists">Cambiar</span>
+				<input type="file" name="...">
+				</span>
+				<span class="fileinput-filename"></span>
+				<a	href="#" class="close fileinput-exists" data-dismiss="fileinput"
+					style="float: none">&times;</a>
+			</div>
+		<!-- fin: Codigo de carga de archivo :: simple con etiqueta -->
+		</div>
+		</div>
+	</div>
+</div>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel2">Carga de Archivo con TextBox</a>
+		</h3>
+	</div>
+	<div id="panel2" class="panel-collapse collapse">
+		<div class="panel-body">
+		<div id="fileInput2">
+		<!-- inicio: Codigo de carga de archivo :: Simple con caja de texto -->
+		<div class="form-group">
+			<div class="col-sm-5"><!-- responsive mode -->
+			<div class="fileinput fileinput-new input-group"
+				data-provides="fileinput">
+			<div class="form-control" data-trigger="fileinput">
+				<i class="glyphicon glyphicon-file fileinput-exists"></i>
+				<span class="fileinput-filename"></span>
+			</div>
+			<span class="input-group-addon btn btn-primary btn-file">
+			<span class="fileinput-new">Seleccionar Archivo</span>
+			<span class="fileinput-exists">Cambiar</span> <input type="file"	name="...">
+			</span>
+			<a href="#"
+				class="input-group-addon btn btn-danger fileinput-exists"
+				data-dismiss="fileinput">Eliminar</a>
+			</div>
+			</div>
+		</div>
+		<!-- Fin: Codigo de carga de archivo :: Simple con caja de texto -->
+		</div>
+		</div>
+	</div>
+</div>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#panel3">Carga de Archivo con Thumbnail (Recomendado para Imagen)</a>
+		</h3>
+	</div>
+	<div id="panel3" class="panel-collapse collapse">
+		<div class="panel-body">
+		<div id="fileInput3">
+		<!-- inicio: Codigo de carga de archivo :: Simple con Thumbnail -->
+		<div class="form-group">
+			<div class="col-sm-5"><!-- responsive mode -->
+			<div class="fileinput fileinput-new" data-provides="fileinput">
+			<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+			<div>
+				<span class="btn btn-primary btn-file">
+				<span class="fileinput-new">Seleccionar Imagen</span>
+				<span class="fileinput-exists">Cambiar</span>
+				<input type="file" name="...">
+				</span>
+				<a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Eliminar</a>
+			</div>
+			</div>
+			</div>
+		</div>
+		<!-- Fin: Codigo de carga de archivo :: Simple con Thumbnail -->
+		</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+
+<div id="fileInputDoc">
+	
+	<h3><strong>Widget de Carga de Archivo</strong></h3>
+	
+	<br />
+	<h3>Forma de Uso</h3>
+	<p>Agregando <code>.fileinput</code> al contenedor.
+	<br />Los elementos dentro del contenedor con
+	<code>.fileinput-new</code>	y <code>.fileinput-exists</code>
+	se muestra u ocultan basados en su estado actual. Una vista previa del archivo seleccionado se coloca en
+	<code>.fileinput-preview</code>. El texto del 
+	<code>.fileinput-filename</code> se establece de acuerdo al archivo seleccionado.</p>
+	<br />
+    <p>El widget File Input debe ser colocado en un <code>&lt;form&gt;</code> reemplazando a un <code>&lt;input type="file"&gt;</code> convencional.
+    La carga del archivo se maneja de manera normal del lado del servidor.</p>
+    
+	<br />        
+    <h3>Atributos</h3>
+    <p>Agregando <code>data-provides="fileinput"</code> al elemento <code>.fileinput</code>.
+    <br />
+    Implementar un bot&oacute;n para borrar el archivo con <code>data-dismiss="fileinput"</code>.
+     Agregar <code>data-trigger="fileinput"</code> a cualquier elemento dentro del widget 
+     <code>.fileinput</code> para activar el cuadro de di&aacute;logo del archivo.</p>
+    
+    <br />
+	<h3>Invocar mediante JavaScript</h3>
+    <pre class="prettyprint linenums">$('.fileinput').fileinput()</pre>
+	
+	<br />
+    <h3>Forma</h3>
+    <p>Usando los elementos dados, puede formar el widget Upload de la manera que desee, ya sea con dimensiones 
+    fijas con <code>width</code> y <code>height</code> o relativas con <code>max-width</code> y <code>max-height</code>.</p>
+    
+    <br />
+    <h3>Opciones</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Name</th>
+            <th style="width: 50px;">type</th>
+            <th>description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td>string</td>
+            <td>Use esta opci&oacute;n en lugar del atributo <code>name</code> en el elemento <code>&lt;input&gt;</code> para evitar que sea parte de los datos de env&iacute;o.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <br />
+    <h3>M&eacute;todos</h3>
+    <h4>.fileinput(options)</h4>
+    <p>Inicializa el widget file upload.</p>
+    <h4>.fileinput('clear')</h4>
+    <p>Borra el archivo seleccionado.</p>
+    <h4>.fileinput('reset')</h4>
+    <p>Restablece el elemento del formulario al valor inicial.</p>
+    
+    <br />
+    <h3>Eventos</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 150px;">Evento</th>
+            <th>Descripci&oacute;n</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>change.bs.fileinput</td>
+            <td>Este evento se activa despu&eacute;s de seleccionar un archivo.</td>
+          </tr>
+          <tr>
+            <td>clear.bs.fileinput</td>
+            <td>Este evento se activa cuando se borra el archivo ingresado.</td>
+          </tr>
+          <tr>
+            <td>reset.bs.fileinput</td>
+            <td>Este evento se activa cuando se restaura el archivo ingresado.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+	
+</div>

@@ -1,0 +1,623 @@
+
+
+html,body {
+	height:100%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+#map {
+	width:100%;
+	height:90%;
+	min-height:90%;
+	
+	background-color:red;
+	
+}
+
+.fill {
+	
+	min-height:90%;	
+	height:90%;
+	
+}
+
+#footer {
+	
+	position:fixed;
+	bottom:0;
+	width:100%;
+}
+
+pre {
+	
+	max-height:40vh;	
+	max-height:400px;	
+	width:auto;
+	overflow: auto;
+}
+
+.scroll40 {
+	
+	max-height:40vh;	
+	max-height:400px;	
+	width:auto;
+	overflow: auto;
+}
+
+.scroll70 {
+		
+	max-height:1500px;
+	overflow: auto;	
+	overflow-x: hidden;
+}
+
+.no_scroll70 {
+	
+	max-height:70vh;	
+	max-height:700px;
+	overflow:none;   
+}
+
+.all_scroll70 {
+	
+	max-height:1500px;
+	overflow-y: auto;	
+	overflow-x: auto;    
+}
+
+
+
+
+.scroll80 {
+	
+	max-height:80vh;	
+	max-height:600px;
+	height:60vh;
+	min-height:800px;
+	height:900px;	
+	width:200px;	
+	overflow:auto;
+}
+
+.scroll90 {
+	
+	max-height:90vh;	
+	width:auto;
+	overflow: auto;
+}
+
+.col1{
+background: #5C7080;
+}
+
+.col2{
+background: #6BC0FF;
+}
+
+.col3{
+background: #D2DD11;
+}
+
+
+.rowspan50 {
+	
+	margin-top:50px;
+	margin-bottom:50px;
+	
+}
+
+.rowpadding_titulo {
+	
+	
+	padding-top:1%;
+	padding-bottom:1%;
+}
+
+
+.rowpadding25 {
+	
+	margin-top:15px;
+	padding:25%;
+	margin-bottom:15px;
+	
+}
+
+/* colores institucionales */
+
+
+.azul-fuerte {
+	background: #051D4D;
+	
+}
+
+.azul-medio {
+	background: #132961;
+}
+
+
+.azul-claro {
+	background: #326999;
+}
+
+
+
+.gris-fuerte {
+	background: #6D6E71;
+}
+
+
+
+.gris-claro {
+	background: #D3D9E3;
+}
+
+
+.cuerpo-central {
+	background: white;
+	position: relative;
+	heigth:0;
+	padding-bottom: 40%; /* alto del documento central */	
+}
+
+#contenido {
+	position:absolute;
+	left:0;
+	top:0;
+	height:80%;
+	width:100%;
+}
+
+
+.pie_pagina {
+	text-align: center;
+	background: #D3D9E3; /* gris claro */
+	color: #326999;		/* azul claro */
+}
+
+
+
+.ident1 {
+	padding-left:9px;
+}
+
+.ident2 {
+	padding-left:12px;
+}
+
+.ident3 {
+	padding-left:16px;
+}
+
+
+/* texto texto menu lateral */
+.nav > li > p.opcion > a,
+.nav > li > p.menu > a {
+	text-decoration: none;
+	display: block;
+    padding: 10px 15px;
+	color: white;		/* texto blanco */	
+}
+
+.nav > li > a {
+	color: white;		/* texto blanco */
+}
+
+/* texto texto menu lateral */
+.nav > li > p.menu:hover,
+.nav > li > p.menu > a:focus,
+.nav > li > p.opcion:hover,
+.nav > li > p.opcion > a:focus,
+.nav > li > a:hover ,
+.nav > li > a:focus  {
+	text-decoration:none;
+	color: white;		/* texto blanco */
+	background: #326999;	/* azul claro */		
+}
+
+
+
+/* logo */
+body .bordo_logo {
+	background-color: #0092EF;
+	border-radius:12px 12px 1px 1px;
+	border-bottom: 0.4px;	
+	padding-top:6px;
+	padding-left:4px;
+	padding-right:4px;
+	padding-bottom:2.5px;
+	
+	font-size: 20px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;	
+	line-height:28.4px;
+	color:#083A5A;
+	text-align: center;
+}
+
+
+/* titulo */
+body .titulo {
+	background-color: #0092EF;
+	border-radius:22px 22px 20px 20px;
+	padding-top:3px;
+	padding-bottom:3px;
+	widht:20px;
+	padding:3px;
+	font-size: 22px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;	
+	line-height:20.4px;
+	color:#083A5A;
+	text-align: center;
+}
+
+
+/* espacio blanco */
+body .espacio_blanco {
+	padding-left:40px;
+	
+}
+
+.text-home {
+	color: #404040;
+	text-align: justify;	
+}
+
+
+
+
+.button_square_container1 {
+	margin-top:5%;	
+	margin-bottom: 6%;
+    margin-right: 4%;
+    max-height: 34px;
+    max-width: 28%;
+    padding-bottom: 18%;
+    padding-top: 0;
+    position: relative;
+    width: 28%;
+}
+
+.button_square_container2 {
+		
+	margin-top: 6%;
+    margin-right: 4%;
+    max-height: 34px;
+    max-width: 28%;
+    padding-bottom: 18%;
+    padding-top: 0;
+    position: relative;
+    width: 28%;
+}
+
+/* boton cuadrado de home */
+.button_square_container1 a, .button_square_container2 a,
+.button_square_container1 button, .button_square_container2 button {	
+	/*background: #051D4D;*/	
+	border-radius: 14px 14px 14px 14px;	
+	border: white;
+    height: 45px;   
+    max-height: 200px;
+    padding: 28% 10% 58% 10%;
+    position: relative;    
+    /*width: 117%;*/
+    width: 105%;
+    text-align: center;
+    font-size: medium;
+    text-decoration:none;
+    color: white;    
+}
+
+.button_square_container1 img, .button_square_container2 img {
+	border-radius: inherit;
+    position: inherit;
+    width: inherit;
+}
+
+.button_square_container1 img:hover, .button_square_container2 img:hover,
+.button_square_container1 img:focus, .button_square_container2 img:focus {
+	transform: scale(1.20);
+	-moz-transform: scale(1.20);
+	-webkit-transform: scale(1.20);
+	-o-transform: scale(1.20);
+	opacity: .9;
+}
+
+
+
+
+/* boton cuadrado de home */
+.button_square_container1 button:hover, 
+.button_square_container2 button:hover,
+.button_square_container1 button:focus, 
+.button_square_container2 button:focus {
+	
+	background: #326999; /* azul claro */	
+}
+
+
+
+
+.texto_blanco {
+	
+	color: white;	
+}
+
+
+
+
+
+/* boton de descarga */
+.text-home > p > .btn-block {
+	width:95%;
+	border-radius: 14px 14px 14px 14px; 
+}
+
+/* boton de descarga */
+.btn-showcase {
+    background-color: #051D4D;
+    border-color: #2E6DA4;
+    color: #FFFFFF;
+    font-size: medium;
+    padding: 5%;
+}
+
+
+/*modal manual procesar pdf */
+#modalManualPDF .modal-lg {
+	width:90%;
+}
+
+#modalManualPDF .modal-body {
+
+	height: 50px;
+}
+
+#modalManualPDF .modal-header,
+#modalComponentes .modal-header,
+#modalTemas .modal-header,
+#modalMobile .modal-header,
+#modalProductividad .modal-header,
+#modalAcercaDe .modal-header {
+	padding:2%;
+}
+
+
+#modalManualPDF .modal-footer,
+#modalComponentes .modal-footer,
+#modalTemas .modal-footer,
+#modalMobile .modal-footer,
+#modalProductividad .modal-footer,
+#modalAcercaDe .modal-footer {
+	padding:1.5%;
+}
+
+#modalAcercaDe .modal-header > img,
+#modalTemas .modal-header > img,
+#modalManualPDF .modal-header > img{
+	height: auto;
+    width: 41%;
+}
+
+ 
+#modalAcercaDe .modal-body ul,
+#modalAcercaDe .modal-body li {
+	color: black;
+}
+
+#modalAcercaDe .modal-body p.about {
+	font-size: 12px;
+	color: black;
+}
+
+
+#modalAcercaDe .modal-body p.comentarios {
+	font-size: 11px;
+	color:black;
+}
+
+
+
+
+.padding_70 {	
+	padding-top:70px;
+}
+.divisor_home {
+	background: #D3D9E3;	
+    margin-top:25px;
+	padding-left:1px;
+	padding-right:1px;
+	padding-top:200px;
+	padding-bottom:220px;
+	
+			
+}
+
+/* boton de descarga */
+.btn-showcase:hover,
+.btn-showcase:focus {
+    background-color: #326999; /* azul claro */
+    border-color: #2E6DA4;
+    color: #FFFFFF;
+    background-position: 0 -15px;
+}
+
+
+
+/* pestañas  */
+#navTab.nav > li > a {
+	border-radius: 12px 12px 0 0;
+	background: #083A5A;
+	color: white;
+}
+
+/* pestañas activas */
+#navTab > li.active > a,
+#navTab.nav > li > a:focus
+ {
+	text-decoration: none;
+  	background-color: #326999;
+  	color: white;
+}
+
+/* pestaña inactiva */
+#navTab > li.disabled > a,
+#navTab.nav > li > a:disabled
+ {
+	text-decoration: none;
+  	background-color: DimGray;
+  	color: Gainsboro;
+}
+
+
+#panelTabs.panel {
+	
+	background-color:white; 
+	width:96%;
+	margin-left:3%;
+}
+
+.panel-body {
+    background: none repeat scroll 0 0 white;
+    padding: 13px;
+}
+
+.text-center {
+	color:white;
+}
+
+
+.text-gris-fuerte {
+	color:#6D6E71;
+}
+
+.navbar-inverse .navbar-brand {
+	color:white;
+}
+
+
+
+/* colores del cuerpo de la pagina*/
+body {
+	
+	background:  white;
+	color:#083A5A; /* azul fuerte */
+}
+
+	/* estilo del panel*/
+.well {
+	
+	background: white;
+	color: #083A5A;			/* azul fuerte */
+}
+
+#barraSuperior {
+	border-radius:0;
+	height: 0;
+    padding-bottom: 6%;
+    position: relative;
+}
+
+/*  logotipo bootstrap showcase */
+#barraSuperior img {
+	
+    max-width: 60%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+/* texto superior gerencia */
+#barraSuperior .texto_gerencia {
+	
+	display: block;
+    height: auto;
+    margin-top: 8%;    
+       
+}
+
+/* texto superior gerencia */
+#barraSuperior .texto_gerencia2 {	
+	display: block;
+    height: auto;    
+}
+
+/* texto superior gerencia */
+#barraSuperior p {
+	
+    color: #404040;
+    line-height: 20%;
+    position: relative;
+    right:7%;
+    text-align: right;
+}
+
+
+/*  logo izquierda superior */
+.logo_procesar {	
+	heigth:0;
+	position:relative;
+	padding-bottom: 6%;
+}
+
+
+
+/* logo procesar */
+.display_logo {
+	position:absolute;
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	margin-top: 10%;
+}
+
+
+
+
+
+ 
+/* boton home */
+.home_derecha {
+	text-align: right;
+	margin-right: 14%;	
+}
+
+
+
+
+
+/* fuentes Helvetica */
+html {
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+}
+
+body {
+ 
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-size: 12px;
+    line-height:1.3;
+ 
+}
+
+
+
+/* celda seleccionada jqGrid */
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+	background:#083A5A; /* azul fuerte */
+	color:white;		/* texto blanco */
+}
+
+
+/* Slider style 
+
+.well {
+	background-color: #E0E0E0;
+}
+
+#ex1Slider .slider-selection {
+ 	background: #BABABA;
+ }
+ */

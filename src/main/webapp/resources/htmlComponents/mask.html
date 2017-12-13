@@ -1,0 +1,140 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+
+<div id="mask">
+	<h3>M&aacute;scaras</h3>
+	<br />
+	<!-- Invocacion de Spinner -->
+	<div class="form-group">
+		<label for="fecha">Fecha:</label> <input type="text" class="form-control"
+			id="fecha">
+	</div>
+	<div class="form-group">
+		<label for="pos">Fecha con marcador:</label> <input type="text" class="form-control"
+			id="pos">
+	</div>
+	<div class="form-group">
+		<label for="telefono">Tel&eacute;fono:</label> <input type="text" class="form-control"
+			id="telefono">
+	</div>
+	<div class="form-group">
+		<label for="hora">Hora:</label> <input type="text" class="form-control"
+			id="hora">
+	</div>
+	<div class="form-group">
+		<label for="fechayhora">Fecha y Hora:</label> <input type="text" class="form-control"
+			id="fechayhora">
+	</div>
+	<div class="form-group">
+		<label for="cp">Codigo Postal:</label> <input type="text" class="form-control"
+			id="cp">
+	</div>
+	<div class="form-group">
+		<label for="lada">Tel&eacute;fono con Lada:</label> <input type="text" class="form-control"
+			id="lada">
+	</div>
+	<br />
+	
+</div>
+
+
+<!-- #################### -->
+<!-- 	Java Script 	  -->
+<!-- #################### -->
+<div id="maskScript">
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fecha').mask('00/00/0000', {'translation': {0: {pattern: /[0-9*]/}}});
+			$('#telefono').mask('0000-0000');
+			$('#hora').mask('00:00:00');
+			$('#fechayhora').mask('00/00/0000 00:00:00');
+			$('#cp').mask('00000');
+			$('#lada').mask('(00) 0000-0000');
+			$('#pos').mask("00/00/0000", {placeholder: "__/__/____"});
+		});
+	</script>
+</div>
+
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+
+<div id="maskDoc">
+	<h3>
+		<strong>jQuery Mask Plugin</strong>
+	</h3>
+	<p>
+		Su sintaxis es muy simple, primero, seleccione el input (o inputs necesarios) seguido por .mask y
+		a continuaci&oacute;n como par&aacute;metro se envia la m&aacute;scara que se quiere aplicar al campo.
+		jQuery Mask Plugin no tiene m&aacute;scaras pre-establecidas, tu eliges la m&aacute;scara como desees,
+		ya que es posible definir otro tipo de datos en cada d&iacute;gito de la m&aacute;scara. Se puede enviar otro segundo p&aacute;rametro,
+		el cual es totalmente opcional, como por ejemplo: Expresiones Regulares.
+	</p>
+	<br/>
+	<h4><strong>Implementaci&oacute;n</strong></h4>
+	    Lo &uacute;nico que necesitas hacer es incluir el archivo javascript del plugin entre la etiqueta <code>head</code> en tu documento HTML y est&aacute; todo listo para usar.
+	<br/>
+	
+	<h5><strong>Funci&oacute;n JavaScript</strong></h5>
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+			<td>
+			<!-- codigo javascript de spinner monetario -->
+<pre class="code">$(document).ready(function() {
+			$('#fecha').mask('00/00/0000', {'translation': {0: {pattern: /[0-9*]/}}});
+			$('#telefono').mask('0000-0000');
+			$('#hora').mask('00:00:00');
+			$('#fechayhora').mask('00/00/0000 00:00:00');
+			$('#cp').mask('00000');
+			$('#lada').mask('(00) 0000-0000');
+			$('#pos').mask("00/00/0000", {placeholder: "__/__/____"});
+		});</pre>
+			</td>
+			</tr>
+		</tbody>
+	</table>
+	<h5><strong>Invocaci&oacute;n HTML</strong></h5>
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+			<td>
+			<!-- llamado html spinner monetario -->
+<pre class="code">&lt;div class="form-group">
+		&lt;label for="fecha">Fecha:&lt;/label> &lt;input type="text" class="form-control"
+			id="fecha">
+	&lt;/div>
+	&lt;div class="form-group">
+		&lt;label for="pos">Fecha con marcador:&lt;/label> &lt;input type="text" class="form-control"
+			id="pos">
+	&lt;/div>
+	&lt;div class="form-group">
+		&lt;label for="telefono">Tel&eacute;fono:&lt;/label> &lt;input type="text" class="form-control"
+			id="telefono">
+	&lt;/div>
+	&lt;div class="form-group">
+		&lt;label for="hora">Hora:&lt;/label> &lt;input type="text" class="form-control"
+			id="hora">
+	&lt;/div>
+	&lt;div class="form-group">
+		&lt;label for="fechayhora">Fecha y Hora:&lt;/label> &lt;input type="text" class="form-control"
+			id="fechayhora">
+	&lt;/div>
+	&lt;div class="form-group">
+		&lt;label for="cp">Codigo Postal:&lt;/label> &lt;input type="text" class="form-control"
+			id="cp">
+	&lt;/div>
+	&lt;div class="form-group">
+		&lt;label for="lada">Tel&eacute;fono con Lada:&lt;/label> &lt;input type="text" class="form-control"
+			id="lada">
+	&lt;/div></pre>
+			</td>
+			</tr>
+		</tbody>
+	</table>		
+	
+		
+	
+</div> <!-- fin de documentacion -->

@@ -1,0 +1,202 @@
+<div id="inputs">
+
+	<h3>Entrada de Texto</h3>
+	
+	
+	<div class="panel-group" id="accordion">	<!-- inicio acordeon -->
+		
+		<div class="panel panel-default">	<!-- panel 1 -->
+						
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Entrada de texto</a>
+				</h3>
+			</div>
+			
+			<div id="collapse1" class="panel-collapse collapse in">
+				<div class="panel-body"><!-- contenido del panel -->
+					<div id ="inputs1">
+	<!-- entrada de texto -->
+	<div class="form-group">
+		<label for="usr">Texto:</label> <input type="text" class="form-control"
+			id="usr">
+	</div>
+	<!-- entrada de texto -->
+	
+	
+	<!-- entrada de password -->
+	<div class="form-group">
+		<label for="pwd">Password:</label> <input type="password"
+			class="form-control" id="pwd">
+	</div>
+	<!-- entrada de password -->
+</div>
+				</div>					<!-- contenido del panel -->
+			
+			</div>									
+		</div>							<!-- panel 1 -->
+		
+		
+		
+		<div class="panel panel-default">	<!-- panel 2 -->
+						
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Entrada est&aacute;tica</a>
+				</h3>
+			</div>
+			
+			<div id="collapse2" class="panel-collapse collapse">
+				<div class="panel-body"><!-- contenido del panel -->
+					<div id ="inputs2">
+	<!-- Entrada estatica -->	
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="email">Email:</label>
+			<div class="col-sm-10">
+				<p class="form-control-static">someone@example.com</p>
+			</div>
+		</div>
+	</form>
+	<!-- Entrada estatica -->
+	
+	<br /> <br />
+	
+	<h4>Control de estados en formas Bootstrap</h4>
+	
+	<!-- Control de estados  -->
+	<form class="form-horizontal" role="form">			<!--  inicio de la forma -->
+		
+		<!--  Focused -->	
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Focused</label>		
+			<div class="col-sm-10">
+				<input class="form-control" id="focusedInput" type="text"
+					value="Click to focus">
+			</div>
+		</div>
+		<!--  Focused -->	
+		
+		
+		<!-- disabled -->
+		<div class="form-group">
+			<label for="disabledInput" class="col-sm-2 control-label">Disabled</label>
+			<div class="col-sm-10">
+				<input class="form-control" id="disabledInput" type="text" disabled>
+			</div>
+		</div>
+		<!-- disabled -->
+		
+		
+			
+		<!-- readonly -->
+		<div class="form-group">
+			<label for="readOnlyInput" class="col-sm-2 control-label">ReadOnly</label>
+			<div class="col-sm-10">
+				<input class="form-control" id="readOnlyInput" type="text" readonly>
+			</div>
+		</div>
+		<!-- readonly -->
+		
+		
+		<!-- fieldset disabled -->
+		<fieldset disabled>
+			<div class="form-group">
+				<label for="disabledTextInput" 
+						class="col-sm-2 control-label">Fieldset disabled</label>
+				<div class="col-sm-10">
+					<input type="text" id="disabledTextInput" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="disabledSelect" class="col-sm-2 control-label"></label>
+				<div class="col-sm-10">
+					<select id="disabledSelect" class="form-control">
+						<option>Disabled select</option>
+					</select>
+				</div>
+			</div>
+		</fieldset>
+		<!-- fieldset disabled -->
+		
+		
+		<!-- Input with success and icon -->
+		<div class="form-group has-success has-feedback">
+			<label class="col-sm-2 control-label" 
+				for="inputSuccess">Input with success and icon</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputSuccess">
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+			</div>
+		</div>
+		<!-- Input with success and icon -->
+		
+		
+		<!-- Input with warning and icon -->
+		<div class="form-group has-warning has-feedback">
+			<label class="col-sm-2 control-label" 
+				for="inputWarning">Input with warning and icon</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputWarning">
+				<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+			</div>
+		</div>
+		<!-- Input with warning and icon -->
+		
+		
+		<!-- Input with error and icon -->
+		<div class="form-group has-error has-feedback">
+			<label class="col-sm-2 control-label" 
+					for="inputError">Input with error and icon</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputError">
+				<span class="glyphicon glyphicon-remove form-control-feedback">
+				</span>
+			</div>
+		</div>
+		<!-- Input with error and icon -->
+		
+		
+	</form>					<!--  fin de la forma -->
+	
+</div>
+				</div>					<!-- contenido del panel -->
+			
+			</div>									
+		</div>							<!-- panel 2 -->
+		
+</div>
+
+	
+	
+	
+</div>
+
+
+
+
+<div id="inputsDoc">
+	
+	<h3>Entrada de texto</h3>  
+  
+	<p>Bootstrap soporta todos los tipos de entrada de texto HTML5: <code>text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel,</code> y <code>color.</code>
+	<br/>
+	<br/>
+	
+
+	<h4>Campos est&aacute;ticos</h4>
+	<p>Si usted necesita insertar texto est&aacute;tico al lado de una etiqueta de formulario en una forma horizontal, use la clase <code>.form-control-static</code> en una etiqueta <code>&lt;p&gt;</code></p>
+	
+	<h4>Control de estados en formas Bootstrap</h4>
+	<ul>
+	    <li>INPUT FOCUS - El fuera de linea para este campo es removido y una caja sombreada es aplicada en foco</li>
+	    <li>DISABLED INPUTS - Agrega el atributo <code>disabled</code> para deshabilitar la entrada al campo.
+	    <li>DISABLED FIELDSETS - Agrega el atributo <code>disabled</code> a un <code>&lt;fieldset&gt;</code> para deshabilitar a todos los campos dentro de el.
+	    <li>READONLY INPUTS - Agrega el atributo <code>readonly</code> a un campo para pevenir la entrada de datos.
+	    <li>VALIDATION STATES - Bootstrap incluye estilos para validaciones para error, warning y mensajes de exito. 
+	    	Para usarlos agregue alguna de las clases <code>.has-warning</code>, <code>.has-error</code>, o <code>.has-success</code> a un elemento padre.	   
+	   	<li>ICONS - Usted puede agregar iconos de retroalimentaci&oacute;n con la clase <code>.has-feedback</code> y un icono</li>
+	    <li>HIDDEN LABELS - Agregue una clase <code>.sr-only</code> en una etiqueta no visible</li>
+	</ul>
+   	
+</div>

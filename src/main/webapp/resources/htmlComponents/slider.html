@@ -1,0 +1,830 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+
+<div id="slider">
+
+	<!-- Panel 1: Slider Default Horizontal -->
+	<div class="col-md-7">
+		<!-- Ajuste de modo responsivo -->
+		<div class="panel panel-primary">
+			<div class="panel-heading" style="font-weight: bold;">Slider
+				Default Horizontal</div>
+			<div class="panel-body">
+				<!-- Inicio: Invocacion de Slider -->
+				<label for="amount">Valor:</label> <input type="text"
+					id="amount-horizontal" readonly
+					style="border: 0; color: #F6931F; font-weight: bold;">
+				<div id="slider-horizontal"></div>
+				<!-- Fin: Invocacion de Slider -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Panel 2: Slider Default Vertical -->
+	<div class="col-md-7">
+		<!-- Ajuste de modo responsivo -->
+		<div class="panel panel-primary">
+			<div class="panel-heading" style="font-weight: bold;">Slider
+				Default Vertical</div>
+			<div class="panel-body">
+				<!-- Inicio: Invocacion de Slider -->
+				<label for="amount">Valor:</label> <input type="text"
+					id="amount-vertical" readonly
+					style="border: 0; color: #F6931F; font-weight: bold;">
+				<div id="slider-vertical" style="height: 100px;"></div>
+				<!-- Fin: Invocacion de Slider -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Panel 3: Slider con Valor Inicial (Etiqueta Precio) -->
+	<div class="col-md-7">
+		<!-- Ajuste de modo responsivo -->
+		<div class="panel panel-primary">
+			<div class="panel-heading" style="font-weight: bold;">Slider
+				con Valor Inicial (Etiqueta Precio)</div>
+			<div class="panel-body">
+				<!-- Inicio: Invocacion de Slider -->
+				<label for="amount">Precio:</label> <input type="text"
+					id="amount-min" readonly
+					style="border: 0; color: #F6931F; font-weight: bold;">
+				<div id="slider-range-min"></div>
+				<!-- Fin: Invocacion de Slider -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Panel 4: Slider con Rango de Valores (Etiqueta Precio) -->
+	<div class="col-md-7">
+		<!-- Ajuste de modo responsivo -->
+		<div class="panel panel-primary">
+			<div class="panel-heading" style="font-weight: bold;">Slider
+				con Rango de Valores (Etiqueta Precio)</div>
+			<div class="panel-body">
+				<!-- Inicio: Invocacion de Slider -->
+				<label for="amount">Precio:</label> <input type="text"
+					id="amount-range" readonly
+					style="border: 0; color: #F6931F; font-weight: bold;">
+				<div id="slider-range"></div>
+				<!-- Fin: Invocacion de Slider -->
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<!-- #################### -->
+<!-- 	Java Script 	  -->
+<!-- #################### -->
+
+<div id="sliderScript">
+	<script type="text/javascript">
+		$(document).ready(function() {
+			creaSlider();
+		});
+	</script>
+</div>
+
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+
+<div id="sliderDoc">
+
+	<h3><strong>Widget de Slider</strong></h3>
+	<br />
+	<p>
+	El widget Slider de jQuery UI muestra elementos en forma de deslizadores.
+	 Hay varias opciones y rangos. El indicador se puede mover con el mouse o las teclas de flecha.
+	 <br />
+	 <br />
+	<code>ui-slider</code>: La clase principal del control Slider.
+	  Este elemento tiene las clases adicionales de <code>ui-slider-horizontal</code> o <code>ui-slider-vertical</code> 
+	  dependiendo de la orientaci&oacute;n (<code>orientation</code>) del slider.
+	  <br />
+	<code>ui-slider-range</code>: Esta clase es utilizada cuando se desea establecer un rango (<code>range</code>) en el valor.
+	 Este elemento tiene las clases adicionales de <code>ui-slider-range-min</code> o <code>ui-slider-range-max</code> 
+	 si la opci&oacute;n de <code>range</code> se desea establecer como <code>&quot;min&quot;</code> o <code>&quot;max&quot;</code> respectivamente.
+	</p>
+	
+	<h3><strong>Opciones</strong></h3>
+	<!-- #### inicia animate #### -->
+	<h4><font color="SteelBlue">animate</font></h4>
+	Para deslizar el control deslizante suavemente cuando el usuario hace clic en la gu&iacute;a de desplazamiento.
+	<br />
+	<strong>Tipos: </strong><code>Boolean</code>, <code>String</code> , <code>Number</code>.
+	<br />
+	<strong>Default: </strong><code>false</code>	
+	<br /><br />
+	M&uacute;ltiples valores soportados:
+	<br />
+	<strong>Boolean</strong>: Con valor <code>true</code>, el control deslizante ser&aacute; animado con la duraci&oacute;n predeterminada.
+	<br />
+	<strong>String</strong>: La velocidad, como <code>&quot;fast&quot;</code> o <code>&quot;slow&quot;</code>.
+	<br />
+	<strong>Number</strong>: La duraci&oacute;n de la animaci&oacute;n, en milisegundos.
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Slider con la opci&oacute;n <code>animate</code> definida:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  animate: <span class="string">&quot;fast&quot;</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>animate</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> animate = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;animate&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;animate&quot;</span>, <span class="string">&quot;fast&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina animate #### -->
+	<br />
+	<!-- #### inicia disabled #### -->
+	<h4><font color="SteelBlue">disabled</font></h4>
+	<strong>Tipo: </strong><code>Boolean</code>.
+	<br />
+	<strong>Default: </strong><code>false</code>
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Slider con la opci&oacute;n <code>disabled</code> definida:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  disabled: <span class="literal">true</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>disabled</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> disabled = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;disabled&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;disabled&quot;</span>, <span class="literal">true</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina disabled #### -->
+	<br />
+	<!-- #### inicia max #### -->
+	<h4><font color="SteelBlue">max</font></h4>
+	El m&aacute;ximo valor del Slider.
+	<br />
+	<strong>Tipo: </strong><code>Number</code>.
+	<br />
+	<strong>Default: </strong><code>100</code>
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Slider con la opci&oacute;n <code>max</code> definida:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  max: <span class="number">50</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	Obtener o establecer la opci&oacute;n <code>max</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> max = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;max&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;max&quot;</span>, <span class="number">50</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina max #### -->
+	<br />
+	<!-- #### inicia min #### -->
+	<h4><font color="SteelBlue">min</font></h4>
+	El m&iacute;nimo valor del Slider.
+	<br />
+	<strong>Tipo: </strong><code>Number</code>.
+	<br />
+	<strong>Default: </strong><code>0</code>
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Slider con la opci&oacute;n <code>min</code> definida:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  min: <span class="number">10</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	Obtener o establecer la opci&oacute;n <code>min</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> min = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;min&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;min&quot;</span>, <span class="number">10</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina min #### -->
+	<br />
+	<!-- #### inicia orientation#### -->
+	<h4><font color="SteelBlue">orientation</font></h4>
+	Determina si los controles deslizantes se mueven horizontalmente (a la izquierda el valor min, max a la derecha)
+	 o verticalmente (valor min en la parte inferior, el max en la parte superior).
+	<br />
+	Posibles valores: : <code>&quot;horizontal&quot;</code>, <code>&quot;vertical&quot;</code>.
+	<br />
+	<strong>Tipo: </strong><code>String</code>.
+	<br />
+	<strong>Default: </strong><code>&quot;horizontal&quot;</code>
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Slider con la opci&oacute;n <code>orientation</code> definida:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  orientation: <span class="string">&quot;vertical&quot;</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	Obtener o establecer la opci&oacute;n <code>orientation</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> orientation = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;orientation&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;orientation&quot;</span>, <span class="string">&quot;vertical&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina orientation#### -->
+	<br />
+	<!-- #### inicia range #### -->
+	<h4><font color="SteelBlue">range</font></h4>
+	Usado cuando el Slider requiere representar un rango.
+	<br />
+	<strong>Tipos: </strong><code>Boolean</code> y <code>String</code>.
+	<br />
+	<strong>Default: </strong><code>false</code>
+	<br /><br />
+	M&uacute;ltiples valores soportados:
+	<br />
+	<strong>Boolean</strong>: Con valor <code>true</code>, el Slider detecta los dos controles deslizantes y crea un elemento de rango entre las dos asas.
+	<br />
+	<strong>String</strong>: Puede ser <code>&quot;min&quot;</code> o <code>&quot;max&quot;</code>. El rango min va desde el valor m&iacute;nimo del Slider a el control deslizante.
+	 El rango max va desde el control deslizante a el valor m&aacute;ximo del Slider.
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Slider con la opci&oacute;n <code>animate</code> definida:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  range: <span class="literal">true</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	Obtener o establecer la opci&oacute;n <code>animate</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> range = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;range&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;range&quot;</span>, <span class="literal">true</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina range #### -->
+	<br />
+	<!-- #### inicia step #### -->
+	<h4><font color="SteelBlue">step</font></h4>
+	Determina el tama&ntilde;o o la cantidad de cada intervalo que tarda el control deslizante entre los valores m&iacute;nimo y m&aacute;ximo.
+	 El rango de valores completo de la corredera determinado (max - min) debe ser divisible por el valor establecido en <code>step</code>.
+	<br />
+	<strong>Tipo: </strong><code>Number</code>.
+	<br />
+	<strong>Default: </strong><code>1</code>
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Slider con la opci&oacute;n <code>step</code> definida:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  step: <span class="number">5</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	Obtener o establecer la opci&oacute;n <code>step</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> step = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;step&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;step&quot;</span>, <span class="number">5</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina step #### -->
+	<br />
+	<!-- #### inicia value #### -->
+	<h4><font color="SteelBlue">value</font></h4>
+	Determina el valor del deslizador, si s&oacute;lo hay un control deslizante. Si hay m&aacute;s de un control, determina el valor de la primera asa.
+	<br />
+	<strong>Tipo: </strong><code>Number</code>.
+	<br />
+	<strong>Default: </strong><code>0</code>
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Slider con la opci&oacute;n <code>value</code> definida:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  value: <span class="number">10</span></code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	Obtener o establecer la opci&oacute;n <code>value</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> value = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;value&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="number">10</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- #### termina value #### -->
+	<br />
+	<!-- #### inicia values #### -->
+	<h4><font color="SteelBlue">values</font></h4>
+	Esta opci&oacute;n se puede utilizar para especificar varios controles. Si la opci&oacute;n de rango se establece en true,
+	 la longitud de los valores debe ser de 2.	
+	<br />
+	<strong>Tipo: </strong><code>Array</code>
+	<br />
+	<strong>Default: </strong><code>null</code>
+	
+	<h5><strong>Ejemplos de C&oacute;digo</strong></h5>
+	Inicializando el Slider con la opci&oacute;n <code>value</code> definida:	
+	<div class="syntaxhighlighter javascript">
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  values: [ <span class="number">10</span>, <span class="number">25</span> ]</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	Obtener o establecer la opci&oacute;n <code>value</code>, despu&eacute;s de inicializar:
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code><span class="comment">// Getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> values = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;values&quot;</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;values&quot;</span>, [ <span class="number">10</span>, <span class="number">25</span> ] );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>	
+	<!-- #### termina values #### -->
+	<br />
+	<h3><strong>M&eacute;todos</strong></h3>
+	<table class="table table-striped">
+		<thead>
+			<tr class="table-bordered">
+				<th>M&eacute;todo</th>
+				<th>Descripci&oacute;n</th>
+				<th>Ejemplo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- #### Cada fila corresponde a un método #### -->
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">destroy()</font></strong></h5></td>
+				<td>Elimina la funcionalidad por completo. Esto devolver&aacute; el elemento de nuevo a su estado previo de inicio.
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;destroy&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">disable()</font></strong></h5></td>
+				<td>Inhabilita el Slider.
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;disable&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">enable()</font></strong></h5></td>
+				<td>Habilita el Slider.
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;enable&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">instance()</font></strong></h5></td>
+				<td>Recupera el objeto de instancia del control deslizante. Si el elemento no tiene una instancia asociada,
+				<br />devuelve undefined. A diferencia de otros m&eacute;todos de controles, <code>instance()</code> es seguro
+				<br />llamar en cualquier elemento despu&eacute;s de que el plugin de control deslizante se ha cargado.
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;instance&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">option(optionName)</font></strong></h5></td>
+				<td>Obtiene el valor especificado en <code>optionName</code>.
+				<br />Para las opciones que tienen objetos como su valor, se puede obtener el valor de una clave espec&iacute;fica
+				<br />mediante el uso de la notaci&oacute;n de punto. Por ejemplo, &quot;foo.bar&quot; obtendr&iacute;a el valor de
+				<br />la propiedad de barra en la opci&oacute;n foo.
+				<br /><strong>optionName</strong>: el nombre de la opci&oacute;n a obtener.
+				<br />Type: <code>String</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> isDisabled = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;disabled&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">option()</font></strong></h5></td>
+				<td>Recupera un objeto que contiene los pares de atributo/valor que representan las actuales opciones del Slider. 
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> options = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">option(optionName, value)</font></strong></h5></td>
+				<td>Establece el valor de la opci&oacute;n del Slider especificada en <code>optionName</code>.
+				<br />Para las opciones que tienen objetos como su valor, se puede establecer el valor de una propiedad
+				<br />espec&iacute;fica	mediante el uso de la notaci&oacute;n de punto. Por ejemplo, &quot;foo.bar&quot; actualiza
+				<br />el valor de la propiedad de barra en la opci&oacute;n foo.
+				<br /><strong>optionName</strong>: el nombre de la opci&oacute;n a obtener.
+				<br />Type: <code>String</code>
+				<br /><strong>value</strong>: el valor a establecer en la opci&oacute;n.
+				<br />Type: <code>Object</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, <span class="string">&quot;disabled&quot;</span>, <span class="literal">true</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">option(options)</font></strong></h5></td>
+				<td>Establece uno o m&aacute;s opciones al Slider.
+				<br /><strong>options</strong>: un mapa de pares de opciones-valores a establecer.
+				<br />Type: <code>Object</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;option&quot;</span>, { disabled: <span class="literal">true</span> } );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">value()</font></strong></h5></td>
+				<td>Obtiene el valor del Slider. 
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> selection = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;value&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">value(value)</font></strong></h5></td>
+				<td>Establece el valor al Slider.
+				<br /><strong>value</strong>: el valor a establecer.
+				<br />Type: <code>Number</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;value&quot;</span>, <span class="number">55</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">values()</font></strong></h5></td>
+				<td>Obtiene el valor de todos los controles deslizantes del Slider. 
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> selection = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;value&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">values(index)</font></strong></h5></td>
+				<td>Obtiene el valor para un control especificado.
+				<br /><strong>index</strong>: el &iacute;ndice del control.
+				<br />Type: <code>Integer</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> value = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;values&quot;</span>, <span class="number">0</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">values(index, value)</font></strong></h5></td>
+				<td>Establece el valor para un control especificado.
+				<br /><strong>index</strong>: el &iacute;ndice del control.
+				<br />Type: <code>Integer</code>
+				<br /><strong>value</strong>: el valor a establecer.
+				<br />Type: <code>Number</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;values&quot;</span>, <span class="number">0</span>, <span class="number">55</span> );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">values(values)</font></strong></h5></td>
+				<td>Establece el valor para todos los controles.
+				<br /><strong>index</strong>: el &iacute;ndice del control.
+				<br />Type: <code>Integer</code>
+				<br /><strong>values</strong>: los valores a establecer.
+				<br />Type: <code>Array</code></td>
+				<td>
+				<div class="code">
+				<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;values&quot;</span>, [ <span class="number">55</span>, <span class="number">105</span> ] );</code></div></div>
+				</td>
+			</tr>
+			<tr class="table-bordered">
+				<td><h5><strong><font color="SteelBlue">widget()</font></strong></h5></td>
+				<td>Regresa un objeto <code>jQuery</code> conteniendo el Slider. 
+				<br /><div style="font-style: italic;">Este m&eacute;todo no acepta ning&uacute;n argumento.</div></td>				
+				<td>
+				<div class="code">
+				<div class="line"><code><span class="keyword">var</span> widget = $( <span class="string">&quot;.selector&quot;</span> ).slider( <span class="string">&quot;widget&quot;</span> );</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<h3><strong>Eventos</strong></h3>
+	<!-- #### inicia change #### -->
+	<h4><font color="SteelBlue">change(event, ui)</font></h4>
+	Se activa cuando el usuario desliza un control deslizante, si el valor ha cambiado; o si el valor se cambia mediante c&oacute;digo a trav&eacute;s del m&eacute;todo <code>value</code>.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Object</code></p>
+		<ul>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>handle</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>jQuery</code>
+			<br/>
+			El objeto jQuery que representa el mango que se ha cambiado.</p>
+			</li>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>value</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>Number</code>
+			<br/>
+			El valor actual del Slider.</p>
+			</li>
+		</ul>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Slider con la llamada al evento <code>change</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  change: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	<!-- #### termina change #### -->
+	<!-- #### inicia create #### -->
+	<h4><font color="SteelBlue">create(event, ui)</font></h4>
+	Se activa cuando el Slider es creado.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">El objeto <code>ui</code> es vac&iacute;o pero es incluido para consistencia con los otros eventos.</p>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Slider con la llamada al evento <code>create</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  create: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	<!-- #### termina create #### -->
+	<!-- #### inicia slide #### -->
+	<h4><font color="SteelBlue">slide(event, ui)</font></h4>
+	Se activa en cada movimiento del mouse durante el deslizado. El valor proporcionado en el evento como <code>ui.value</code> representa el valor que el mango tendr&aacute; como resultado del movimiento actual.
+	 Cancelar el evento evitar&aacute; que el mango se mueva y el mango seguir&aacute; teniendo su valor anterior.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Object</code></p>
+		<ul>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>handle</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>jQuery</code>
+			<br/>
+			El objeto jQuery que representa el mango que se ha movido.</p>
+			</li>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>value</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>Number</code>
+			<br/>
+			El valor actual del Slider.</p>
+			</li>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>values</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>Array</code>
+			<br/>
+			Un arreglo de valores para un Slider de tipo rango.</p>
+			</li>
+		</ul>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Slider con la llamada al evento <code>slide</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  slide: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- #### termina slide #### -->
+	<!-- #### inicia start #### -->
+	<h4><font color="SteelBlue">start(event, ui)</font></h4>
+	Se activa cuando el usuario comienza el deslizado.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Object</code></p>
+		<ul>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>handle</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>jQuery</code>
+			<br/>
+			El objeto jQuery que representa el mango que se ha movido.</p>
+			</li>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>value</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>Number</code>
+			<br/>
+			El valor actual del Slider.</p>
+			</li>
+		</ul>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Slider con la llamada al evento <code>start</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  start: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- #### termina start #### -->
+	<!-- #### inicia stop #### -->
+	<h4><font color="SteelBlue">stop(event, ui)</font></h4>
+	Se activa despu&eacute;s de que el usuario ha movido el control.
+	<br/><br/>
+	<ul>		
+		<li style="list-style-position: inside;">
+		<strong>event</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Event</code></p>
+		</li>
+		<li style="list-style-position: inside;">
+		<strong>ui</strong>
+		<br/>
+		<p style="padding-left: 12px;">Tipo: <code>Object</code></p>
+		<ul>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>handle</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>jQuery</code>
+			<br/>
+			El objeto jQuery que representa el mango que ha sido movido.</p>
+			</li>
+			<li style="list-style-position: inside; padding: 5px;">
+			<strong>value</strong>
+			<br/>
+			<p style="padding-left: 12px;">Tipo: <code>Number</code>
+			<br/>
+			El valor actual del Slider.</p>
+			</li>
+		</ul>
+		</li>
+	</ul>	
+	<strong>Ejemplo.</strong> Inicializando el Slider con la llamada al evento <code>stop</code>:	
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+				<td>
+					<div class="container">
+					<div class="line"><code>$( <span class="string">&quot;.selector&quot;</span> ).slider({</code></div></div><div class="container"><div class="line"><code>  stop: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- #### termina stop #### -->
+</div> <!-- cierre de documentacion -->

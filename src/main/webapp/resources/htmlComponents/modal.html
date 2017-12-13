@@ -1,0 +1,100 @@
+<div id="modal">
+	
+	
+	<h4>Plugin Modal</h4>	
+	
+	
+		<!-- boton para lanzar el modal  -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Abrir Modal</button>
+		
+		
+		<div id="myModal" class="modal fade" role="dialog">		<!-- inicia Modal -->
+		  
+		  <div class="modal-dialog">	<!-- caja de dialogo -->
+		
+		    <!-- content-->
+		    <div class="modal-content">
+		      
+		      <!-- header -->
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		         <h4 class="modal-title">Encabezado del Modal</h4>
+		      </div>
+		      
+		      <!-- body -->
+		      <div class="modal-body">
+		        <p>Alg&uacute;n texto en el cuerpo del modal.</p>
+		      </div>
+		      
+		      <!-- footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div>
+		
+		  </div>					<!-- fin caja de dialogo -->
+		  
+		</div>				<!-- fin de modal -->				
+	
+</div>
+
+
+
+
+<div id="modalDoc">
+	
+	<h4>Plugin Modal</h4>
+	
+	<p>El plugin Modal es una ventana caja/popup que es desplegada sobre la p&aacute;gina actual.</p>
+	
+	<p><small><b>Nota:</b> El plugin puede ser incluido individualmente  (usando el archivo individual Bootstrap "modal.js"), 
+		 o todo de una vez (usando "bootstrap.js" o "bootstrap.min.js").</small></p>
+	
+	
+	<h4>Explicaci&oacute;n del ejemplo:</h4>
+	
+	<p>Para lanzar la ventana modal, necesita usar un bot&oacute;n o un link.
+		<br/>
+		
+		Entonces incluir los dos atributos data-* attributes:
+		<ul> 
+		<li><code>data-toggle="modal"</code> abre una ventana modal</li>
+		<li><code>data-target="#myModal"</code> apunta al id del modal</li>
+		</ul>
+		
+		<h5>La parte "Modal":</h5>
+
+		<p>La etiqueta padre <code>&lt;div&gt;</code> del modal debe tener un <b>ID</b> que el es mismo valor pasado en el atributo <code>data-target</code> usado para lanzar el modal ("myModal").
+		<br/>
+		La clase<code>.modal</code> identifica el contenido del elemento <code>&lt;div&gt;</code> como un modal y pone el foco en &eacute;l.
+		<br/>
+		La clase <code>.fade</code> d&aacute; el efecto de transici&oacute;n el cual aparece o desaparece el modal. Remueva esta clase si quiere eliminar este efecto.
+		<br/>
+		El atributo <code>role="dialog"</code> agrega la facilidad para personas que usan pantallas lectoras .
+		<br/> 
+		La clase <code>.modal-dialog</code> configura la propiedad ancho y el margen del modal.
+
+
+		<h5>El contenido del modal:</h5>
+
+		<p>La etiqueta <code>&lt;div&gt;</code> con la clase <code>class="modal-content"</code> estiliza el modal (bordes, color de fondo, etc.). Dentro del <code>&lt;div&gt;</code> se agrega el header, body, y el footer.
+		
+		La clase <code>.modal-header</code> es usada para definir el estilo para el header. El <code>&lt;button&gt;</code> dentro del header tiene el atributo 
+		<code>data-dismiss="modal"</code> el cual cierra el modal si hace click en &eacute;l. La clase <code>.close</code> estiliza el bot&oacute;n "close", 
+		y la clase <code>.modal-title</code> estiliza el header con una propiedad <code>line-height</code>.
+		<br/>
+		La clase <code>.modal-body</code> es usada para definir el estilo del cuerpo en el modal.
+		<br/>
+		La clase <code>.modal-footer</code> es usada para definir el estilo del footer. Note que esta area esta alineada a la derecha por default.</p>
+
+		<br/>
+		<br/>
+		
+		<h4>Tama&ntilde;o del Modal</h4>
+		
+		<p>Cambie el tama&ntilde;o del modal agregando la clase <code>.modal-sm</code> para modales peque&ntilde;os, la clase <code>.modal-lg</code> para modales grandes.
+		<br/>
+		Agregar estas clases al <code>&lt;div&gt;</code> que tiene la clase <code>.modal-dialog</code>.
+
+		
+</div>

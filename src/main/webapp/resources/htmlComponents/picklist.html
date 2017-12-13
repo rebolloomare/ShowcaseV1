@@ -1,0 +1,138 @@
+<div id="picklist">
+	<div class="container">
+		<div class="panel-heading">
+			<h3 class="panel-title">Notificaci&oacute;n a Afores</h3>
+		</div>
+		<div class="panel-body">
+		   <div id="pickList"></div>
+		   <br><br>
+		   <button class="btn btn-primary" id="getSelected">Mostrar Seleccionados</button>
+		   <textarea class="form-control" rows="5" id="dataSelect" value="hola"></textarea>
+		</div>
+	</div>
+</div>
+
+<div id="picklistScript">
+      <script type="text/javascript">
+		$(document).ready(function() {
+			creaPickList();
+		});      	 
+      </script>
+</div>
+<div id="picklistDoc">
+	<h3>Plugin PickList</h3>
+
+	<p>Es un plugin de selecci&oacute;n de lista potente y f&aacute;cil. Convierte un cuadro de selecci&oacute;n m&uacute;ltiple est&aacute;ndar en una lista de selecci&oacute;n que permite intercambiar elementos de lado a lado, uno o varios, con facilidad y rapidez.</p>
+	<br/>
+	<h4>Uso</h4>
+	<ol>
+		<li>Descargar e incluir la librer&iacute;a jQuery en la secci&oacute;n de cabecera de su p&aacute;gina.
+			<pre>
+				<code class="html">
+	&lt;script type="text/javascript" src="&lt;c:url value='resources/jquery/plugins/picklist/pickList.js'/&gt;"&gt;&lt;/script&gt;
+				</code>
+			</pre>
+		</li>
+		<li>Descargar e incluir el CSS en la secci&oacute;n de cabecera de su p&aacute;gina.
+			<pre>
+				<code class="html">
+	&lt;link href="resources/css/picklist/pickList.css'/" rel="stylesheet" type="text/css"&gt;
+				</code>
+			</pre>
+		</li>
+		<li>Generar un arreglo de objetos para la lista de la izquierda. indicando un <code>id</code> y un valor <code>text</code> para cada elemento de la lista 
+			<pre>
+				<code class="html">
+	var val = {
+		01: {id: 556, text: 'Azteca'},
+		02: {id: 552, text: 'Banamex'},
+		03: {id: 568, text: 'Coppel'},
+		04: {id: 550, text: 'Inbursa'},
+		05: {id: 562, text: 'Invercap'},
+		06: {id: 564, text: 'Metlife'},
+		07: {id: 578, text: 'Pensi&oacute;n ISSSTE'},
+		08: {id: 538, text: 'Principal'},
+		09: {id: 534, text: 'Profuturo GNP'},
+		10: {id: 544, text: 'Sura'},
+		11: {id: 530, text: 'XXI Banorte'}
+	};
+				</code>
+			</pre>
+		</li>
+		<li>Personalizar los bot&oacute;nes para intercambio de elementos entre las listas. (Paso opcional)
+			<pre>
+				<code class="html">
+	var etiquetas = {
+		add: 'Agrega Afore >',
+		addAll: 'Agregar Todas >>',
+		remove: '< Remover Afore',
+		removeAll: 'Remover Todas >>'
+	};
+				</code>
+			</pre>
+		</li>
+	</ol>
+	<br/>
+	<h3>Propiedades</h3>
+	<!-- -->
+	<h4>Etiquetas</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Nombre</th>
+            <th>Descripci&oacute;n</th>
+            <th style="width: 100px;">Tipo</th>
+            <th>Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>add</code></td>
+            <td>Etiqueta para mover a la derecha un elemento de la lista</td>
+            <td>String</td>
+            <td><code>Agregar &gt;</code></td>
+          </tr>
+          <tr>
+            <td><code>addAll</code></td>
+            <td>Etiqueta para mover a la derecha todos los elementos de la lista</td>
+            <td>String</td>
+            <td><code>Agregar Todos &gt;&gt;</code></td>
+          </tr>
+          <tr>
+            <td><code>remove</code></td>
+            <td>Etiqueta para mover a la izquireda un elemento de la lista</td>
+            <td>String</td>
+            <td><code>&lt; Remover</code></td>
+          </tr>
+          <tr>
+            <td><code>removeAll</code></td>
+            <td>Etiqueta para mover a la izquierda todos los elementos de la lista</td>
+            <td>String</td>
+            <td><code>&lt;&lt; Remover Todos</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+	<!-- -->
+	<h4>M&eacute;todos</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Nombre</th>
+            <th>Descripci&oacute;n</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>getValues</code></td>
+            <td>
+				Guarda en un arreglo de objetos los elementos en la lista de la derecha (seleccionados).
+				Los objetos se identifican por <code>id</code> y <code>text</code>
+			</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

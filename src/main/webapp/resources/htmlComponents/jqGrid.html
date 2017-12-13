@@ -1,0 +1,594 @@
+<div id="jqGrid">	
+			    
+	<table id="jqTable" class="scroll"></table>
+	<div id="jqTablePager"></div>
+	
+</div>
+
+
+<div id="jqGridScript">
+	<script type="text/javascript">
+		
+		    $(document).ready(function () {
+		    	cargaGrid();
+		    });
+		</script>
+
+</div>
+
+
+<div id="jqGridDoc">
+	
+	<h3>jqGrid</h3>
+	
+	<p>jqGrid es un control Ajax JavaScript que provee soluciones para la representaci&oacute;n 
+	y manipulaci&oacute;n de datos en forma de tablas en la WEB.</p>
+	<br />
+	<p>jqGrid usa una biblioteca jQuery Java Script que est&aacute; escrita como paquete plugin</p>
+	<br/>
+	
+	
+	
+	<h4>Configuraci&oacute;n de jqGrid</h4>
+	<p>Hay que agregar la referencia en el encabezado de la p&aacute;gina HTML a las siguientes 
+	librer&iacute;as <code>grid.css</code>, <code>jquery.js</code> y  <code>jquery.jqGrid.js</code></p>
+	
+	<pre><code>
+	&lt;head&gt;
+		&lt;link rel="stylesheet" type="text/css" media="screen"
+								href="themes/basic/<b>grid.css</b>" /&gt;
+		&lt;script src="<b>jquery.js</b>" type="text/javascript"&gt;&lt;/script&gt;
+		&lt;script src="<b>jquery.jqGrid.js</b>" type="text/javascript"&gt;&lt;/script&gt;
+		...
+	&lt;/head&gt;
+	</code></pre>
+	
+	
+	<p>En el cuerpo de la p&aacute;gina HTML (etiquetas <code>&lt;body&gt;</code>) 
+		se define el lugar donde va ir el grid usando el siguiente c&oacute;digo:</p>
+	
+	
+	<pre><code>
+	&lt;body&gt;
+		
+		&lt;<b>table</b> id="list" class="<b>scroll</b>"&gt;&lt;/table&gt; 
+		&lt;div id="pager" class="<b>scroll</b>" style="text-align:center;"&gt;&lt;/div&gt;
+	...
+	&lt;/body>
+	</code></pre>
+
+		<p>La definici&oacute;n del grid es via la etiqueta HTML.
+		<code>&lt;table&gt;</code> para hacernos la vida m&aacute;s f&aacute;cil hay que darle un id unico.</p>
+		<br>
+		 	
+		<p>La clase <b>"scroll"</b> le asigna estilos jqGrid a la tabla como: 
+		espaciado de celdas, tama&ntilde;o de celdas y atributos de bordes.</p>
+		
+		<p>Tenemos un mecanismo para agregar navegaci&oacute;n por paginaci&oacute;n, para esto
+		agregamos una etiqueta  <code>&lt;div&gt;</code> con la clase <b>"scroll"</b> para agregar estilos jqGrid.
+		Es importante notar que la capa de navegaci&oacute;n va ser situada
+		arbitrariamente en cualquier posici&oacute;n del navegador, normalmente bajo el grid</p>
+		
+		<br><br>	
+		
+		<h4>Iniciar el grid:</h4>	
+		<p>La sintaxis para construir el grid es: <code>jQuery('#grid_selector').jqGrid( options )</code></p>
+		<p>donde:</p>
+		<ul>	
+			<li><b>grid_selector</b> es un &uacute;nico id de la tabla (de acuerdo al ejemplo)</li>
+			<li><b>jqGrid</b> es el plugin.
+			<li><b>options</b> es un arreglo, en nuestro ejemplo muchas l&iacute;neas  son necesarias para construir el grid.</li>
+		</ul>
+		
+		<br>
+		<h4>Ejemplo de un arreglo de opciones:</h4>
+		<pre><code>
+		{ 	url:'example.jsp', 
+			datatype: 'xml', 
+			mtype: 'GET', 
+			colNames:['Inv No','Date', 'Amount','Tax','Total','Notes'], 
+			colModel :[ 
+				{name:'invid', index:'invid', width:55}, 
+				{name:'invdate', index:'invdate', width:90}, 
+				{name:'amount', index:'amount', width:80, align:'right'}, 
+				{name:'tax', index:'tax', width:80, align:'right'}, 
+				{name:'total', index:'total', width:80,align:'right'}, 
+				{name:'note', index:'note', width:150, sortable:false} ], 
+			pager: jQuery('#pager'), 
+			rowNum:10, 
+			rowList:[10,20,30], 
+			sortname: 'id', 
+			sortorder: 'desc', 
+			viewrecords: true, 
+			imgpath: 'themes/basic/images', 
+			caption: 'My first grid' }
+		</code></pre>
+		
+		
+		
+		<h4>Especificaci&oacute;n de la lista de opciones:</h4>
+		<div class="row">			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Propiedad</th>
+							<th>Descripci&oacute;n</th>						
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>url</td>
+							<td>Nos dice donde obtener los datos. T&iacute;picamente un programa del lado del servidor que retorna 
+								informaci&oacute;n apropiada para ser llenada en el cuerpo del grid</td>
+							
+						</tr>
+						<tr>
+							<td>datatype</td>
+							<td>Le dice a jqGrid el tipo de datos a ser retornado y as&iacute; poder construir el grid. 
+							En el ejemplo se usa json, pero otros tipos de datos pueden ser manejados como XML. </td>						
+						</tr>
+						<tr>
+							<td>mtype</td>
+							<td>Indica el tipo de llamada AJAX: 'GET' o 'POST'. </td>					
+						</tr>
+						
+						<tr>
+							<td>colNames</td>
+							<td>Es un arreglo para poner los nombre de las columnas. 
+										Los nombres deber ir separados por comas</td>					
+						</tr>						
+						
+						<tr>
+							<td>colModel</td>
+							<td>Un arreglo que describe el modelo de datos de las columnas. 
+								Esta es la parte m&aacute;s importante del grid. 
+							 <b>name</b> el nombre de la columna. Este nombre no tiene que ser el mismo de la base de datos, pero m&aacute;s adelante veremos 
+							 c&oacute;mo vamos a poder usarlos si tenemos columnas con distintos tipos de datos, indicando el nombre que es pasado al servidor en donde se
+							 va almacenar la informaci&oacute;n, as&iacute; que va decidir si pasar este dato dependiendo de lo que espera que el servidor haga con &eacute;l.
+							 <b>width</b> el ancho de la columna en pixeles. <b>align</b> el alineamiento de las columnas. <b>sortable</b> especifica 
+							 si este dato va poder ser ordenable en esta columna; el p&aacute;rametro debe ser true o false</td>
+						</tr>
+						
+						
+						<tr>
+							<td>pager</td>
+							<td>Indica si se va usar un paginador para navegar en los registros.</td>
+						</tr>
+						
+						
+						<tr>
+							<td>rowNum</td>
+							<td>Configura cuantos registros quiere ver en el grid. 
+							Este p&aacute;rametro es pasado por la url al servidor que obtiene los registros.</td>
+						</tr>
+						
+						<tr>
+							<td>rowList</td>
+							<td>Es un arreglo para construir un elemento selector en el paginador 
+								en el cual podemos seleccionar el n&uacute;mero de elementos visibles. 
+								Cuando es cambiado durante la ejecuci&oacute;n, este p&aacute;rametro reemplaza a <b>rowNum</b>
+								 que es pasado por la url.</td>
+						</tr>
+						
+						<tr>
+							<td>sortname</td>
+							<td>Configura la columna inicial para el ordenamiento. Puede ser un nombre o un n&uacute;mero. 
+								Este p&aacute;rametro es agregado a la url para uso del lado del servidor.</td>
+						</tr>
+						
+						
+						<tr>
+							<td>sortorder</td>
+							<td>Configura el ordenamiento. Este p&aacute;rametro es pasado por la url.</td>
+						</tr>
+						
+						
+						<tr>
+							<td>viewrecords</td>
+							<td>Define si queremos ver el total de registros desde el query
+							en la barra de paginaci&oacute;n.</td>
+						</tr>
+						
+						<tr>
+							<td>imgpath</td>
+							<td>La ruta a las im&aacute;genes necesarias para el Grid. 
+								La ruta no debe terminar con '/'.</td>
+						</tr>
+						
+						<tr>
+							<td>caption</td>
+							<td>Configura el t&iacute;tulo para el Grid. Si este p&aacute;rametro
+							no es configurado la capa t&iacute;tulo no ser&aacute; visible.</td>
+						</tr>
+						
+						
+					</tbody>
+				</table>
+			</div>
+			
+			<h4>Obteniendo los datos:</h4>
+			<p>Para obtener los datos se especifica el tipo de datos en las opciones mediante el p&aacute;rametro <b>datatype</b>.</p>
+			<br>
+			<p><b>datatype:</b> Las posibles opciones son - 'xml', 'json','clientSide' or 'local', 'xmlstring', 'jsonstring' y 'function (...)'</p>
+			<br>
+			
+			<p>El tipo de datos por default es XML.</p>
+			
+			<h4>Estructura esperada por default para un XML</h4>
+			<pre><code>
+			&lt;?xml version ="1.0" encoding="utf-8"?&gt; 
+			&lt;rows&gt; 
+				&lt;page&gt; &lt;/page&gt; 
+				&lt;total&gt; &lt;/total&gt; 
+				&lt;records&gt; &lt;/records&gt; 
+				&lt;row id="unique_rowid"&gt; 
+					&lt;cell&gt; cellcontent &lt;/cell&gt; 
+					&lt;cell&gt; &lt;![CDATA[&lt;font color="red"&gt;cell&lt;/font&gt; content]]&gt;&lt;/cell&gt; 
+					... 
+				&lt;/row&gt; 
+				&lt;row id="unique_rowid"&gt; 
+					&lt;cell&gt; cellcontent &lt;/cell&gt; 
+					&lt;cell&gt; &lt;![CDATA[&lt;font color="red"&gt;cell&lt;/font&gt; content]]&gt; &lt;/cell&gt;
+					... 
+				&lt;/row&gt;
+				... 
+			 &lt;/rows&gt;
+			</code></pre>
+			
+			<p>Las etiquetas son explicadas en la siguiente tabla:</p>
+			<div class="row">			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Etiqueta</th>
+							<th>Descripci&oacute;n</th>						
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>rows</td>
+							<td>the root tag for the grid</td>							
+						</tr>
+						
+						<tr>
+							<td>page</td>
+							<td>the number of the requested page</td>							
+						</tr>
+						
+						<tr>
+							<td>total</td>
+							<td>the total pages of the query</td>							
+						</tr>
+						
+						<tr>
+							<td>records</td>
+							<td>the total records from the query</td>							
+						</tr>
+						
+						<tr>
+							<td>row</td>
+							<td>a particular row in the grid</td>							
+						</tr>
+						
+						<tr>
+							<td>cell</td>
+							<td>the actual data. Note that CDATA can be used. This way we can add images, links and check boxes.</td>							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			
+			<h4>Si el p&aacute;rametro <b>datatype</b> es 'json', jqGrid espera el siguiente formato por default de datos json:</h4>
+			<pre><code>
+			{ 	total: "xxx", 
+				page: "yyy", 
+				records: "zzz", 
+				rows : [ 
+					{id:"1", cell:["cell11", "cell12", "cell13"]}, 
+					{id:"2", cell:["cell21", "cell22", "cell23"]},... ] }
+			</code></pre>
+			
+			
+			<p>Las etiquetas json son explicadas en la siguiente tabla:</p>
+			<div class="row">			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Etiqueta</th>
+							<th>Descripci&oacute;n</th>						
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>total</td>
+							<td>total pages for the query</td>							
+						</tr>
+						
+						<tr>
+							<td>page</td>
+							<td>current page of the query</td>							
+						</tr>
+						
+						<tr>
+							<td>total</td>
+							<td>the total pages of the query</td>							
+						</tr>
+						
+						<tr>
+							<td>records</td>
+							<td>the total records from the query</td>							
+						</tr>
+						
+						<tr>
+							<td>rows</td>
+							<td>an array that contains the actual data</td>							
+						</tr>
+						
+						<tr>
+							<td>id</td>
+							<td>the unique id of the row.</td>							
+						</tr>
+						
+						<tr>
+							<td>cell</td>
+							<td>an array that contains the data for a row.</td>							
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+			<p>Si el programa que retorna el XML o JSON tiene un formato distinto de datos al de default, se puede hacer un mapeo personalizado:</p>
+			<h4>Mapeo para el default XML mostrado anteriormente:</h4>
+			<pre><code>
+			xmlReader : { 
+				root: "rows", 
+				row: "row", 
+				page: "rows>page", 
+				total: "rows>total", 
+				records : "rows>records", 
+				repeatitems: true, 
+				cell: "cell", 
+				id: "[id]", 
+				subgrid: { 
+					root:"rows", 
+					row: "row", 
+					repeatitems: true, 
+					cell:"cell" } };
+			</code></pre>
+			<h4>El Mapeo para el json de default ser&iacute;a as&iacute;:</h4>
+			<pre><code>
+			jsonReader : { 
+				root: "rows", 
+				page: "page", 
+				total: "total", 
+				records: "records", 
+				repeatitems: true, 
+				cell: "cell", 
+				id: "id", 
+				subgrid: { 
+					root:"rows", 
+					repeatitems: true, 
+					cell:"cell" } }
+			</code></pre>
+			
+			
+			<p>Si tenemos el siguiente xml:</p>
+			<pre><code>
+				&lt;invoices&gt;
+					&lt;request&gt;true&lt;/request&gt;
+					...
+					&lt;currentpage&gt;1&lt;/currentpage&gt;
+					&lt;totalpages&gt;10&lt;/totalpages&gt;
+					&lt;totalrecords&gt;20&lt;/totalrecords&gt;
+					&lt;result&gt;
+						&lt;invoice&gt;
+							&lt;invcell&gt;data1&lt;/invcell&gt;
+							&lt;invcell&gt;data2&lt;/invcell&gt;
+							&lt;invcell&gt;data3&lt;/invcell&gt;
+							&lt;invcell&gt;data4&lt;/invcell&gt;
+							&lt;invcell&gt;data5&lt;/invcell&gt;
+							&lt;invcell&gt;data6&lt;/invcell&gt;
+						&lt;/invoice&gt;
+						...
+					&lt;/result&gt;
+				&lt;/invoices&gt;
+			</code></pre>
+			<p>El xml reader lucir&iacute;a como sigue:</p>
+			<pre><code>
+				xmlReader : { 
+					root:"result", 
+					row:"invoice", 
+					page:"invoices>currentpage",
+					total:"invoices>totalpages", 
+					records:"invoices>totalrecords",
+					repeatitems:true, 
+					cell:"invcell" }
+			</code></pre>
+			
+			<p>Si tenemos un xml con un id por fila:</p>
+			<pre><code>
+				&lt;invoices&gt;
+					&lt;request&gt;true&lt;/request&gt;
+					...
+					&lt;currentpage&gt;1&lt;/currentpage&gt;
+					&lt;totalpages&gt;10&lt;/totalpages&gt;
+					&lt;totalrecords&gt;20&lt;/totalrecords&gt;
+					&lt;result&gt;
+						&lt;invoice asin='12345'&gt;
+							&lt;invcell&gt;data1&lt;/invcell&gt;
+							&lt;invcell&gt;data2&lt;/invcell&gt;
+							&lt;invcell&gt;data3&lt;/invcell&gt;
+							&lt;invcell&gt;data4&lt;/invcell&gt;
+							&lt;invcell&gt;data5&lt;/invcell&gt;
+							&lt;invcell&gt;data6&lt;/invcell&gt;
+						&lt;/invoice&gt;
+						...
+					&lt;/result&gt;
+				&lt;/invoices&gt;
+			</code></pre>
+			
+			<p>En este caso el xml reader quedar&iacute;a como sigue:</p>
+			<pre><code>
+					xmlReader: { 
+						root:"result", 
+						row:"invoice", 
+						page:"invoices>currentpage",
+						total:"invoices>totalpages", 
+						records:"invoices>totalrecords",
+						repeatitems:true, 
+						cell:"invcell", 
+						id:"[asin]" }
+			</code></pre>
+			
+			<p>Ahora supongamos que tenemos un servidor que retorna un xml como sigue:</p>
+			<pre><code>
+				&lt;invoices&gt;
+					&lt;request&gt;true&lt;/request&gt;
+					...
+					&lt;currentpage&gt;1&lt;/currentpage&gt;
+					&lt;totalpages&gt;10&lt;/totalpages&gt;
+					&lt;totalrecords&gt;20&lt;/totalrecords&gt;
+					&lt;result&gt;
+						&lt;invoice&gt;
+							&lt;asin&gt;12345&lt;/asin&gt;
+							&lt;<b>invoiceno</b>&gt;data1&lt;/invoiceno&gt;
+							&lt;invoicedate&gt;data2&lt;/invoicedate&gt;
+							&lt;invoiceamount&gt;data3&lt;/invoiceamount&gt;
+							&lt;invoicetax&gt;data4&lt;/invoicetax&gt;
+							&lt;invoicetotal&gt;data5&lt;/invoicetotal&gt;
+							&lt;notes&gt;data6&lt;/notes&gt;
+						&lt;/invoice&gt;
+						...
+					&lt;/result&gt; 
+				&lt;/invoices&gt;
+			</code></pre>
+
+			<p>Donde la etiqueta <code>&lt;asin&gt;</code> describe un &uacute;nico id y este debe
+				ser asignado como id de fila en el grid pero sin que sea visualizado
+				en el grid. Siguiendo las reglas podemos construirlo as&iacute;</p>
+				
+				
+			<pre><code>
+				xmlReader: { 
+					root:"result", 
+					row:"invoice", 
+					page:"invoices>currentpage",
+					total:"invoices>totalpages", 
+					records:"invoices>totalrecords",
+					repeatitems:false, 
+					id:"asin" }
+			</code></pre>
+			
+			<p>y nuestro modelo del ejemplo debe quedar configurado as&iacute;:</p>
+			<pre><code>
+				colModel :[ 
+					{name:'invid', index:'invid', width:55, xmlmap:"<b>invoiceno</b>"}, 
+					{name:'invdate', index:'invdate', width:90, xmlmap:"invoicedate"}, 
+					{name:'amount', index:'amount', width:80, align:'right', xmlmap:"invoiceamount"}, 
+					{name:'tax', index:'tax', width:80, align:'right', xmlmap:"invoicetax"}, 
+					{name:'total', index:'total', width:80, align:'right', xmlmap:"invoicetotal"}, 
+					{name:'note', index:'note', width:150, sortable:false, xmlmap:"notes"} 
+				],
+				
+			</code></pre>
+			
+			<p>Podemos usar otro truco, Si los nombres de los campos 
+			en colModel no son importantes para usted, puede hacer lo siguiente:</p>
+			<pre><code>
+				colModel :[ 
+					{ name:"invoiceno", index:'invid', width:55}, 
+					{ name:"invoicedate", index:'invdate', width:90}, 
+					{ name:"invoiceamount", index:'amount', width:80, align:'right'}, 
+					{ name:"invoicetax", index:'tax', width:80, align:'right'}, 
+					{ name:"invoicetotal", index:'total', width:80, align:'right'}, 
+					{ name:"notes", index:'note', width:150, sortable:false} ],
+			</code></pre>
+
+			<p>En otras palabras, jqGrid primero ve si hay una opci&oacute;n xmlmap
+				disponible; si no existe, entonces el nombre es usado como xmlmap. 
+				Pero todo esto se cumple solo si <b>repeatitems</b> en el
+				xmlReader es puesto en false.</p>
+				
+			<h4>XML String</h4>
+
+	<p>La opci&oacute;n <b>xmlstring</b> tiene caracter&iacute;sticas similares a la opci&oacute;n xml. 
+	La &uacute;nica diferencia es que la informaci&oacute;n se pasa por una variable string</p>
+	<br>
+	<p>Ejemplo:</p>
+	<pre><code>
+		&lt;script&gt;
+		var mystr = "&lt;?xml version='1.0' encoding='utf-8'?&gt;
+		&lt;invoices&gt;
+			&lt;rows&gt;
+				&lt;row&gt;
+					&lt;cell&gt;data1&lt;/cell&gt;
+					&lt;cell&gt;data2&lt;/cell&gt;
+					&lt;cell&gt;data3&lt;/cell&gt;
+					&lt;cell&gt;data4&lt;/cell&gt;
+					&lt;cell&gt;data5&lt;/cell&gt;
+					&lt;cell&gt;data6&lt;/cell&gt;
+				&lt;/row&gt;
+			&lt;/rows&gt;
+		&lt;/invoices&gt;";
+	</code></pre>
+
+
+	<h4>JSON Data</h4>
+	<p>JSON data es manejado de forma muy parecida que un xml. 
+		Es importante que la definici&oacute;n de <b>jsonReader</b>
+		cuadre con los datos que van a recibirse, <b>datatype</b>: json, (o jsonstring)</p>
+	<br>
+	<p>Ejemplo si tenemos el siguiente jsonstring:</p>
+	<pre><code>
+	{ 	totalpages: "xxx", 
+		currpage: "yyy", 
+		totalrecords: "zzz", 
+		invdata: [
+			{invid:"1",invdate:"cell11", note:"somenote" }, 
+			{invid:"2",amount:"cell22", tax:"cell23", total:"2345" } ] 
+	}
+	</code></pre>
+	
+	<p>Entonces su correspondiente jsonReader valido ser&iacute;a:</p>
+	<pre><code>
+		jsonReader:{ 
+			root: "invdata", 
+			page: "currpage", 
+			total: "totalpages", 
+			records: "totalrecords", 
+			repeatitems: false, 
+			id: "invid" 
+			}
+	</code></pre>
+	<p>Si tenemos el siguiente jsonstring:</p>
+	
+	
+	
+	<pre><code>
+		{ 
+			totalpages: "xxx", 
+			currpage: "yyy", 
+			totalrecords: "zzz", 
+			invdata : [ 
+				{id:"1", invrow:["cell11", "cell12", "cell13"]}, 
+				{id:"2", invrow:["cell21", "cell22", "cell23"]} ] 
+		}
+	</code></pre>
+	
+	<p>Su correspondiente jsonreader ser&iacute;a:</p>
+	<pre><code>
+		jsonReader:{ 
+			root: "invdata", 
+			page: "currpage" 
+			total: "totalpages" 
+			records: "totalrecords", 
+			cell: "invrow" 
+		}
+	</code></pre>
+	
+	
+	
+
+</div>
+

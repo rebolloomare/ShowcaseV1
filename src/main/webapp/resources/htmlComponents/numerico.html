@@ -1,0 +1,39 @@
+    <style type="text/css">
+        body
+        {
+            font-size: 9pt;
+            font-family: Arial;
+        }
+    </style>
+
+<div id="numerico">
+    Numeric Value: <input type="text" id="text1" class = "numeric" />
+    <span class="error" style="color: Red; display: none">* Input digits (0 - 9)</span>
+</div>
+    <script type="text/javascript">
+    	alert();
+        var specialKeys = new Array();
+        specialKeys.push(8); //Backspace 
+        $(function () {
+            $(".numeric").bind("keypress", function (e) {
+                var keyCode = e.which ? e.which : e.keyCode
+                var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+                $(".error").css("display", ret ? "none" : "inline");
+                return ret;
+            });
+            $(".numeric").bind("paste", function (e) {
+                return false;
+            });
+            $(".numeric").bind("drop", function (e) {
+                return false;
+            });
+        });
+    </script>
+    
+<div id="numericoDoc">	
+
+	<h3>Labels & Badges</h3>
+
+	<p>Pendiente....</p>
+		
+</div>

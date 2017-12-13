@@ -1,0 +1,355 @@
+<div id="validation">
+	
+		
+	<h3>Plugin de validaci&oacute;n jQuery</h3>
+	
+	<br>
+	
+	<form action="" method="get" id="formValidate" class="form" role="form">
+	
+		<fieldset>			
+				<div class="form-group">
+					<label for="cname">Nombre (requerido, al menos 2 caracteres)</label>
+					<input type="text" class="form-control" minlength="2" name="nombre" id="cname" required>
+				</div>
+			
+				<div class="form-group">
+					<label for="cemail">E-Mail (requerido):</label>
+					<input type="email" class="form-control"  name="correo" id="cemail" required>
+				</div>
+			
+				<div class="form-group">
+					<label for="curl">URL (opcional)</label>
+					<input type="url" class="form-control" name="url" id="curl">
+				</div>
+			
+				<div class="form-group">
+					<label for="ccomment">Comentario (requerido)</label>
+					<textarea  class="form-control" name="comentario" id="ccomment" required></textarea>
+				</div>
+			
+			
+				<input type="submit" value="Enviar" class="btn btn-primary btn-block">
+			
+		</fieldset>
+	</form>
+
+	
+
+</div>
+
+<div id="validationScript">
+	<script>
+		$("#formValidate").validate({
+			 messages: {
+					nombre: "Por favor capture su nombre",
+				 	correo: {
+						required: "Necesitamos su email para contactarlo",
+						email: "El formato de su correo esta mal capturado"
+					},
+					comentario: "Por favor deje un comentario"
+					
+			}
+		});
+	</script>
+</div>
+
+<div id="validationDoc">
+	
+	<h3>Plugin de validaci&oacute;n jQuery</h3>
+	
+	
+
+	<p>Empezar a usarlo es tan simple como usar una linea de jQuery seleccionar una forma y aplicar
+		el plugin de validaci&oacute;n. <code>$("#id_de_la_forma").validate();</code></p> 
+		
+		
+	<p>Adem&aacute;s hay que agregar unas cuantas anotaciones a cada
+		elemento HTML para indicar las reglas de validaci&oacute;n. Por supuesto esta no es la
+		unica forma para especificar reglas, no se tiene que confiar solo en los
+		mensajes por default ya que estos se pueden personalizar</p>
+		
+	<p>Para agregar el plugin a su pagina HTML solo agregue la libreria 
+		<b>jquery.validate.js</b> o <b>jquery.validate.min.js</b> en el encabezado</p>
+	
+	<pre>
+		<code>
+			&lt;!-- plugin de validaci&oacute;n --&gt;
+			&lt;script type="text/javascript" src="<b>jquery.validate.min.js</b>"&gt;&lt;/script&gt;
+		</code>
+	</pre>
+	
+	<h4>Metodos del plugin</h4>
+
+	<p>Esta libreria agrega tres metodos del plugin jQuery, el punto de entrada principal va ser el metodo <code>validate</code>:</p>
+	<ul>
+	    <li><code>validate()</code> - Valida la forma seleccionada.</li>
+	    <li><code>valid()</code> - Comprueba si la forma seleccionada o los elementos seleccionados son validos.</li>
+	    <li><code>rules()</code> - Lee, agrega y remueve reglas a un elemento.</li>
+	</ul>
+	
+	
+	<h4>Selectors personalizados</h4>
+
+	<p>Esta libreria ademas extiende jQuery con tres selectores personalizados:</p>
+	<ul>
+	    <li>:blank - Selecciona todos los elementos con valor en blanco.</li>
+	    <li>:filled - Selecciona todos los elementos con un valor capturado.</li>
+	    <li>:unchecked - Selecciona todos los elementos que no estan comprobados.</li>
+	</ul>
+	
+	
+	<h4>Validator</h4>
+
+	<p>El metodo validate retorna un objeto <code>Validator</code> que tiene algunos
+	 metodos publicos methods los puede usar para lanzar validaci&oacute;n  programaticamente 
+	 o cambiar el contenido de la forma. El objeto validador tiene m&aacute;s metodos 
+	 pero solamente los documentados aqu&iacute; son destinados para el uso.</p>
+
+	<ul>
+	    <li><code>Validator.form()</code> - Valida la forma.</li>
+	    <li><code>Validator.element()</code> - Valida un simple elemento.</li>
+	    <li><code>Validator.resetForm()</code> - Restaura la forma controlada.</li>
+	    <li><code>Validator.showErrors()</code> - Muestra los mensajes especificados.</li>
+	    <li><code>Validator.numberOfInvalids()</code> - Retorna el numero de campos no validos.</li>
+	</ul>
+	
+	<p>Hay algunos metodos estaticos en el objeto <code>validator</code>:</p>
+	<ul>
+	    <li><code>jQuery.validator.addMethod()</code> - Agrega un metodo personalizado de validaci&oacute;n.</li>
+	    <li><code>jQuery.validator.format()</code> - Reemplaza {n} elementos con argumentos.</li>
+	    <li><code>jQuery.validator.setDefaults()</code> - Modifica las configuraciones por default para validaci&oacute;n.</li>
+	    <li><code>jQuery.validator.addClassRules()</code> - Add a compound class method.</li>
+	</ul>
+	
+	 <h4>Lista de metodos de validaci&oacute;n incluidos</h4>
+
+	<p>Un conjunto de metodos estandar de validaci&oacute;n estan integrados:</p>
+	
+	<ul>
+	    <li>required - Hace al elemento requerido.</li>
+	    <li>remote - Solicita nu recurso para hacer la validaci&oacute;n del elemento.</li>
+	    <li>minlength - Hace que el elemento acepte una minima longitud.</li>
+	    <li>maxlength - Hace que el elemento acepte una maxima longitud.</li>
+	    <li>rangelength - Hace que el elemento acepte un rango de longitudes.</li>
+	    <li>min - Hace que el elemento acepte un minimo.</li>
+	    <li>max - Hace que el elemento acepte un maximo.</li>
+	    <li>range - Hace que el elemento acepte un rango de valores.</li>
+	    <li>email - Hace que el elemento acepte como valor un email valido.</li>
+	    <li>url - Hace que el elemento acepte como valor una url valida.</li>
+	    <li>date - Hace que el elemento requiera una fecha.</li>
+	    <li>dateISO - Hace que el elemento requiera una fecha ISO.</li>
+	    <li>number - Hace que el elemento requiera un numero decimal.</li>
+	    <li>digits - Hace que el elemento acepte digitos solamente.</li>
+	    <li>creditcard - Hace que el elemento requiera un numero de tarjeta de credito.</li>
+	    <li>equalTo - Requiere que el elemento sea igual a otro.</li>
+	</ul>
+	<br>
+	
+	<h4>Metodos</h4> 
+	
+	<p><code>required()</code> retorna: Boolean</p>
+
+	<p><b>Descripci&oacute;n</b>: Hace al elemento requerido.</p>
+	
+	<p><code>required()</code></p>
+
+	
+
+	<p><code>required( expresion-dependencia )</code></p>
+	
+	<p>expresion-dependencia Tipo: String</p> 
+		<p>Una expresi&oacute;n (String) que
+		es evaluada. Su expresi&oacute;n puede usar filtros de selecci&oacute;n como: #foo:checked,
+		#foo:filled, #foo:visible.</p>
+	
+	<p><code>required( llamada-dependencia )</code></p>
+	
+    <p>llamada-dependencia <code>Tipo: Function()</code></p>
+	<p>La funci&oacute;n es ejecutada y si esta retorna true entonces el elemento va ser requerido.</p>
+
+
+
+
+
+	<h4>Ejemplos:</h4>
+	<p>De un grupo de tres numeros telefonicos asegurarse que al menos uno sea capturado</p>
+	<pre>
+		<code>
+		&lt;form id="myform"&gt;
+			&lt;label for="mobile_phone"&gt;Telefono movil: &lt;/label&gt;
+			&lt;input class="<b>phone-group</b>" id="mobile_phone" name="<b>mobile_phone</b>"&gt;
+			&lt;br /&gt;
+			&lt;label for="home_phone"&gt;Telefono de casa: &lt;/label&gt;
+			&lt;input class="<b>phone-group</b>" id="home_phone" name="<b>home_phone</b>"&gt;
+			&lt;br /&gt;
+			&lt;label for="work_phone"&gt;Telefono de trabajo: &lt;/label&gt;
+			&lt;input class="<b>phone-group</b>" id="work_phone" name="<b>work_phone</b>"&gt;
+			&lt;br /&gt;
+			&lt;input type="submit" value="Valida!"&gt;
+		&lt;/form&gt;
+		
+		&lt;script&gt;		
+		$( "#myform" ).validate({
+			rules: {
+				<b>mobile_phone</b>: {
+					require_from_group: [1, ".phone-group"]
+				},
+				<b>home_phone</b>: {
+					require_from_group: [1, ".phone-group"]
+				},
+				<b>work_phone</b>: {
+					require_from_group: [1, ".phone-group"]
+				}
+			}
+		});
+		&lt;/script&gt;
+		</code>
+	</pre>
+	
+	<p>Hace que el campo requiera una URL.</p>
+	<pre>
+		<code>
+		&lt;form id="myform"&gt;
+			&lt;label for="field"&gt;Capture la URL (requerido): &lt;/label&gt;
+			&lt;input class="left" id="field" name="<b>campoURL</b>"&gt;
+			&lt;br/&gt;
+			&lt;input type="submit" value="Valida!"&gt;
+		&lt;/form&gt;
+		&lt;script type="text/javascript"&gt;
+		$( "#myform" ).validate({
+			rules: {
+				<b>campoURL</b>: {
+				required: true,
+				url: true
+				}
+			}
+		});
+		&lt;/script&gt;
+		
+		</code>
+	</pre>
+	
+	<p>Hace al campo detalles requerido al dar click al habilitar el  checkbox #otro.</p>
+	<pre>
+		<code>
+		&lt;form id="myform"&gt;
+			&lt;label for="otro"&gt;Dale check para hacer al otro campo requerido:&lt;/label&gt;
+			&lt;input id="<b>otro</b>" type="checkbox"&gt;
+			&lt;br&gt;
+			&lt;input id="detalle" name="detalle"&gt;
+			&lt;br&gt;
+			&lt;input type="submit" value="Valida!"&gt;
+		&lt;/form&gt;
+		
+		&lt;script type="text/javascript"&gt;
+			$( "#myform" ).validate({
+					rules: {
+					detalle: {
+					required: "#<b>otro</b>:checked"
+					}
+				}
+			});
+		&lt;/script&gt;
+		
+		</code>
+	</pre>
+	
+	
+	<p>Hace a "padre" requerido solo si edad es menor que 13.</p>
+	<pre>
+	<code>
+		&lt;form id="myform"&gt;
+			&lt;label&gt;Edad: &lt;/label&gt;
+			&lt;input id="edad" name="edad"&gt;
+			&lt;br&gt;
+			&lt;label&gt;Padre: &lt;/label&gt;
+			&lt;input id="padre" name="padre"&gt;
+			&lt;br&gt;
+			&lt;input type="submit" value="Valida!"&gt;
+		&lt;/form&gt;
+		&lt;script type="text/javascript"&gt;
+		$( "#myform" ).validate({
+			rules: {
+				edad: {
+					required: true,
+					min: 3
+				},
+				padre: {
+					required: function(element) {
+						return $("#age").val() < 13;
+					}
+				}
+			}
+		});
+		&lt;/script&gt;
+	</code>
+	</pre>
+	<br>
+	<br>
+	
+	<h4>Usando el metodo remote</h4>
+	
+	<p><code>remote( options ) Retorna: Boolean</code>
+	<p><b>Descripci&oacute;n</b>: Solicita un recurso remotamente para validar un elemento</p>
+	<br>
+	<b>options</b>
+	<p><b>Tipo</b>: Object</p>
+	<p>Para la URL del recurso de validaci&oacute;n de la petici&oacute;n hacia el servidor
+		(String) u options para personalizar totalmente la solicitud.</p>
+
+	<p>
+		Estas opciones van a profundizar extender lo prestablecido
+		<code>(tipoDeDato:"json",
+			data:{nombreDelElemento:valorDelElemento})</code>
+		 cualquier opci&oacute;n que usted indique va sobreescribir a las de default.
+	</p>
+	
+	<h4>Ejemplos:</h4>
+
+
+	<p>Hace al campo email requerido, se realiza una solicitud remota a
+		un programa que que valida si la direcci&oacute;n de correo capturada ya
+		existe.</p>
+	<pre>
+		<code>
+		$( "#myform" ).validate({
+			rules: {
+				email: {
+					required: true,
+					email: true,
+					remote: "valida-email.jsp"
+				}
+			}
+		});
+		</code>
+	</pre>
+
+	<p>Hace al campo email requerido, se realiza una solicitud remota a
+		un programa que que valida si la direcci&oacute;n de correo capturada
+		ya existe. Adicionalmente el metodo http es configurado a "post" y el
+		username es enviado al lado de la direcci&oacute;n de correo.</p>
+	<pre>
+		<code>	
+			$( "#myform" ).validate({
+				rules: {
+					email: {
+						required: true,
+						email: true,						
+						remote: {
+							url: "valida-email.jsp",
+							type: "post",
+							data: {
+									username: function() {
+									return $( "#username" ).val();
+									}
+								}
+						}
+					}
+				}
+			});
+		</code>
+	</pre>
+
+
+</div>

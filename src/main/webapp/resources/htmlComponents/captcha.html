@@ -1,0 +1,195 @@
+
+<div id="captcha">
+
+		<!-- texto -->
+		<div class="form-group">
+		<div class="col-md-6 col-md-offset-3">  
+		<label for="usr">Por favor ingresa las siguientes letras desplegadas:</label>
+		<br/>
+		<label for="text" style="color: gray;">Click en la imagen para cambiarla</label>
+			<input class="form-control" id="defaultReal" type="text" name="defaultReal">
+		</div>
+		<br/>
+		</div>
+		
+		<!-- alerta -->
+		<div class="form-group">
+     	<div class="col-md-6 col-md-offset-3">
+     		<br/>
+			<div id="ok" class="alert alert-success" style="display: none;">&#161;Correcto&#33;</div>
+			<div id="notOk" class="alert alert-danger" style="display: none;">&#161;Error&#33; por favor intenta de nuevo... </div>
+		</div>
+		
+		<div class="form-group">
+     	<div class="col-md-6 col-md-offset-3">
+     		<br/>
+			<!-- boton submit -->
+			<button class="btn btn-primary" onclick="compare();">Enviar</button>
+     	</div>
+     	</div>
+	</div>		
+</div>
+
+<div id="captchaScript">
+	<script type="text/javascript">
+		
+		    $(document).ready(function () {
+		    	generaCaptcha();
+		    });
+		</script>
+
+</div>
+<div id="captchaDoc">
+
+	<h3>Captcha Plugin</h3>
+
+	<p>Este plugin est&aacute; dise&ntilde;ado para ayudar a superar el env&iacute;o autom&aacute;tico de formularios al exigir una "persona real" 
+	   para identificar el texto compuesto de puntos. El valor introducido se compara en el servidor con el valor generado para determinar 
+	   si el proceso debe continuar.
+
+	   La funcionalidad del plugin real person se pueden a&ntilde;adir f&aacute;cilmente a un campo de entrada con la configuraci&oacute;n predeterminada 
+	   correspondiente. Tambi&eacute;n puede eliminar la funcionalidad real de la persona si ya no es necesario.
+	</p>
+	<br/>
+	<h4>Uso</h4>
+<ol>
+<li>Incluir la librer&iacute;a jQuery en la secci&oacute;n de cabecera de su p&aacute;gina.
+	<pre><code class="html">&lt;script type="text/javascript" src="&lt;c:url value='/resources/jquery/core/js/jquery.js'/&gt;"&gt;&lt;/script&gt;</code></pre>
+</li>
+<li>Descargar e incluir el CSS jQuery Real Person y JavaScript en la secci&oacute;n de cabecera de su p&aacute;gina.
+	<pre><code class="html">&lt;link href="/resources/css/jquery.realperson.css'/" rel="stylesheet" type="text/css"&gt;
+&lt;script type="text/javascript" src="&lt;c:url value='/resources/jquery/core/js/jquery.plugin.js'/&gt;"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="&lt;c:url value='/resources/jquery/core/js/jquery.realperson.js'/&gt;"&gt;&lt;/script&gt;</code></pre>
+    
+    <small><b>Nota:</b> alternativamente, puedes usar la versi&oacute;n minimizada
+	<code>jquery.realperson.min.js</code></small>
+</li>
+
+<br/>
+<br/>	
+	<h4>Configuraci&oacute;n de instancia</h4>
+		<p>Personaliza cada campo de entrada con la configuraci&oacute;n siguiente ( todos son opcionales ):</p>
+		<pre><code>$(selector).realperson({length: 4});</code></pre>
+		<p>
+			<a href="#chars">chars</a> |
+			<a href="#dot">dot</a> |
+			<a href="#dots">dots</a> |
+			<a href="#hashName">hashName</a> |
+			<a href="#includeNumbers">includeNumbers</a> |
+			<a href="#length">length</a> |
+			<a href="#regenerate">regenerate</a>
+		</p>
+		<table>
+		<thead>
+		<tr><th>Nombre</th><th>&nbsp;&nbsp;&nbsp;</th><th>Tipo</th><th>&nbsp;&nbsp;&nbsp;</th><th>Default</th><th>&nbsp;&nbsp;&nbsp;</th><th>Comentario</th></tr>
+		</thead>
+		<tbody>
+		<tr><td id="length">length</td><td></td><td>number</td><td></td><td>6</td><td></td>
+			<td>El n&uacute;mero de caracteres a introducir.</td></tr>
+		<tr><td id="includeNumbers">includeNumbers</td><td></td><td>boolean</td><td></td><td>false</td><td></td>
+			<td>Se establece en true para incluir los d&iacute;gitos del 0 al 9 en los caracteres
+				utilizados para generar la cadena de desaf&iacute;o. De lo contrario s&oacute;lo se
+				utilizan los caracteres alfab&eacute;ticos.<br><br>
+		<tr><td id="regenerate">regenerate</td><td></td><td>string</td><td></td><td>'Click to change'</td><td></td>
+			<td>El texto que se mostrar&aacute; para informar al usuario de que pueden hacer clic en el desaf&iacute;o
+				de generar un nuevo valor - en caso de que no se puede leer f&aacute;cilmente el valor original.</td></tr>
+		<tr><td id="hashName">hashName</td><td></td><td>string</td><td></td><td>'{n}Hash'</td><td></td>
+			<td>El nombre del campo a utilizar para el valor hash que corresponde con el texto del desaf&iacute;o. 
+				Usar ' ( n }' en el entorno de sustituir el nombre del campo de entrada original</td></tr>
+		<tr><td id="dot">dot</td><td></td><td>string</td><td></td><td>'*'</td><td></td>
+			<td>El car&aacute;cter utilizado para generar los patrones de puntos de las letras de desaf&iacute;o.<br><br>
+		<tr><td id="dots">dots</td><td></td><td>string[][]</td><td></td><td>$.realperson.defaultDots</td><td></td>
+			<td>Cada entrada en el nivel superior suministra los patrones de puntos para la posici&oacute;n 
+				correspondiente en <code>chars</code>. Cada entrada es una matriz de cadenas 
+				que proporcionan la l&iacute;nea de salto de l&iacute;nea abajo del patr&oacute;n de puntos.
+				Usar <code>$.realperson.defaultDots</code> para la configuraci&oacute;n default.<br><br>
+				<pre><code>dots: ['   *   ', '  * *  ', '  * *  ', ' *   * ',
+		' ***** ', '*     *', '*     *'], // A
+	['****** ', '*     *', '*     *', '****** ',
+		'*     *', '*     *', '****** '], // B
+	...</code></pre><br>
+		<tr><td id="chars">chars</td><td></td><td>string</td><td></td><td>$.realperson.alphabetic</td><td></td>
+			<td>La lista de caracteres para generar el reto. El patr&oacute;n para cada car&aacute;cter 
+				se toma de la posici&oacute;n correspondiente en <code>dots</code>.
+				Puedes utilizar <code>$.realperson.alphabetic</code> &oacute; <code>$.realperson.alphanumeric</code>
+				para las secuencias de caracteres estandar.<br><br>
+				<pre><code>chars: 'ABCDEF'
+chars: $.realperson.alphanumeric</code></pre><br>
+		</tbody>
+		</table>
+
+	<br/>
+	<br/>	
+	<h4>Funciones</h4>
+		
+		<p>
+			<a href="#destroy">destroy</a> |
+			<a href="#disable">disable</a> |
+			<a href="#enable">enable</a> |
+			<a href="#getHash">getHash</a> |
+			<a href="#optionget">option (get)</a> |
+			<a href="#optionset">option (set)</a> |
+			<a href="#setDefaults">setDefaults</a>
+		</p>
+		<table>
+		<thead>
+		<tr><th>Signature</th><th>&nbsp;&nbsp;&nbsp;</th><th>Returns</th><th>&nbsp;&nbsp;&nbsp;</th><th>Comments</th></tr>
+		</thead>
+		<tbody>
+		<tr><td id="setDefaults">$.realperson.setDefaults(settings)</td><td></td><td>RealPerson object</td><td></td>
+			<td>Actualiza la configuraci&oacute;n de instancia predeterminado para utilizar con todas las instancias de RealPerson.</td></tr>
+		<tr><td id="optionset">$(selector).realperson('option', options)</td><td></td><td>jQuery object</td><td></td>
+			<td>Actualiza la configuraci&oacute;n de la instancia(s) persona real conectado a la entrada(s) dada.<br><br>
+				<code>options</code> (object) la colecci&oacute;n de nuevas configuraciones.<br><br>
+				<pre><code>$(selector).realperson('option', {length: 8, includeNumbers: false});</code></pre><br>
+		<tr><td>$(selector).realperson('option', name, value)</td><td></td><td>jQuery object</td><td></td>
+			<td>Actualizaci&oacute;n de una configuraci&oacute;n particular de la instancia(s) de RealPerson conectadas a la entrada dada(s).<br><br>
+				<code>name</code> (string) el nombre de la configuraci&oacute;n a cambiar;<br>
+				<code>value</code> (any) el nuevo valor de esa configuraci&oacute;n.<br><br>
+				<pre><code>$(selector).realperson('option', 'length', 8);</code></pre><br>
+		<tr><td id="optionget">$(selector).realperson('option', name)</td><td></td><td>object or any</td><td></td>
+			<td>Recuperar una o todas las opciones actuales de la primera instancia RealPerson adjuntas a la entrada(s) dada.<br><br>
+				<code>name</code> (string, optional) el nombre de las configuraciones a recuperar;
+				omitir para todos los ajustes.<br><br>
+				<pre><code>var settings = $(selector).realperson('option');
+var length = $(selector).realperson('option', 'length');</code></pre><br>
+		<tr><td id="enable">$(selector).realperson('enable')</td><td></td><td>jQuery object</td><td></td>
+			<td>Habilitar la funcionalidad de RealPerson para la entrada(s) dada.<br><br>
+		<tr><td id="disable">$(selector).realperson('disable')</td><td></td><td>jQuery object</td><td></td>
+			<td>Desactivar la funcionalidad de RealPerson para la entrada(s) dada.<br><br>
+		<tr><td id="getHash">$(selector).realperson('getHash')</td><td></td><td>number</td><td></td>
+			<td>Recuperar el valor hash para el texto que se muestra actualmente .<br><br>
+		<tr><td id="destroy">$(selector).realperson('destroy')</td><td></td><td>jQuery object</td><td></td>
+			<td>Retirar la funcionalidad de RealPerson desde la entrada(s) dada.</td></tr>
+		</tbody>
+		</table>
+	
+	
+	<br/>
+	<br/>
+	<h4>Salt</h4>
+	
+		<p>Haga su desaf&iacute;o m&aacute;s seguro, proporcionando un valor salt desde el servidor.
+Este valor se combina con el texto aleatorio para generar el valor hash.</p>
+		<p>Puede suministrar el valor de salt mediante el establecimiento <code>$.salt</code> directamente antes de cargar el plugin RealPerson.
+El valor se elimina despu&eacute;s de ser salvado por el plugin para evitar que otros vean el c&oacute;digo
+(Sin embargo todav&iacute;a ser&iacute;a visible en la fuente de la p&aacute;gina).</p>
+		<pre><code class="html">&lt;script>$.salt = '123456';&lt;/script>
+&lt;script src="js/jquery.realperson.js">&lt;/script></code></pre>
+		<p>Como alternativa, se puede suministrar el valor salt como el valor de un campo oculto con un ID de "salt" .
+El campo se borra despu&eacute;s de haber sido salvado por el plugin para evitar que otros vean que en el c&oacute;digo
+(Sin embargo todav&iacute;a ser&iacute;a visible en la fuente de la p&aacute;gina ) .</p>
+		<pre><code class="html">&lt;input type="hidden" id="salt" value="123456"></code></pre>
+		<p>Tambi&eacute;n puede utilizar el <code>$.salt</code> valor para ajustar el selector para el campo oculto .</p>
+		<pre><code class="html">&lt;script>$.salt = '#mysalt';&lt;/script>
+...
+&lt;input type="hidden" id="mysalt" value="123456"></code></pre>
+		<p>U obtener el valor a trav&eacute;s de una llamada Ajax .</p>
+		<pre><code class="html">&lt;script>
+$.ajax({url: 'salted.php', async: false, success: function(result) {
+	$.salt = result;
+}});
+&lt;/script>
+&lt;script src="js/jquery.realperson.js">&lt;/script></code></pre>
+	
+</div>

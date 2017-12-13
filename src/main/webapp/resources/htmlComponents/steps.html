@@ -1,0 +1,502 @@
+<div id="steps">
+	<form id="profileForm" method="post" class="form-horizontal">
+		<!-- El primer paso -->
+		<h2>Datos Personales</h2>
+		<section data-step="0">
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="cnombre">Nombre(s)</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="cnombre" name="cnombre" placeholder="Su Nombre(s)" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="cpaterno">Apellido Paterno</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="cpaterno" name="cpaterno" placeholder="Su Apellido Paterno" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="cmaterno">Apellido Materno</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="cmaterno" name="cmaterno" placeholder="Su Apellido Materno" />
+				</div>
+			</div>
+		</section>
+		<!-- El segundo paso -->
+		<h2>Usuario</h2>
+		<section data-step="1">
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="username1">Usuario</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="username1" name="username1" placeholder="Usuario" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="email1">Email</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" id="email1" name="email1" placeholder="Email" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="password1">Password</label>
+				<div class="col-sm-5">
+					<input type="password" class="form-control" id="password1" name="password1" placeholder="Password" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="confirm_password1">Confirmar password</label>
+				<div class="col-sm-5">
+					<input type="password" class="form-control" id="confirm_password1" name="confirm_password1" placeholder="Confirmar password" />
+				</div>
+			</div>
+		</section>
+		<!-- El tercer paso -->
+		<h2>Confirmar Datos</h2>
+		<section data-step="2">
+			<div class="form-group">
+				<div class="col-sm-5 col-sm-offset-4">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" id="agree1" name="agree1" value="agree" />Declaro que los datos proporcionados son correctos
+						</label>
+					</div>
+				</div>
+			</div>
+		</section>
+	</form>
+		<!-- El modal que se muestra al termino del formulario -->
+	<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Bienvenido</h4>
+				</div>
+				<div class="modal-body">
+					<p>Gracias por registrarse con nosotros</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="stepsScript">
+	<script type="text/javascript">
+		$(document).ready(function() {
+			creaSteps();
+		});
+	</script>
+</div>
+<div id="stepsDoc">
+   <h3><strong>Formulario con Asistente Paso a Paso</strong></h3>
+
+   <h3>Plugin jQuery Steps</h3>
+   <p>JQuery Steps es un componente de interfaz de usuario inteligente que te permite crear f&aacute;cilmente interfaces de tipo asistente.
+   Este complemento agrupa el contenido en secciones para obtener una vista de p&aacute;gina m&aacute;s estructurada y ordenada.
+   Adem&aacute;s, es tan simple como 1-2-3 agregar complementos como jQuery Validation que puede evitar el cambio de pasos o la presentaci&oacute;n.</p>
+
+   <h4>Uso</h4>
+	<ol>
+		<li>Descargar e incluir la librer&iacute;a jQuery en la secci&oacute;n de cabecera de su p&aacute;gina.
+			<pre>
+				<code class="html">
+	&lt;script type="text/javascript" src="&lt;c:url value='resources/jquery/plugins/steps/jquery.steps.min.js'/&gt;"&gt;&lt;/script&gt;
+				</code>
+			</pre>
+		</li>
+		<li>Descargar e incluir el CSS en la secci&oacute;n de cabecera de su p&aacute;gina.
+			<pre>
+				<code class="html">
+	&lt;link href="/resources/css/steps/jquery.steps.css'/" rel="stylesheet" type="text/css"&gt;
+				</code>
+			</pre>
+		</li>
+	</ol>
+
+	<br/>
+
+	<h3>Configuraci&oacute;n</h3>
+	<!-- -->
+	<h4>Apariencia</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Nombre de configuraci&oacute;n</th>
+            <th>Descripci&oacute;n</th>
+            <th style="width: 100px;">Tipo</th>
+            <th style="width: 100px;">Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>headerTag</code></td>
+            <td>La etiqueta de encabezado se utiliza para buscar el texto del bot&oacute;n de paso dentro del &aacute;rea del asistente declarada.</td>
+            <td>String</td>
+            <td><code>h1</code></td>
+          </tr>
+          <tr>
+            <td><code>bodyTag</code></td>
+            <td>La etiqueta de cuerpo se utiliza para encontrar el contenido del paso dentro del &aacute;rea del asistente declarada.</td>
+            <td>String</td>
+            <td><code>div</code></td>
+          </tr>
+          <tr>
+            <td><code>contentContainerTag</code></td>
+            <td>La etiqueta del contenedor de contenido que se usar&aacute; para envolver todo el contenido del paso.</td>
+            <td>String</td>
+            <td><code>div</code></td>
+          </tr>
+          <tr>
+            <td><code>actionContainerTag</code></td>
+            <td>La etiqueta de contenedor de acci&oacute;n que se usar&aacute; para envolver la navegaci&oacute;n de paginaci&oacute;n.</td>
+            <td>String</td>
+            <td><code>div</code></td>
+          </tr>
+          <tr>
+            <td><code>stepsContainerTag</code></td>
+            <td>La etiqueta de contenedor de pasos que se utilizar&aacute; para envolver la navegaci&oacute;n de pasos.</td>
+            <td>String</td>
+            <td><code>div</code></td>
+          </tr>
+          <tr>
+            <td><code>cssClass</code></td>
+            <td>La clase css que se agregar&aacute; al contenedor externo.</td>
+            <td>String</td>
+            <td><code>wizard</code></td>
+          </tr>
+          <tr>
+            <td><code>stepsOrientation</code></td>
+            <td>Determina si los pasos est&aacute;n orientados vertical u horizontalmente. Puede tener los valores: <br><code>horizontal</code> &oacute; 0<br><code>vertical</code> &oacute; 1</td>
+            <td>String &oacute; Integer</td>
+            <td><code>horizontal</code> &oacute; <code>0</code></td>
+          </tr>
+        </tbody>
+      </table>
+	<!-- -->
+	<h4>Plantillas</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Nombre de configuraci&oacute;n</th>
+            <th>Descripci&oacute;n</th>
+            <th style="width: 100px;">Tipo</th>
+            <th>Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>titleTemplate</code></td>
+            <td>La plantilla de t&iacute;tulo que se utilizar&aacute; para crear un bot&oacute;n de paso.</td>
+            <td>String</td>
+            <td><code>&lt;span class=&quot;number&quot;&gt;#index#.&lt;/span&gt; #title#</code></td>
+          </tr>
+          <tr>
+            <td><code>loadingTemplate</code></td>
+            <td>La plantilla de carga que se utilizar&aacute; para crear la animaci&oacute;n de carga.</td>
+            <td>String</td>
+            <td><code>&lt;span class=&quot;spinner&quot;&gt;&lt;/span&gt; #text#</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+	<!-- -->
+	<h4>Comportamiento</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Nombre de configuraci&oacute;n</th>
+            <th>Descripci&oacute;n</th>
+            <th style="width: 100px;">Tipo</th>
+            <th style="width: 100px;">Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>autoFocus</code></td>
+            <td>Establece el foco en la primera instancia del asistente para habilitar la navegaci&oacute;n de las teclas desde el principio si es <code>true</code>.</td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>enableAllSteps</code></td>
+            <td>Habilita todos los pasos desde el principio de true (todos los pasos se pueden hacer clic).</td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>enableKeyNavigation</code></td>
+            <td>Habilite la navegaci&oacute;n del teclado si es <code>true</code> (flecha izquierda y flecha derecha).</td>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td><code>enablePagination</code></td>
+            <td>Habilite la paginaci&oacute;n (siguiente, anterior y final) si es <code>true</code>.</td>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td><code>suppressPaginationOnFocus</code></td>
+            <td>Suprime la paginaci&oacute;n si se centra un campo de formulario.</td>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td><code>enableContentCache</code></td>
+            <td>Habilitar cach&eacute; para el contenido incrustado async o iframe.</td>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td><code>enableCancelButton</code></td>
+            <td>Muestra el bot&oacute;n cancelar si est&aacute; activado.</td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>enableFinishButton</code></td>
+            <td>Muestra el bot&oacute;n Finalizar si est&aacute; habilitado.</td>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td><code>showFinishButtonAlways</code></td>
+            <td>Muestra el bot&oacute;n de finalizar siempre (en cada paso, al lado del siguiente bot&oacute;n) si es <code>true</code>. De lo contrario, el siguiente bot&oacute;n ser&aacute; reemplazado por el bot&oacute;n Finalizar si el &uacute;ltimo paso se activa.</td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>forceMoveForward</code></td>
+            <td>Evita saltar a un paso anterior.</td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>saveState</code></td>
+            <td>Guarda el estado actual (posici&oacute;n de paso) en una cookie. Llegando la pr&oacute;xima vez se activar&aacute; el &uacute;ltimo paso activo.</td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
+            <td><code>startIndex</code></td>
+            <td>La posici&oacute;n de inicio (inicia en cero).</td>
+            <td>Integer</td>
+            <td><code>0</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+	<!-- -->
+	<h4>Efectos de transici&oacute;n</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Nombre de configuraci&oacute;n</th>
+            <th>Descripci&oacute;n</th>
+            <th style="width: 100px;">Tipo</th>
+            <th>Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>transitionEffect</code></td>
+            <td>El efecto de animaci&oacute;n que se utilizar&aacute; para transiciones de pasos. Los valores pueden ser:
+			<br>Sin animaci&oacute;n de transici&oacute;n: <code>none</code> &oacute; <code>0</code>
+			<br>Fade out/in en transici&oacute;n: <code>fade</code> &oacute; <code>1</code>
+			<br>Deslice hacia abajo / hacia arriba la transici&oacute;n<code>slide</code> &oacute; <code>2</code>
+			<br>Deslice la transici&oacute;n a la izquierda<code>slideLeft</code> &oacute; <code>3</code>
+			</td>
+            <td>String &oacute; Integer</td>
+            <td><code>none</code> &oacute; <code>0</code></td>
+          </tr>
+          <tr>
+            <td><code>transitionEffectSpeed</code></td>
+            <td>Velocidad de animaci&oacute;n para transiciones de pasos (en milisegundos).</td>
+            <td>Integer</td>
+            <td><code>200</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+	<!-- -->
+	<h4>Eventos</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Nombre de configuraci&oacute;n</th>
+            <th>Descripci&oacute;n</th>
+            <th style="width: 100px;">Tipo</th>
+            <th>Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>onStepChanging</code></td>
+            <td>Se ejecuta antes de que cambie el paso y se puede utilizar para evitar el cambio de paso al devolver false. Muy &uacute;til para la validaci&oacute;n de formularios.</td>
+            <td>Event</td>
+            <td><code>function (event, currentIndex, newIndex) { return true; }</code></td>
+          </tr>
+          <tr>
+            <td><code>onStepChanged</code></td>
+            <td>Se ejecuta despu&eacute;s del paso han cambiado.</td>
+            <td>Event</td>
+            <td><code>function (event, currentIndex, priorIndex) { }</code></td>
+          </tr>
+          <tr>
+            <td><code>onCanceled</code></td>
+            <td>Se ejecuta despu&eacute;s de la cancelaci&oacute;n.</td>
+            <td>Event</td>
+            <td><code>function (event) { }</code></td>
+          </tr>
+          <tr>
+            <td><code>onFinishing</code></td>
+            <td>Se ejecuta antes de terminar y se puede utilizar para evitar la terminaci&oacute;n de devolver falso. Muy &uacute;til para la validaci&oacute;n de formularios.</td>
+            <td>Event</td>
+            <td><code>function (event, currentIndex) { return true; }</code></td>
+          </tr>
+          <tr>
+            <td><code>onFinished</code></td>
+            <td>Se ejecuta despu&eacute;s de la terminaci&oacute;n.</td>
+            <td>Event</td>
+            <td><code>function (event, currentIndex) { }</code></td>
+          </tr>
+          <tr>
+            <td><code>onInit</code></td>
+            <td>Se ejecuta cuando se inicia el asistente.</td>
+            <td>Event</td>
+            <td><code>function (event, currentIndex) { }</code></td>
+          </tr>
+          <tr>
+            <td><code>onContentLoaded</code></td>
+            <td>Se ejecuta despu&eacute;s del contenido as&iacute;ncrono se cargan.</td>
+            <td>Event</td>
+            <td><code>function (event, currentIndex) { }</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+	<!-- -->
+	<h4>Etiquetas</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Nombre de configuraci&oacute;n</th>
+            <th>Descripci&oacute;n</th>
+            <th style="width: 100px;">Tipo</th>
+            <th>Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>cancel</code></td>
+            <td>Etiqueta para el bot&oacute;n Cancelar.</td>
+            <td>String</td>
+            <td><code>Cancel</code></td>
+          </tr>
+          <tr>
+            <td><code>current</code></td>
+            <td>Esta etiqueta es importante por razones de accesibilidad. Indica qu&eacute; paso est&aacute; activado.</td>
+            <td>String</td>
+            <td><code>current step:</code></td>
+          </tr>
+          <tr>
+            <td><code>pagination</code></td>
+            <td>Esta etiqueta es importante por razones de accesibilidad y describe el tipo de navegaci&oacute;n.</td>
+            <td>String</td>
+            <td><code>Pagination</code></td>
+          </tr>
+          <tr>
+            <td><code>finish</code></td>
+            <td>Etiqueta para el bot&oacute;n de finalizar.</td>
+            <td>String</td>
+            <td><code>Finish</code></td>
+          </tr>
+          <tr>
+            <td><code>next</code></td>
+            <td>Etiqueta para el bot&oacute;n siguiente.</td>
+            <td>String</td>
+            <td><code>Next</code></td>
+          </tr>
+          <tr>
+            <td><code>previous</code></td>
+            <td>Etiqueta para el bot&oacute;n anterior.</td>
+            <td>String</td>
+            <td><code>Previous</code></td>
+          </tr>
+          <tr>
+            <td><code>loading</code></td>
+            <td>Etiqueta para la animaci&oacute;n de carga.</td>
+            <td>String</td>
+            <td><code>Loading ...</code></td>
+          </tr>
+        </tbody>
+      </table>
+	  </div>
+	<!-- -->
+	<h4>Ejemplo de Configuraci&oacute;n</h4>
+	<div>
+		<pre>
+			<code class="script">
+var settings = {
+    /* Appearance */
+    headerTag: &quot;h1&quot;,
+    bodyTag: &quot;div&quot;,
+    contentContainerTag: &quot;div&quot;,
+    actionContainerTag: &quot;div&quot;,
+    stepsContainerTag: &quot;div&quot;,
+    cssClass: &quot;wizard&quot;,
+    stepsOrientation: $.fn.steps.stepsOrientation.horizontal,
+
+    /* Templates */
+    titleTemplate: '&lt;span class=&quot;number&quot;>#index#.&lt;/span> #title#',
+    loadingTemplate: '&lt;span class=&quot;spinner&quot;>&lt;/span> #text#',
+
+    /* Behaviour */
+    autoFocus: false,
+    enableAllSteps: false,
+    enableKeyNavigation: true,
+    enablePagination: true,
+    suppressPaginationOnFocus: true,
+    enableContentCache: true,
+    enableCancelButton: true,
+    enableFinishButton: true,
+    preloadContent: false,
+    showFinishButtonAlways: false,
+    forceMoveForward: false,
+    saveState: false,
+    startIndex: 0,
+
+    /* Transition Effects */
+    transitionEffect: $.fn.steps.transitionEffect.none,
+    transitionEffectSpeed: 200,
+
+    /* Events */
+    onStepChanging: function (event, currentIndex, newIndex) { return true; },
+    onStepChanged: function (event, currentIndex, priorIndex) { }}, 
+    onCanceled: function (event) { },
+    onFinishing: function (event, currentIndex) { return true; }, 
+    onFinished: function (event, currentIndex) { },
+
+    /* Labels */
+    labels: {
+        cancel: &quot;Cancel&quot;,
+        current: &quot;current step:&quot;,
+        pagination: &quot;Pagination&quot;,
+        finish: &quot;Finish&quot;,
+        next: &quot;Next&quot;,
+        previous: &quot;Previous&quot;,
+        loading: &quot;Loading ...&quot;
+    }
+};
+			</code>
+		</pre>
+	</div>
+   <br/>
+
+</div>

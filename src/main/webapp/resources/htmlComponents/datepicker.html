@@ -1,0 +1,518 @@
+<div id="datepicker">
+
+	<h3>Datetimepicker</h3>
+	
+	<div class="panel-group" id="accordion">	<!-- inicio acordeon -->
+			
+			<div class="panel panel-default">	<!-- panel 1 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Datetimepicker por default</a>
+					</h3>
+				</div>
+				
+				<div id="collapse1" class="panel-collapse collapse in">
+					
+					<div class="panel-body">	<!-- contenido del panel -->
+					
+						<div id ="datepicker1">
+	<div class="form-group">
+	       <div class='input-group date' id='datetimepicker1'>
+	           <input type='text' class="form-control" />
+	           <span class="input-group-addon">
+	               <span class="glyphicon glyphicon-calendar"></span>
+	           </span>
+	       </div>
+	</div>
+	        	
+   	<!-- script para iniciar el componente -->
+   	<script type="text/javascript">
+	     $(function () {
+	         $('#datetimepicker1').datetimepicker();
+	     });
+	</script>
+</div>
+        
+						</div>
+					</div>					<!-- contenido del panel -->
+				
+				</div>						<!-- panel 1 -->			
+										
+			
+			
+			<div class="panel panel-default">	<!-- panel 2 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Usando locales</a>
+					</h3>
+				</div>
+				
+				<div id="collapse2" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+						
+						<div id ="datepicker2">
+						
+	<div class="form-group">
+              <div class='input-group date' id='datetimepicker2'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+          </div>
+          <!-- script para iniciar el componente -->
+          <script type="text/javascript">
+           $(function () {
+               $('#datetimepicker2').datetimepicker({
+                   locale: 'ru'
+               });
+           });
+       </script> 
+				            
+</div>
+						
+					</div>					<!-- contenido del panel -->
+				
+				</div>									
+			</div>							<!-- panel 2 -->
+			
+			
+			<div class="panel panel-default">	<!-- panel 3 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Formatos Modificados</a>
+					</h3>
+				</div>
+				
+				<div id="collapse3" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+						<div id ="datepicker3">
+	<div class="form-group">
+             <div class='input-group date' id='datetimepicker3'>
+                 <input type='text' class="form-control" />
+                 <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-time"></span>
+                 </span>
+             </div>
+	</div>
+         
+    <!-- script para iniciar el componente -->
+    <script type="text/javascript">
+     $(function () {
+         $('#datetimepicker3').datetimepicker({
+             format: 'LT'
+         });
+     });
+      </script>
+</div>
+				</div>					<!-- contenido del panel -->
+
+</div>									
+			</div>							<!-- panel 3 -->
+			
+			
+			<div class="panel panel-default">	<!-- panel 4 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Sin icono (solo campo de entrada)</a>
+					</h3>
+				</div>
+				
+				<div id="collapse4" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+						<div id ="datepicker4">
+							
+   <input type='text' class="form-control" id='datetimepicker4' />
+  <!-- script para iniciar el componente -->
+  <script type="text/javascript">
+      $(function () {
+          $('#datetimepicker4').datetimepicker();
+      });
+  </script>
+							
+</div>
+					</div>					<!-- contenido del panel -->
+				
+				</div>									
+			</div>							<!-- panel 4 -->
+			
+			
+			
+			<div class="panel panel-default">	<!-- panel 5 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Habilitar/Deshabilitar Fechas</a>
+					</h3>
+				</div>
+				
+				<div id="collapse5" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+						<div id ="datepicker5">
+							
+      <div class="form-group">
+          <div class='input-group date' id='datetimepicker5'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
+      </div>
+     
+     <script type="text/javascript">
+         $(function () {
+             $('#datetimepicker5').datetimepicker({
+                 defaultDate: "11/1/2013",
+                 disabledDates: [
+                     moment("12/25/2013"),
+                     new Date(2013, 11 - 1, 21),
+                     "11/22/2013 00:53"
+                 ]
+             });
+         });
+     </script>
+</div>
+					</div>					<!-- contenido del panel -->
+				
+				</div>									
+			</div>							<!-- panel 5 -->
+			
+			
+			<div class="panel panel-default">	<!-- panel 6 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Datetimepicker enlazados</a>
+					</h3>
+				</div>
+				
+				<div id="collapse6" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+					
+						<div id ="datepicker6">
+	<div class='col-md-6'>
+	
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6a'>		<!-- componente a -->
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class='col-md-6'>
+    
+        <div class="form-group">        
+            <div class='input-group date' id='datetimepicker6b'>		<!-- componente b -->
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+	<!-- script para iniciar los componentes -->
+	<script type="text/javascript">
+	    $(function () {
+	        $('#datetimepicker6a').datetimepicker();
+	        $('#datetimepicker6b').datetimepicker({
+	            useCurrent: false //Important! See issue #1075
+	        });
+	        $("#datetimepicker6a").on("dp.change", function (e) {
+	            $('#datetimepicker6b').data("DateTimePicker").minDate(e.date);
+	        });
+	        $("#datetimepicker6b").on("dp.change", function (e) {
+	            $('#datetimepicker6a').data("DateTimePicker").maxDate(e.date);
+	        });
+	    });
+	</script>
+						
+</div>
+					</div>					<!-- contenido del panel -->
+				
+				</div>									
+			</div>							<!-- panel 6 -->
+			
+			
+			
+			
+			
+			<div class="panel panel-default">	<!-- panel 7 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Modo de vista</a>
+					</h3>
+				</div>
+				
+				<div id="collapse7" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+						<div id ="datepicker7">
+								
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar">
+                    </span>
+                </span>
+            </div>
+        </div>
+    
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker7').datetimepicker({
+                viewMode: 'years'
+            });
+        });
+    </script>
+</div>
+					</div>					<!-- contenido del panel -->
+				
+				</div>									
+			</div>							<!-- panel 7 -->
+			
+			
+			<div class="panel panel-default">	<!-- panel 8 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Desactivando d&iacute;as de la semana</a>
+					</h3>
+				</div>
+				
+				<div id="collapse8" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+						<div id ="datepicker8">
+							
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker8'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar">
+                    </span>
+                </span>
+            </div>
+        </div>
+    
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker8').datetimepicker({
+                daysOfWeekDisabled: [0, 6]
+            });
+        });
+    </script>
+		
+</div>
+					</div>					<!-- contenido del panel -->
+				
+				</div>									
+			</div>							<!-- panel 8 -->
+			
+			
+			
+			<div class="panel panel-default">	<!-- panel 9 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse9">Iconos modificados</a>
+					</h3>
+				</div>
+				
+				<div id="collapse9" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+					
+						<div id ="datepicker9">
+		<div class="form-group">
+            <div class='input-group date' id='datetimepicker9'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="fa fa-calendar">
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker9').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                }
+            });
+        });
+    </script>
+	</div>
+					</div>					<!-- contenido del panel -->
+				
+				</div>	<!-- panel 9 -->								
+		
+			
+			
+			
+			
+			<div class="panel panel-default">	<!-- panel 10 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse10">Modo de vista m&iacute;nimo</a>
+					</h3>
+				</div>
+				
+				<div id="collapse10" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+						<div id ="datepicker10">
+	<div class="form-group">
+          <div class='input-group date' id='datetimepicker10'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar">
+                  </span>
+              </span>
+          </div>
+      </div>
+      
+      <script type="text/javascript">
+       $(function () {
+           $('#datetimepicker10').datetimepicker({
+               viewMode: 'years',
+               format: 'MM/YYYY'
+           });
+       });
+   </script>
+</div>
+					    
+					
+					</div>					<!-- contenido del panel -->
+				
+				</div>								
+			</div>							<!-- panel 10 -->
+			
+			
+			
+			<div class="panel panel-default">	<!-- panel 11 -->
+							
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse11">Lineal</a>
+					</h3>
+				</div>
+				
+				<div id="collapse11" class="panel-collapse collapse">
+					<div class="panel-body"><!-- contenido del panel -->
+						<div id ="datepicker11">
+						
+							   <div id="datetimepicker11"></div>
+							   
+							   <script type="text/javascript">
+							       $(function () {
+							           $('#datetimepicker11').datetimepicker({
+							               inline: true,
+							               sideBySide: true
+							           });
+							       });
+							   </script>
+						</div>
+					    
+					
+					</div>					<!-- contenido del panel -->
+					
+					<div id ="datepicker11Code">
+						
+	   <div id="datetimepicker11_"></div>
+	   
+	   <script type="text/javascript">
+	       $(function () {
+	           $('#datetimepicker11 ').datetimepicker({
+	               inline: true,
+	               sideBySide: true
+	           });
+	       });
+	   </script>
+</div>
+				
+				</div>								
+			</div>							<!-- panel 11 -->
+			
+			
+			
+	</div>			<!-- fin del acordeon -->
+
+
+</div>
+    
+ 
+	
+
+
+
+<div id="datepickerScript">
+	<script type="text/javascript">
+        $(function () {
+            $('#datetimepicker').datetimepicker();
+        });
+     </script>
+</div>
+
+
+<div id="datepickerDoc">
+	
+
+	<h3>Datetimepicker</h3>
+	
+	<p>Datetimepicker es un componente que muestra un calendario nos ayuda a insertar la fecha seleccionada en un campo de texto, est&aacute; desarrollado como un plugin de jQuery</p>
+	
+	<h4>Configurando Datetimepicker</h4>
+	<p>Se requiere agregar las librer&iacute;as CSS (bootstrap-datetimepicker.css) y Javascript de datetimepicker (bootstrap-datetimepicker.js y moment-with-locales.js)  en el encabezado de la p&aacute;gina HTML para poder trabajar con este plugin, ejemplo:</p>
+	<pre>
+		<code>
+		&lt;!DOCTYPE html&gt;
+		&lt;html&gt;
+			&lt;head&gt;
+			
+				&lt;!-- estilos datetimepicker --&gt;
+				&lt;link  href="css/<b>bootstrap-datetimepicker.css</b>" rel="stylesheet" type="text/css" &gt;
+				&lt;!-- scripts datetimepicker --&gt;
+				&lt;script type="text/javascript" src="/js/<b>moment-with-locales.js</b>'/&gt;"&gt;&lt;/script&gt;
+				&lt;script type="text/javascript" src="js/<b>bootstrap-datetimepicker.js</b>'/&gt;"&gt;&lt;/script&gt;
+				&lt;!-- adem&aacute;s se requiere el script de jQuery --&gt;
+				&lt;script src="jquery.js" type="text/javascript"&gt;&lt;/script&gt;
+			....
+		</code>
+	</pre>
+	<br>
+	
+	<h4>Iniciando Datetimepicker configuraci&oacute;n por default</h4>
+	<p>Para iniciar el elemento que mostrar&aacute; el bot&oacute;n para iniciar el calendario y 
+	recibir&aacute; la fecha al seleccionarla hay que usar la siguiente l&iacute;nea de c&oacute;digo	
+	<code>$('#id_input_selector').datetimepicker();</code>, donde 
+	<code>id_input_selector</code> es el ID del elemento HTML que mostrara el calendario</p>
+	
+	
+	<p>El elemento HTML que mostrar&aacute; el campo de texto con la fecha y 
+	el bot&oacute;n para mostrar el calendario se muestra con el siguiente c&oacute;digo:</p>
+	<pre>
+		<code>&lt;div class="form-group"&gt; &lt;!-- agrupador --&gt;
+			&lt;div class='input-group date' id='<b>id_input_selector</b>'&gt; &lt;!-- id --&gt;	
+				&lt;input type='text' class="form-control" /&gt; &lt;!-- campo de texto para la fecha 	--&gt;
+				&lt;span class="input-group-addon"&gt; &lt;!-- muestra bot&oacute;n lanzador del calendario --&gt;
+					&lt;!-- muestra el icono para el bot&oacute;n --&gt;
+					&lt;span class="glyphicon glyphicon-calendar"&gt;&lt;/span&gt; 
+				&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;</code>
+	</pre>
+
+
+</div>

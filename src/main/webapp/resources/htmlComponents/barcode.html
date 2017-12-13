@@ -1,0 +1,118 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+
+<div id="barcode">
+	<div class="form-group">
+			Texto : <input type="text" id="txtbarcode" value="iminfo.in"/>
+			<br/><br/>
+			<div id="barcode"></div>
+			<br/><br/>
+			<a class="btn btn-info">Generar C&oacute;digo de Barras</a>
+	</div>	
+</div>
+
+
+<!-- #################### -->
+<!-- 	Java Script 	  -->
+<!-- #################### -->
+<div id="barcodeScript">
+	<script type="text/javascript">
+		$(".btn").bind("click",function()
+		               {
+		                
+		$("#barcode").barcode($("#txtbarcode").val(),"code128");
+		               });
+		$(".btn").click();
+	</script>
+</div>
+
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+
+<div id="barcodeDoc">
+	<h3>
+		<strong>jQuery Barcode Plugin</strong>
+	</h3>
+	<p>
+		El uso de este complemento es muy simple, solo se tiene que llamar a la funci&oacute;n .barcode 
+		en el input, el cual toma como parametro el string de entrada para generar el c&oacute;digo de barras.
+		jQuery Barcode plugin soporta los siguientes tipos:
+			<br/>
+			codabar
+			<br/>	
+			code11 (code 11)
+			<br/>	
+			code39 (code 39)
+			<br/>	
+			code93 (code 93)
+			<br/>	
+			code128 (code 128)
+			<br/>	
+			ean8 (ean 8)
+			<br/>
+			ean13 (ean 13)
+			<br/>
+			std25 (standard 2 of 5 - industrial 2 of 5)
+			<br/>
+			int25 (interleaved 2 of 5)
+			<br/>
+			msi
+			<br/>
+			datamatrix (ASCII + extended)
+			<br/><br/>
+		Y puede generar c&oacute;digo de barras en 4 tipos de salida:
+			<br/>
+			CSS
+			<br/>
+			BMP (not works in IE)
+			<br/>
+			SVG (not works in IE)
+			<br/>
+			CANVAS (s&oacute;lo funciona con navegadores compatibles con canvas)
+	</p>
+	<br/>
+	<h4><strong>Implementaci&oacute;n</strong></h4>
+	    Lo &uacute;nico que necesitas hacer es incluir el archivo javascript del plugin entre la etiqueta <code>head</code> en tu documento HTML y est&aacute; todo listo para usar.
+	<br/>
+	
+	<h5><strong>Funci&oacute;n JavaScript</strong></h5>
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+			<td>
+			<!-- codigo javascript de spinner monetario -->
+<pre class="code">$(".btn").bind("click",function()
+		               {
+		                
+		$("#barcode").barcode($("#txtbarcode").val(),"code128");
+		               });
+		$(".btn").click();</pre>
+			</td>
+			</tr>
+		</tbody>
+	</table>
+	<h5><strong>Invocaci&oacute;n HTML</strong></h5>
+	<table class="table table-striped">
+		<tbody>
+			<tr class="table-bordered">
+			<td>
+			<!-- llamado html spinner monetario -->
+<pre class="code">&lt;div class="form-group">
+			Texto : &lt;input type="text" id="txtbarcode" value="iminfo.in"/>
+			&lt;br/>&lt;br/>
+			&lt;div id="barcode">&lt;/div>
+			&lt;br/>&lt;br/>
+			&lt;a class="btn btn-info">Generar C&oacute;digo de Barras&lt;/a>
+	&lt;/div>
+</pre>
+			</td>
+			</tr>
+		</tbody>
+	</table>		
+	
+		
+	
+</div> <!-- fin de documentacion -->

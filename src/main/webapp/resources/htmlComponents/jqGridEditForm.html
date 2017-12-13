@@ -1,0 +1,671 @@
+<div id="jqGridEdit">	
+			    
+    <h3>jqGrid edici&oacute;n por formas</h3>
+    
+	<form id="formTableEdit" name="formTableEdit" class="form" role="form">	    
+		
+		<table id="jqTableEdit" class="scroll"></table>
+		<div id="pagerEdit"></div>
+		
+		<input type="submit" class="btn btn-primary" value="Submit">
+	</form>
+	<!-- 
+	<button type="button" class="btn btn-default" onClick="hideShowCampo('edad', 'formTableEdit');">Oculta/Muestra</button>	
+	<button type="button" class="btn btn-default">Agrega Fila</button>
+	
+	<button type="button" class="btn btn-default" onClick="editaForma('jqTableEdit','');">Editar Fila 1</button>
+	 -->
+</div>
+
+
+<div id="jqGridEditScript">
+	<script type="text/javascript">
+		
+	    $(document).ready(function () {
+	    	cargaGridEditForm();
+	    });
+	</script>
+
+</div>
+
+
+<div id="jqGridEditDoc">
+
+	<h3>Edici&oacute;n</h3>
+	<p>Una de la razones principales para desplegar datos en un grid es la edici&oacute;n r&aacute;pida 
+						y f&aacute;cilmente. jqGrid soporta la edici&oacute;n de datos de tres formas:</p>
+	<ol>
+		<li><b>edici&oacute;n por celdas</b>: la edici&oacute;n de celdas especificas en un grid</li>
+		<li><b>Edici&oacute;n por filas</b>: edici&oacute;n de muchas celdas en una fila</li>
+		<li><b>Edici&oacute;n por formas</b>: crear una forma para editar fuera del grid</li>
+	</ol>	
+	<br>
+
+		
+	<h3>Edici&oacute;n por formas</h3>
+	<p>jqGrid soporta crear una forma al vuelo para introducir o editar datos en el grid.</p>
+	
+	<h5>Propiedades</h5>
+	<p>Todas las propiedades del grid son las mismas que en las de Inline editing 
+	(vea las propiedades: Inline Editing) se agregan las siguientes opciones a colModel:</p>
+	
+	<p><b>editrules</b></p> 
+	<p>Convensi&oacute;n de llamada:</p>
+	<pre><code>
+	{edithidden:true(false), required:true(false), number:true(false), minValue:val, maxValue:val, email:true(false)}
+	</code></pre>
+	
+	<p>Con esta opci&oacute;n podemos:</p>
+	<ol>
+		<li >Edici&oacute;n de campos en la forma, que estan ocultos (hidden) en el grid. 
+			Si el campo es hidden en el grid  y la propiedad edithidden es true, 
+			el campo va poder ser editado cuando se usen los metododos <b>add</b> oz <b>edit</b>.</li>
+		<li>Realiza una validaci&oacute;n del lado del cliente en la forma. Esto se hace con:
+			<ul>
+			<li>required: true(false) - Si es puesto en true, el valor va ser revisado, si este esta vacio un mensaje de error va ser desplegado.</li>
+				<li>number: true(false) - Si es puesto en true, el valor va ser revisado, si este no es un n&uacute;mero un mensaje de error va ser desplegado.</li>
+				<li>minValue: valid number - Si es configurado, el valor va ser revisado y si el valor es menor al indicado un mensaje de error va ser desplegado.</li>
+				<li>maxValue: valid number - Si es configurado, el valo va ser revisado y si el valor es mayor al indicado un mensaje de error va ser desplegado.</li>
+				<li>email: true(false) - Si es configurado, el valo va ser revisado y si el valor no es un e-mail valido un mensaje de error va ser desplegado.</li>
+			</ul>
+		</li>
+	</ol>
+	
+	
+	<h4>Metodos</h4>
+	<div class="row">			
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Metodo</th>
+						<th>Parametros</th>
+						<th>Descripci&oacute;n</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+				
+					<tr>
+						<td>hide</td>
+						<td>none</td>
+						<td>Oculta una fila, identificado como "tr_fieldname" en la forma
+							<code>. $("#tr_fieldname",formid).hide()</code> 
+							donde fieldname es el nombre de la columna en el grid, y formid es el nombre de la forma</td>
+					</tr>
+					
+					<tr>
+						<td>show</td>
+						<td>none</td>
+						<td>Muestra una fila row en la forma. 
+							<code>$("#tr_fieldname",formid).show()</code> 
+							donde fieldname es el nombre de la columna en el grid, y formid es el nombre de la forma</td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<h4>Agregar fila</h4>
+	<p>El m&eacute;todo editGridRow es usado adem&aacute;s para agregar datos
+		al servidor, al pasar "new" al rowid. Este m&eacute;todo usa par&aacute;metros colModel
+		y editurl de convensi&oacute;n de llamado jqGrid:</p>
+		
+	
+	<code>jQuery("#grid_id").editGridRow( "new", options );</code>
+	<p>Las opciones son las mismas que en Edit row.</p>
+	<p><b>Notas</b></p>
+	<p>jqGrid agrega dos par&aacute;metros a los valores que van a ser enviados al servidor:<p>
+		
+	<ul>
+		<li>id = empty y</li>
+		<li>oper = add</li>
+	</ul>
+	
+	<p>para indicarle al servidor que la operaci&oacute;n es una inserci&oacute;n.</p>
+	<p><b>Edit Row</b></p>
+	<p>Este m&eacute;todo es el mismo que inline editing excepto que la informaci&oacute;n
+		es representada en la forma via un di&aacute;logo modal. Este m&eacute;todo usa las propiedades colModel y
+		editurl de la convensi&oacute;n de llamada jqGrid:</p>
+		
+	<code>jQuery("#grid_id").editGridRow( rowid, propiedades );</code>
+	
+	<p>donde</p>
+	<ul>
+		<li>grid_id: el id del grid padre</li>
+		<li>rowid: el id de la fila a editar</li>
+		<li>propiedades: un arreglo con pares nombre: valor incluyendo cualquiera de las siguientes propiedades o eventos.</li>
+	</ul>
+	
+	
+	<h4>Propiedades</h4>
+	<div class="row">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Propiedad</th>
+					<th>Descripci&oacute;n</th>
+					<th>Default</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td>top</td>
+					<td>la posici&oacute;n inicial arriba del di&aacute;logo de confirmaci&oacute;n</td>
+					<td>0</td>
+				</tr>
+				
+				<tr>
+					<td>left</td>
+					<td>la posici&oacute;n inicial a la izquierda del di&aacute;logo de confirmaci&oacute;n</td>
+					<td>0</td>
+				</tr>
+				
+				<tr>
+					<td>width</td>
+					<td>el ancho del di&aacute;logo de confirmaci&oacute;n</td>
+					<td>300</td>
+				</tr>
+				
+				<tr>
+					<td>height</td>
+					<td>la altura del di&aacute;logo de confirmaci&oacute;n</td>
+					<td>200</td>
+				</tr>
+				
+				<tr>
+					<td>modal</td>
+					<td>configura el di&aacute;logo en modo modal</td>
+					<td>false</td>
+				</tr>
+				
+				
+				<tr>
+					<td>drag</td>
+					<td>el di&aacute;logo es arrastrable</td>
+					<td>true</td>
+				</tr>
+				
+				
+				<tr>
+					<td>msg</td>
+					<td>el mensaje a desplegar cuando elimina una fila</td>
+					<td>"Delete selected row(s)"</td>
+				</tr>
+				
+				
+				<tr>
+					<td>addCaption</td>
+					<td>el t&iacute;tulo  del di&aacute;logo si el modo es adding</td>
+					<td>"Add Record"</td>
+				</tr>
+				
+				<tr>
+					<td>editCaption</td>
+					<td>el t&iacute;tulo  del di&aacute;logo si el modo es editing</td>
+					<td>"Edit Record"</td>
+				</tr>
+				
+				
+				<tr>
+					<td>bSubmit</td>
+					<td>el texto del bot&oacute;n cuando da click a delete</td>
+					<td>"Submit"</td>
+				</tr>
+				
+				<tr>
+					<td>bCancel</td>
+					<td>el texto del bot&oacute;n cuando da click a cerrar el di&aacute;logo</td>
+					<td>"Cancel"</td>
+				</tr>
+				
+				
+				<tr>
+					<td>url</td>
+					<td>url donde se va enviar la inforamci&oacute;n. Si esta configurada reemplaza a editurl</td>
+					<td></td>
+				</tr>
+				
+				
+				<tr>
+					<td>processData</td>
+					<td>Palabras desplegadas cuando sube informaci&oacute;n</td>
+					<td>"Processing..."</td>
+				</tr>
+				
+				
+				<tr>
+					<td>addedrow</td>
+					<td>Controla donde va ser colocada la fila recien agregada: 'first' en
+						la parte superior del grid, 'last' en la parte inferior. En donde la nueva fila aparece
+						en el orden natural configure <code>reloadAfterSubmit: true</code></td>
+				<td>'first'</td>
+				</tr>
+				
+				<tr>
+					<td>closeAfterAdd</td>
+					<td>Cuando este en modo add, cierra el di&aacute;logo despu&eacute;s de agregar un registro</td>
+					<td>false</td>
+				</tr>
+				
+				<tr>
+					<td>clearAfterAdd</td>
+					<td>Cuando este en modo add, limpia los datos despu&eacute;s de agregarlos</td>
+					<td>true</td>
+				</tr>
+				
+				
+				<tr>
+					<td>closeAfterEdit</td>
+					<td>Cuando este en modo edit, cierra el di&aacute;logo despu&eacute;s de editarlos</td>
+					<td></td>
+				</tr>
+				
+				
+				<tr>
+					<td>reloadAfterSubmit</td>
+					<td>recarga los datos del grid despu&eacute;s de enviarlos</td>
+					<td>true</td>
+				</tr>
+				
+				
+				<tr>
+					<td>mtype</td>
+					<td>Define el tipo de petici&oacute;n a realizar ("POST" o "GET") cuando los datos son enviados al servidor</td>
+					<td>"POST"</td>
+				</tr>
+				
+				<tr>
+					<td>editData</td>
+					<td>un arreglo usado para agregar contenido a los datos enviados al servidor</td>
+					<td>empty</td>
+				</tr>
+				
+				<tr>
+					<td>recreateForm</td>
+					<td>cuando es puesto en true la forma es recreada cada vez</td>
+					<td>false</td>
+				</tr>
+														
+			</tbody>
+		</table>
+	</div>
+	
+	
+	<h4>Eventos</h4>
+	<div class="row">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Event</th>
+					<th>Descripci&oacute;n</th>					
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td>onInitializeForm</td>
+					<td>Se dispara una vez que se crea los datos para editar y agregar. 
+						Recibe como parametro el id de la forma construida.</td>						
+				</tr>
+				
+				
+				<tr>
+					<td>beforeInitData</td>
+					<td>Se dispara antes de inicializar los datos de la forma. Recibe como parametro el id de la forma construida.</td>						
+				</tr>
+				
+				<tr>
+					<td>afterShowForm</td>
+					<td>Se dispara despu&eacute;s de mostrar la forma; Recibe como parametro el id de la forma construida.</td>						
+				</tr>
+				
+				<tr>
+					<td>beforeSubmit</td>
+					<td>Se dispara antes de enviar los datos al servidor.
+						Los par&aacute;metros es de tipo id=value1,value2,... Cuando llaman el evento
+						puede regresar un arreglo donde el primer par&aacute;metros puede ser true o false
+						y el segundo es el mensaje del error. Ejemplo:
+						<code>[false,"The value is not valid"]</code></td>
+			</tr>
+				
+				
+				<tr>
+					<td>onclickSubmit</td>
+					<td>Se dispara despu&eacute;s de dar click al bot&oacute;n 'submit' y los datos 'post'
+						son construidos. Los par&aacute;metros pasados a este evento es un arreglo de opciones
+						del m&eacute;todo. El evento siempre debe retornar un arreglo de tipo {} el cual despu&eacute;s
+						reemplaza a la informaci&oacute;n de editData. ver el ejemplo a continuaci&oacute;n.</td>
+			</tr>
+				
+				
+				<tr>
+					<td>afterSubmit</td>
+					<td>Se dispara despu&eacute;s de que la respuesta es recibida desde el servidor.
+						T&iacute;picamente usada para mostrar el estado del servidor (ejemplo: los datos
+						exitosamente guardados o el guardado es cancelado del lado del servidor por 
+						razones de edici&oacute;n). Recibe como parametro los datos retornados de la solicitud
+						y un arreglo de los valores enviados de tipo
+						id=value1,value2.</td>
+			</tr>
+				
+				<tr>
+					<td>afterComplete</td>
+					<td>Este evento se dispara inmediatamente despu&eacute;s que todas las acciones y eventos 
+					son completados y la fila es insertada o actualizada en el grid. 
+					<code>afterComplete(serverResponse, postdata, formid) </code>
+						donde
+						<ul>
+							<li>response son los datos regresados desde el servidor</li>
+							<li>postdata es un arreglo, los datos enviados al servidor</li>
+							<li>formid es el id  de la forma.</li>
+						</ul>
+					</td>						
+				</tr>
+				
+				<tr>
+					<td>onclickPgButtons</td>
+					<td>Este evento puede ser usado solamente cuando estamos en edit mode; se
+						dispara inmediatamente despu&eacute;s de que los botones retroceso o avance de pagina
+						son clickeados, antes de dejar la fila actual, permitiendo trabajar con (ejemplo
+						guardado) los datos cargados actualmente en la forma.
+						<code>onclickPgButtons(whichbutton, formid, rowid)</code> 
+						donde
+						<ul>
+							<li>whichbutton es cualquiera 'prev' o 'next'</li>
+							<li>formid es el id de la forma</li>
+							<li>rowid es el id de la fila actual</li>
+						</ul>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td>afterclickPgButtons</td>
+					<td>Este evento puede ser usado solamente en edit mode; se
+						dispara despu&eacute;s de que los datos para la fila nueva es cargada desde el grid,
+						permitiendo la modificaci&oacute;n o configuraci&oacute;n de los datos antes que la  forma es
+						 re visualizada. 
+						<code>afterclickPgButtons(whichbutton, formid, rowid)</code> 
+						where
+						<ul>
+							<li>whichbutton es cualquiera 'prev' o 'next'</li>
+							<li>formid es el id de la forma</li>
+							<li>rowid es el id de la fila actual</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	
+	<h4>Notas y Ejemplos</h4>
+	<p>Para la comodidad de la manipulaci&oacute;n de los elementos en una forma editable cada
+		fila de la tabla en la forma almacena la informaci&oacute;n para le edici&oacute;n tiene un id el cual
+		es una combinaci&oacute;n de "tr_" + name (del colmodel). Ejemplo:</p>
+		
+	<pre><code>
+		&lt;form....&gt;
+			&lt;table&gt;
+				&lt;tr id='tr_myfield'&gt;
+					&lt;td&gt; Caption&lt;/td&gt;
+					&lt;td&gt;edited element named, in colModel, as "myfield"&lt;/td&gt;
+				&lt;/tr&gt;
+				...
+			&lt;/table&gt;
+		&lt;/form&gt;
+	</code></pre>
+	
+	<p>Esto nos permite f&aacute;cilmente mostrar u ocultar algunas filas de la tabla dependiendo de las condiciones.</p>
+	<p>jqGrid agrega dos par&aacute;metros a los valores que son enviados al servidor:</p>
+	<ul>
+		<li>id=rowid and</li>
+		<li>oper=edit</li>
+	</ul>
+	<p>para identificar al servidor que operaci&oacute;n es una actualizaci&oacute;n.</p>
+	
+	<p>Podemos configurar opciones comunes para todos los di&aacute;logos agregar y/o editar usando <code>$.jgrid.edit</code> con objecto <code>$.extend()</code>. 
+		Los valores por default son:</p>
+		
+	<pre><code>
+		jQuery.jgrid.edit = { 
+			addCaption: "Add Record", 
+			editCaption: "Edit Record", 
+			bSubmit: "Submit", 
+			bCancel: "Cancel", 
+			processData: "Processing...", 
+			msg: { 
+					required:"Field is required", 
+					number:"Please enter valid number!",
+					minValue:"value must be greater than or equal to ", 
+					maxValue:"value must be less than or equal to" 
+				} 
+		};
+	</code></pre>
+	<p>Usando onclickSubmit:</p> 
+	
+	<p>Esta caracter&iacute;stica  puede ser usada para agregar datos los cuales son enviados al servidor.</p>
+	 
+	<p>Metodo Static (puede ser usada tambien en navegaci&oacute;n)</p> 
+	<code>jQuery("#grid_id").editGridRow("rowid",{editData:{myname:"myvalue"}});</code>
+	 
+	<p>Cada vez que que la informaci&oacute;n es enviada al servidor, este par va ser agregada a la postdata.</p>
+	 
+	<p>Si queremos agregar informaci&oacute;n <b>din&aacute;micamente</b> a enviar al servidor, podemos usarlo siempre como sigue:</p>
+	
+	<pre><code>
+		onclickSubmit : function(eparams) { 
+			var retarr = {}; 
+			// we can use all the grid methods here 
+			//to obtain some data var 
+			sr = jQuery("#grid_id").getGridParam('selrow'); 
+			rowdata = jQuery("#grid_id").getRowData(sr); 
+			if(rowdata.somevalue=='aa') { 
+				retarr = {myname:"myvalue"}; 
+			} return retarr; 
+		}
+	</code></pre>
+	
+	<p>Si la condici&oacute;n es true la pareja myname:myvalue va ser enviada al servidor cuando de click en submit.</p>
+	
+	<h4>Borrar una fila</h4>
+	<p>Con este m&eacute;todo podemos ejecutar una operaci&oacute;n de eliminar del lado del servidor.</p> 
+	<p>Este m&eacute;todo usa los par&aacute;metros colModel y editurl de jqGrid</p> 
+	<p>Convensi&oacute;n de llamada:</p>
+	<code>jQuery("#grid_id").delGridRow( row_id_s, options );</code>
+	
+	<p>donde</p>
+	<ul>
+		<li>grid_id: el id del grid padre</li>
+		<li>row_id_s: el id de la(s) fila(s) a eliminar; puede ser un solo valor o una lista de ids separados por comas</li>
+		<li>options: un arreglo de pares name: value, incluyendo cualquiera de las propieades o eventos.</li>			
+	</ul>
+			
+	
+	<h4>Propiedades</h4>
+	<div class="row">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Propiedad</th>
+					<th>Descripci&oacute;n</th>
+					<th>Default</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td>top</td>
+					<td>la posici&oacute;n inicial arriba del di&aacute;logo de confirmaci&oacute;n</td>
+					<td>0</td>						
+				</tr>
+				
+				
+				<tr>
+					<td>left</td>
+					<td>la posici&oacute;n a la izquierda del di&aacute;logo de confirmaci&oacute;n</td>
+					<td>0</td>						
+				</tr>
+				
+				
+				<tr>
+					<td>width</td>
+					<td>el ancho del di&aacute;logo de confirmaci&oacute;n</td>
+					<td>300</td>						
+				</tr>
+				
+				<tr>
+					<td>height</td>
+					<td>el alto del di&aacute;logo de confirmaci&oacute;n</td>
+					<td>200</td>						
+				</tr>
+				
+				<tr>
+					<td>modal</td>
+					<td>configura el di&aacute;logo en modo modal</td>
+					<td>false</td>						
+				</tr>
+				
+				<tr>
+					<td>drag</td>
+					<td>el di&aacute;logo es arrastrable</td>
+					<td>true</td>						
+				</tr>
+				
+				<tr>
+					<td>msg</td>
+					<td>mensaje a desplegar cuando eliminan una fila</td>
+					<td>"Delete selected row(s)"</td>						
+				</tr>
+				
+				<tr>
+					<td>caption</td>
+					<td>el t&iacute;tulo  de la caja de di&aacute;logo</td>
+					<td>"Delete Record"</td>						
+				</tr>
+				
+				
+				<tr>
+					<td>bSubmit</td>
+					<td>el texto del bot&oacute;n cuando da click a borrar</td>
+					<td>"Delete"</td>						
+				</tr>
+				
+				
+				<tr>
+					<td>bCancel</td>
+					<td>el texto del bot&oacute;n cuando da click a cerrar di&aacute;logo</td>
+					<td>"Cancel"</td>						
+				</tr>
+				
+				<tr>
+					<td>url</td>
+					<td>url donde va ser enviada la informaci&oacute;n. Si esta configurada reemplaza la propiedad editurl</td>
+					<td></td>						
+				</tr>
+				
+				<tr>
+					<td>reloadAfterSubmit</td>
+					<td>recarga los datos del grid despu&eacute;s de enviar</td>
+					<td>true</td>						
+				</tr>
+				
+				
+				<tr>
+					<td>delData</td>
+					<td>un arreglo usado para agregar add contenido a la informaci&oacute;n enviada al servidor</td>
+					<td>empty</td>						
+				</tr>
+				
+				
+				<tr>
+					<td>beforeShowForm</td>
+					<td>Se dispara antes de mostrar la forma; recibe como parametro el id de la forma construida.</td>
+					<td>null</td>						
+				</tr>
+				
+				<tr>
+					<td>afterShowForm</td>
+					<td>fires before the data is submitted to the server.
+						Parameter is of type id=value1,value2,... When called the event
+						can return array where the first parameter can be true or false
+						and the second is the message of the error if any. Example:
+						[false,"The value is not valid"]</td>
+					<td>null</td>						
+				</tr>
+				
+				<tr>
+					<td>onclickSubmit</td>
+					<td>Se dispara despu&eacute;s de dar click al bot&oacute;n submit y la postdata
+						es construida. Los par&aacute;metros enviados a este evento es un arreglo de opciones
+						del m&eacute;todo. El evento debe retornar un arreglo de tipo {} el cual reemplaza
+						los datos de delData. Ver el ejemplo a continuaci&oacute;n.</td>
+					<td>null</td>						
+				</tr>
+				
+				<tr>
+					<td>beforeShowForm</td>
+					<td>Se dispara antes de mostrar la forma; recibe como parametro el id de la forma construida.</td>
+					<td>null</td>						
+				</tr>
+				
+				
+				<tr>
+					<td>afterSubmit</td>
+					<td>Se dispara despu&eacute;s de que la respuesta a sido recibida desde el servidor.
+						T&iacute;picamente es usada para desplegar el estatus del servidor (ejemplo, los datos
+						han sido exitosamente eliminados o  la eliminaci&oacute;n a sido cancelada por razones de 
+						integridad referencial). Recibe como parametro los datos regresados de
+						la solicitud y un arreglo de los valores enviados de tipo
+						id=value1,value2</td>
+					<td>null</td>						
+				</tr>
+				
+				
+			</tbody>
+		</table>
+	</div>
+	
+	<h4>Notas y ejemplos</h4>
+	
+	<p>Podemos configurar opciones comunes para todos los di&aacute;logos de eliminaci&oacute;n 
+			usando el objeto <code>$.jgrid.del</code> con <code>$.extend()</code>.</p> 
+	
+	<p>Los valores por dafault son:</p>
+	<pre><code>
+		jQuery.jgrid.del = { 
+			caption: "Delete", 
+			msg: "Delete selected record(s)?", 
+			bSubmit: "Delete", 
+			bCancel: "Cancel", 
+			processData: "Processing..." 
+		};
+	</code></pre>
+	
+	
+	<p>Usando onclickSubmit:</p> 
+	<p>Esta caracter&iacute;stica  puede ser usada para para agregar datos los cuales son enviados al servidor.</p> 
+	<p>m&eacute;todo Static (puede ser usada en el navegador tambien)</p> 
+	<p><code>jQuery("#grid_id").delGridRow("rowid",{delData:{myname:"myvalue"}});</code>
+	
+	<p>Cada vez que los datos son enviados al servidor esta pareja va ser agregada a la postdata.</p> 
+	<p>Si queremos agregar din&aacute;micamente datos a ser enviados al servidor, podemos usarlo siempre como sigue:</p>
+	<pre><code>
+		onclickSubmit : function(eparams) { 
+			var retarr = {}; 
+			// we can use all the grid methods here 
+			//to obtain some data 
+			var sr = jQuery("#grid_id").getGridParam('selrow'); 
+			rowdata = jQuery("#grid_id").getRowData(sr); 
+			if(rowdata.somevalue=='aa') { 
+				retarr = {myname:"myvalue"}; 
+			} return retarr; 
+		}
+	</code></pre>
+	
+	<p>Si la condici&oacute;n es true la pareja myname:myvalue va ser enviada al servidor cuando de click en submit.</p>
+		
+		
+
+</div>
+

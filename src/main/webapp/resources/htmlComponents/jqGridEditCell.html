@@ -1,0 +1,277 @@
+<div id="jqGridEdit">	
+	<h3>jqGrid edici&oacute;n por celdas</h3>
+				    
+	<table id="jqTableEdit" class="scroll"></table>
+	<div id="pagerEdit"></div>
+	
+</div>
+
+
+<div id="jqGridEditScript">
+	<script type="text/javascript">
+		
+	    $(document).ready(function () {
+	    	cargaGridEditCell();
+	    });
+	</script>
+
+</div>
+
+
+<div id="jqGridEditDoc">
+
+	<h3>Edici&oacute;n</h3>
+	<p>Una de la razones principales para desplegar datos en un grid es la edici&oacute;n r&aacute;pida 
+						y f&aacute;cilmente. jqGrid soporta la edici&oacute;n de datos de tres formas:</p>
+	<ol>
+		<li><b>edici&oacute;n por celdas</b>: la edici&oacute;n de celdas especificas en un grid</li>
+		<li><b>Edici&oacute;n por filas</b>: edici&oacute;n de muchas celdas en una fila</li>
+		<li><b>Edici&oacute;n por formas</b>: crear una forma para editar fuera del grid</li>
+	</ol>
+	
+	<br>
+
+	<h3>Edici&oacute;n de celdas</h3>
+
+	<p>Edici&oacute;n de celdas soporta navegaci&oacute;n por teclado y edici&oacute;n de celdas individualmente, 
+		con las siguientes caracter&iacute;sticas:</p> 
+		
+		<ul>
+			<li>Cuando hacemos click en una celda que no es editable, 
+			la celda es seleccionada entonces podemos usar las teclas arriba, abajo, izquierda
+			y derecha para navegar a trav&eacute;s de las celdas.</li>
+			 
+			<li>Si nos movemos a una celda que es editable, 
+				podemos presionar [Enter] para editar la celda. 
+				La celda es salvada cuando presionamos [Enter] 
+				nuevamente, cuando presionamos [Tab], o cuando nos movemos a otra celda de nuevo. 
+				Si presionamos [ESC], la celda no se guarda. Cuando editamos la celda, 
+				el cursor solo se mueve en la celda. </li>
+			
+			<li>Cuando el contenido de la celda es cambiado, 
+				la celda ser&aacute; marcada y este es un marcador en la esquina superior izquierda.</li>
+				
+			<li>Cuando hacemos click en una celda que es editable, entonces iremos directamente 
+			al modo edici&oacute;n.</li>				
+		</ul> 
+		<br>
+		<h4>Configuraci&oacute;n</h4>
+		<p>Para habilitar esta caracter&iacute;stica  hay que cargar la librer&iacute;a <b>grid.celledit.js</b></p>
+		
+		<h5>Opciones del modelo de datos para edici&oacute;n de celdas:</h5>
+		<div class="row">			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Propiedad</th>
+							<th>Type</th>
+							<th>Descripci&oacute;n</th>						
+							<th>Default</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>cellEdit</td>
+							<td>boolean</td>
+							<td>Habilita/Deshabilita edici&oacute;n de la celda. Cuando esta opci&oacute;n es true, 
+							Multi-select es deshabilitado, onSelectRow no puede ser usado, y hovering 
+							es deshabilitado (cuando el puntero del mouse esta sobre la fila).</td>
+							<td>true</td>							
+						</tr>
+						
+						
+						
+						<tr>
+							<td>cellsubmit</td>
+							<td>string</td>
+							<td> <p>Determina donde es guardado el contenido de la celda:
+									'remote' o 'clientArray'.</p>
+								<ul> 
+									<li>Si es 'remote' el contenido es inmediatamente salvado en el 
+										servidor especificado en la propiedad <b>cellurl</b>, via
+										ajax. El rowid y el contenido de la celda son agregados a la url como
+										pares nombre:valor. Por ejemplo, si guardamos una celda nombrada
+										<b>mycell</b>, <code>{id: rowid, mycell: cellvalue}</code> es agregado a la url.</li>
+									
+									<li>Si es 'clientArray', no se hace una petici&oacute;n ajax y el contenido de la celda
+										modificada puede ser obtenido via el m&eacute;todo <b>getChangedCells</b>.</li>
+								</ul>
+							</td>
+							<td>'remote'</td>							
+						</tr>
+						
+						
+						<tr>
+							<td>cellurl</td>
+							<td>string</td>
+							<td>La url donde la celda va ser guardada.</td>
+							<td>null</td>							
+						</tr>
+					</tbody>
+				</table>
+		</div>
+		
+		<h4>Eventos:</h4>
+		<p>Mucho de los siguientes eventos usan los par&aacute;metros definidos aqu&iacute;:</p>
+		<ul>
+			<li>rowid - es el identificador de la fila</li>
+			<li>cellname - es el nombre de la celda (esta como <b>name</b> en <b>colModel</b>)</li>
+			<li>value - el valor almacenado en la celda</li>
+			<li>iRow - es el &iacute;ndice de la fila (no es el mismo que el rowid)</li>
+			<li>iCol - el &iacute;ndice de la columna</li>
+		</ul>
+		
+		<div class="row">
+							
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Evento</th>
+							<th>Parametros</th>
+							<th>Descripci&oacute;n</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>afterEditCell</td>
+							<td>rowid, cellname, value, iRow, iCol</td>
+							<td>aplica solo a la celda que es editable; este evento se dispara despu&eacute;s que la celda es editada.</td>														
+						</tr>
+						
+						
+						<tr>
+							<td>afterSaveCell</td>
+							<td>rowid, cellname, value, iRow, iCol</td>
+							<td>Aplica solo a la celda que es editable; 
+							Este evento se dispara despu&eacute;s que la celda es guardada exitosamente. 
+							Este es el lugar ideal para cambiar otro contenido.</td>														
+						</tr>
+						
+						
+						<tr>
+							<td>afterSubmitCell</td>
+							<td>serverresponse, rowid, cellname, value, iRow, iCol</td>
+							<td>Aplica solo a una celda que es editable; este evento se dispara 
+							despu&eacute;s que la celda y otro dato es subido al servidor va retornar 
+							un array de tipo <code>[success(boolean),mensaje] cuando regresa [true, ""]</code> todo 
+							esta bien y el contenido de la celda es guardado <code>[false,"Mensaje de error"]</code> entonces un 
+							di&aacute;logo aparece con el "Mensaje de error" y el contenido de la celda no es guardado. 
+							<b>servereresponse</b> es la respuesta del servidor. Para usarlo debemos 
+							usar <code>serverresponse.responseText</code> para obtener el mensaje del servidor.</td>														
+						</tr>
+						
+						<tr>
+							<td>beforeEditCell</td>
+							<td>rowid, cellname, value, iRow, iCol</td>
+							<td>Aplica solo a las celdas que son editables; Este evento se dispara antes de que la celda es editada.</td>														
+						</tr>
+						
+						
+						<tr>
+							<td>beforeSaveCell</td>
+							<td>rowid, cellname, value, iRow, iCol</td>
+							<td>Aplica solamente a la celda que es editable; Este evento se dispara
+								antes de la validaci&oacute;n de cualquiera. Este evento puede retornar un
+								nuevo valor el cual puede reemplazar el editado beforeSaveCell :
+								function(rowid,celname,value,iRow,iCol) { if( condici&oacute;n ) {
+								return "nuevo valor"; } } El valor va ser reemplazados con el "nuevo
+								valor".</td>
+						</tr>
+						
+						
+						<tr>
+							<td>beforeSubmitCell</td>
+							<td>rowid, cellname, value ,iRow, iCol</td>
+							<td>Aplica solamente a la celda que es editable; este evento se dispara
+								antes de hacer submit el contenido de la celda al servidor (valido solamente 
+								si la propiedad cellsubmit : 'remote'). Puede retornar un nuevo arreglo que va
+								ser enviado al servidor. beforeSubmitCell :
+								function(rowid,celname,value,iRow,iCol) { if( condici&oacute;n ) {
+								return {name1:value1,name2:value2} } else { return {} } } El
+								arreglo retornado va ser agregado a los datos subidos <code>cellurl</code>.</td>
+						</tr>
+						
+						<tr>
+							<td>errorCell</td>
+							<td>serverresponse, status</td>
+							<td>es disparado si hay un error de servidor; servereresponse es la
+								respuesta del servidor. Para usar esto debemos aplicar
+								<code>serverresponse.responseText</code> para obtener el mensaje de texto desde el
+								servidor. <code>status</code> es el estado del error. Si no esta configurado un 
+								di&aacute;logo modal aparece.</td>
+						</tr>
+						
+						<tr>
+							<td>formatCell</td>
+							<td>rowid, cellname, value, iRow, iCol</td>
+							<td>Aplica solamente a la celda que es editable; Este evento permite
+								formatear el contenido de la celda antes de ser editado, y regresa
+								el valor formateado.</td>
+						</tr>
+						
+						
+						<tr>
+							<td>onSelectCell</td>
+							<td>rowid, celname, value, iRow, iCol</td>
+							<td>aplica solamente a celdas que no son editables; Se dispara despu&eacute;s
+								que la celda es seleccionada.</td>
+						</tr>
+						
+						
+										
+						
+					</tbody>
+				</table>
+		</div>
+		
+		<h4>Metodos:</h4>		
+		<div class="row">			
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Metodo</th>
+							<th>Parametros</th>
+							<th>Descripci&oacute;n</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+					
+						<tr>
+							<td>editCell</td>
+							<td>iRow, iCol</td>
+							<td>Edita la celda que esta en la fila con &iacute;ndice iRow (no confundir con rowid) en el &iacute;ndice de columna iCol</td>
+						</tr>
+						
+						
+						<tr>
+							<td>getChangedCells</td>
+							<td>method</td>
+							<td>Regresa un arreglo de las celdas modificadas 
+								dependiendo de method (string, default 'all'). 
+								Cuando es <b>'all'</b> este regresa todas las filas modificas; Cuando es 
+								<b>'dirty'</b> regresa solamente las celdas con el id de la fila</td>
+						</tr>
+						
+						
+						<tr>
+							<td>restoreCell</td>
+							<td>iRow, iCol</td>
+							<td>Restaura el contenido de una celda editada 
+								con el &iacute;ndice iRow(no confundir con rowid) en el &iacute;ndice de columna iCol</td>
+						</tr>
+						
+						
+						<tr>
+							<td>saveCell</td>
+							<td>iRow, iCol</td>
+							<td>Guarda el contenido de la celda con el &iacute;ndice 
+								iRow( do not mix with rowid) en la columna iCol</td>
+						</tr>
+		
+					</tbody>
+				</table>
+		</div>		
+
+</div>
+

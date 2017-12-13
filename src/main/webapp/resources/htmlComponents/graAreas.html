@@ -1,0 +1,208 @@
+<!-- #################### -->
+<!-- 		Code		  -->
+<!-- #################### -->
+<div id="areas">
+   <div class="form-group">
+      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+   </div>
+</div>
+<div id="areasScript">
+   <script type="text/javascript">
+     $(function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title: {
+        text: "Verificaciones de Trabajadores",
+        fontSize: 25
+      },
+      axisX:{
+        //valueFormatString: "MMM" ,
+        interval: 1,
+        intervalType: "month"
+
+      },
+      axisY: {
+        title: "Solicitudes"
+      },
+
+      data: [
+      {
+        indexLabelFontColor: "#0000CD",
+        markerColor: "#1E90FF",
+        type: "area",
+        color: "#87CEFA",
+        dataPoints: [//array
+
+        { x: new Date(2016, 00), y: 2600 },
+        { x: new Date(2016, 01), y: 3800 },
+        { x: new Date(2016, 02), y: 4300 },
+        { x: new Date(2016, 03), y: 2900 },
+        { x: new Date(2016, 04), y: 4100 },
+        { x: new Date(2016, 05), y: 4500 },
+        { x: new Date(2016, 06), y: 8600 },
+        { x: new Date(2016, 07), y: 6400 },
+        { x: new Date(2016, 08), y: 5300 },
+        { x: new Date(2016, 09), y: 6000}
+        ]
+      }
+      ]
+    });
+
+    chart.render();
+  });
+   </script>
+</div>
+
+<!-- end code -->
+
+<!-- #################### -->
+<!-- 	Documentation 	  -->
+<!-- #################### -->
+<div id="areasDoc">
+   <h3><strong>Gr&aacute;fica de &Aacute;rea</strong></h3>
+
+   <h3>Conocimientos Requeridos</h3>
+   <p>Conceptos b&aacute;sicos de HTML y Javascript</p>
+
+   <h3>CanvasJS</h3>
+   <p>CanvasJS es una biblioteca f&aacute;cil de utilizar HTML5 y Javascript de gr&aacute;ficos. Se ejecuta a trav&eacute;s de dispositivos como el iPhone, iPad, Android, Windows Phone, Microsoft Surface, ordenadores de sobremesa, etc.
+      Esto le permite crear cuadros de mando ricos que funcionan a trav&eacute;s de dispositivos sin comprometer la funcionalidad o la mantenibilidad.</p>
+
+	<h3>Requisitos del Navegador</h3>
+	<p>Es compatible con todos los navegadores modernos. A partir de la versión 1.3, CanvasJS tambi&eacute;n es compatible con los navegadores más antiguos como IE6, IE7 y IE8.
+	<br/>
+	A continuación se muestra una lista de los navegadores probados con la biblioteca CanvasJS.
+	</p>
+	<ul> 
+		<dir><li>Chrome</li>
+			<li>Firefox</li>
+			<li>Opera</li>
+			<li>IE 6+</li>
+			<li>Safari</li>
+			<li>iPhone</li>
+			<li>iPad</li>
+			<li>Android</li>
+		</dir>
+	</ul>
+
+	<h3>Agregar la biblioteca CanvasJS</h3>
+	<pre class="prettyprint linenums">
+	&lt;head&gt;
+	  &lt;script type=&quot;text/javascript&quot; src=&quot;canvasjs.min.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	</pre>
+
+	<h3>Descripci&oacute;n del Gr&aacute;fico</h3>
+   <p>Un gr&aacute;fico de &aacute;reas se representa por la coloraci&oacute;n de la zona comprendida entre la l&iacute;nea que une todos los puntos de datos y axisX.
+   Cada punto de datos tiene x variable de la determinaci&oacute;n de la posici&oacute;n en el eje y variable y horizontal la determinaci&oacute;n de la posici&oacute;n del eje vertical.
+   Un gr&aacute;fico de &aacute;rea se representa a ver el valor total a trav&eacute;s de una tendencia.</p>
+   <br/>
+
+    <h3>Propiedades Espec&iacute;ficas</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Aplicable a</th>
+            <th style="width: 100px;">Atributo</th>
+            <th style="width: 50px;">Tipo</th>
+            <th>Default</th>
+            <th>Opciones/Ejemplos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>dataSeries/ dataPoint</td>
+            <td>markerType</td>
+            <td>String</td>
+            <td><code>&quot;circle&quot;</code></td>
+            <td><code>&quot;none&quot;, &quot;circle&quot;, &quot;square&quot;, &quot;cross&quot;, &quot;triangle&quot;</code></td>
+          </tr>
+          <tr>
+            <td>dataSeries/ dataPoint</td>
+            <td>markerColor</td>
+            <td>String</td>
+            <td><code>dataSeries Color</code></td>
+            <td><code>&quot;red&quot;, &quot;#1E90FF&quot;..</code></td>
+          </tr>
+          <tr>
+            <td>dataSeries/ dataPoint</td>
+            <td>markerBorderColor</td>
+            <td>String</td>
+            <td><code>dataSeries Color</code></td>
+            <td><code>&quot;red&quot;, &quot;#1E90FF&quot;..</code></td>
+          </tr>
+          <tr>
+            <td>dataSeries/ dataPoint</td>
+            <td>markerSize</td>
+            <td>Number</td>
+            <td>0</td>
+            <td>5,10..</td>
+          </tr>
+          <tr>
+            <td>dataSeries/ dataPoint</td>
+            <td>markerBorderThickness</td>
+            <td>Number</td>
+            <td>1</td>
+            <td>4,7..</td>
+          </tr>
+          <tr>
+            <td>dataSeries</td>
+            <td>lineThickness</td>
+            <td>Number</td>
+            <td>2</td>
+            <td>4,7..</td>
+          </tr>
+          <tr>
+            <td>dataSeries</td>
+            <td>fillOpacity</td>
+            <td>Number</td>
+            <td>.7</td>
+            <td>.2,.4,1 etc</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   <br/>
+   <h3>Propiedades Generales</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Personalizaci&oacute;n</th>
+            <th style="width: 100px;">Objeto</th>
+            <th style="width: 50px;">Propiedad</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+               <td>Set Chart Title Size </td>
+               <td>title</td>
+               <td>fontSize &#8211; 12,13,14, etc. </td>        
+            </tr>
+            <tr>
+               <td>Set Chart Title Color </td>
+               <td>title</td>
+               <td>fontColor &#8211; red, blue, green, etc </td>        
+            </tr>
+            <tr>
+               <td>Show Axis Y line </td>
+               <td>axisY</td>
+               <td>lineThickness &#8211; 0, 1, 2, etc. </td>        
+            </tr>	
+            <tr>
+               <td>Show value (indexLabels)<br/> on top of Column / Bar </td>
+               <td>dataSeries</td>
+               <td>indexLabel &#8211; &#8220;{y}&#8221;, &#8220;${y}K&#8221;, &#8220;any text&#8221; </td>        
+            </tr>
+            <tr>
+               <td>Set Axis X label angle </td>
+               <td>axisX</td>
+               <td>labelAngle &#8211; 30, 45, 90, etc </td>        
+            </tr>
+         </tbody>
+      </table>
+    </div>
+   </div>
+
+<!-- end documentation -->

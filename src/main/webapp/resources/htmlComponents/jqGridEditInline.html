@@ -1,0 +1,271 @@
+<div id="jqGridEdit">	
+	<h3>jqGrid edici&oacute;n de filas</h3>
+			    
+	<table id="jqTableEdit" class="scroll"></table>
+	<div id="pagerEdit"></div>
+	
+</div>
+
+
+<div id="jqGridEditScript">
+	<script type="text/javascript">
+		
+	    $(document).ready(function () {
+	    	cargaGridEditInline();
+	    });
+	</script>
+
+</div>
+
+
+<div id="jqGridEditDoc">
+	
+	<h3>Edici&oacute;n</h3>
+	<p>Una de la razones principales para desplegar datos en un grid es la edici&oacute;n r&aacute;pida 
+						y f&aacute;cilmente. jqGrid soporta la edici&oacute;n de datos de tres formas:</p>
+	<ol>
+		<li><b>edici&oacute;n por celdas</b>: la edici&oacute;n de celdas especificas en un grid</li>
+		<li><b>Edici&oacute;n por filas</b>: edici&oacute;n de muchas celdas en una fila</li>
+		<li><b>Edici&oacute;n por formas</b>: crear una forma para editar fuera del grid</li>
+	</ol>	
+	<br>
+		
+		
+	<h3>Edici&oacute;n por filas</h3>
+	<p >La edici&oacute;n por filas es una camino r&aacute;pido para actualizar la informaci&oacute;n de la base de datos
+		soportando directamente la edici&oacute;n en la fila del grid</p>
+	
+	<p><b>Propiedades:</b></p>
+	<p>Por default las columnas no son editables as&iacute; que para usar esta opci&oacute;n, debemos
+		agregar a la configuraci&oacute;n en <b>colModel</b> para las columnas cuales habilitar
+		para edici&oacute;n (no es necesario hacer todas las columnas editables). Hay
+		cuatro configuraciones a considerar:</p>
+	<ul>
+		<li>editable</li>
+		<li>edittype</li>
+		<li>editoptions, y</li>
+		<li>editrules</li>			
+	</ul>
+
+	<p><b>editable:</b> Define si el campo es editable (o no). Por default
+		es false. Para hacer un campo editable, asignar: editable:true
+	<br>
+	<b>edittype:</b> Define el tipo de campo que es editable. Valores posibles:
+	'text', 'textarea', 'select', 'checkbox'. Por deafult es 'text'.
+	<br>
+	<b>editoptions:</b> un arreglo de opciones permitidas (atributos) para la selecci&oacute;n
+	de edittype
+	</p>
+
+	<p><b>Por ejemplo:</b></p>
+		
+	<pre><code>{name:'stock', index:'stock', width:60, editable:true, edittype:"checkbox", editoptions: {value:"Yes:No"}},</code></pre>
+
+	<p>Si vamos a guardar los resultados de la edici&oacute;n en el servidor, necesitamos especificar el m&eacute;todo del lado del servidor que
+		que va aceptar la informaci&oacute;n editada. Esta es configurada como una opci&oacute;n de grid: <b>editurl</b></p>
+	<br>
+	
+	<p><b>Que es lo que hace jQgrid:</b></p>
+	
+	<p><b>edittype</b> is 'text'</p> 
+	
+	<p>Cuando edittype es 'text', jqGrid contruye una etiqueta input
+		de tipo text:</p> 
+		
+	<code>&lt;input type="text" ...../&gt;</code> 
+	
+	<p>En editoptions podemos configurar todos los posibles atributos para este campo. Por ejemplo,
+	<br>
+	<code><b>editoptions</b>: {size:10, maxlength: 15}</code></p> 
+	<br>
+	<p>Esto va provocar a jqGrid construir
+	el siguiente input
+	<br> 
+	<code>&lt;input type="text" size="10" maxlength="15" /&gt;</code></p> 
+	
+	<p>Adicionalmente a estas configuraciones, jqGrid agrega lo siguiente:</p>
+	<ul>		 
+		<li>id: El id que es agregado a este elemento es una combinaci&oacute;n del id de la fila
+			y el nombre - rowid_name  name: El nombre de colModel</li>  
+		<li>value: el contenido de la celda.</li>
+	</ul>
+	
+	<p>Considerar el ejemplo a continuaci&oacute;n y suponga que el id de la fila es 12
+		y el nombre es invdate entonces el resultado es: </p>		
+	<code>&lt;input type="text" id="12_invdate" name="invdate" size="10" maxlength="15" value="someval" /&gt;</code>	
+	<br><br>
+	
+	<p><b>edittype es 'textarea'</b></p>
+	<p>Cuando edittype es 'textarea', jqGrid construye una etiqueta input de tipo textarea 
+	<br>
+	<code>&lt;input type="textarea" .../&gt;</code>
+	 
+	<p>En editoptions podemos agregar atributos adicionales a este tipo. 
+	T&iacute;picamente estos controlan el tama&ntilde;o de la caja:</p>	 
+	<code>editoptions: {rows:"2",cols:"10"}</code>
+	<br>
+	 
+	<p>A estos atributos jqGrid agrega los atributos id y name del mismo modo que tipo text.</p>
+	
+	<p><b>edittype is 'checkbox'</b></p>
+	<p>Cuando edittype es 'checkbox', jqGrid construye una etiqueta input como sigue:
+	<br> 
+	<code>&lt;input type="checkbox" .../&gt;</code>
+	 
+	<p>Se usa editoptions para definir valores checked y unchecked. El primer valor es checked. Por ejemplo	
+	<br>	 
+	<code>editoptions: { value:"Yes:No" }</code></p>
+	
+	<p>Define en un checkbox cuando el valor es Yes el inicia checado, en otro caso no checado. 
+	Este valor es pasado como parametro en la editurl.</p>
+	 
+	<p>A estos atributos jqGrid agrega los atributos id y name del mismo modo que tipo text.</p>
+	
+	<p><b>edittype is 'select'</b></p>
+	<p>When edittype is 'select', jqGrid construye una etiqueta select como sigue:</p>
+	<pre><code>
+	&lt;select&gt;
+		&lt;option value='val1'&gt;Value1&lt;/option&gt;
+		&lt;option value='val2'&gt;Value2&lt;/option&gt; 
+		...
+		&lt;option value='valn'&gt;ValueN&lt;/option&gt;
+	&lt;/select&gt; 
+	</code></pre>
+
+	<p>Para construir este elemento <b>editoptions</b> debe contener un conjunto de pares value:label
+		 con el valor separado de la etiqueta con dos puntos
+		(:). Este conjunto de pares puede ser un string o un arreglo.  
+		Ejemplo de ambos:</p>
+
+	<pre><code>
+		colModel : [
+		 ... 
+		 {name:'myname', edittype:'select' editoptions:{value:"1:One;2:Two"} } 
+		 ... 
+		]
+	</code></pre>
+	<p>y</p>
+	<pre><code>
+		colModel : [ 
+			... 
+			{name:'myname', edittype:'select', editoptions:{value:{1:'One',2:'Two'}} } 
+			... 
+		]
+	</code></pre>
+	<p>ambos son correctos y pueden ser usados como una definici&oacute;n 'select'.</p> 
+	
+	<p>El que sea que use, se va ver, como lo que sigue:</p>
+	
+	<code>editoption: { value: "FE:FedEx; IN:InTime; TN:TNT" }</code>
+	
+	<p>esto va a construir</p>
+	<pre><code>
+		&lt;select&gt;
+			&lt;option value='FE'&gt;FedEx&lt;/option&gt;
+			&lt;option value='IN'&gt;InTime&lt;/option&gt;
+			&lt;option value='TN'&gt;TNT&lt;/option&gt;
+		&lt;/select&gt;
+	</code></pre>
+	
+	<p>A este elemento, jqGrid agrega atributos id y name como anteriormente.</p> 
+	<p>La selecci&oacute;n m&uacute;ltiple de opciones en un 'caja select' tambien es posible:
+	<br>
+	<code>editoptions: {multiple:true, ... }</code></p>
+	<br>
+	
+	<h5>Metodos</h5>
+	<p>Para inline edit, tenemos tres m&eacute;todos adicionales disponibles (de la API Grid):</p>
+	<ul>
+		<li>editRow</li>
+		<li>saveRow</li>
+		<li>restoreRow</li>		
+	</ul>
+
+	<p>Estos m&eacute;todos pueden ser llamados, claro est&aacute;, solo 
+		en un grid listo y construido, 
+		desde un click de bot&oacute;n o desde un evento propio del grid:</p>
+	<pre><code>
+			onSelectRow: function(id) { 
+				if(id && id!==lastSel) { 
+					jQuery('#tbleditable').restoreRow(lastSel); 
+					lastSel=id; 
+				} 
+					jQuery('#tbleditable').editRow(id, true); 
+			},
+	</code></pre>
+	<p>En este ejemplo, si otra fila empieza a ser editada y no ha sido guardada, 
+		la informaci&oacute;n original va ser restaurada y la fila cerrada antes de abrir la fila actualmente 
+		seleccionada para editar (donde <b>lastSel</b> fue previamente definida como una variable).</p>
+		
+	<h5>editRow</h5>
+	<p><b>Convensi&oacute;n de llamada:</b></p>
+	<code>editRow(rowid, keys, oneditfunc, succesfunc, url, extraparam, aftersavefunc, onerrorfunc)</code>
+	<p>donde</p>
+	
+	<ul>
+		<li>rowid: el id de la fila a editar</li>
+		<li>keys: cuando son asignadas como true podemos usar la tecla [Enter] para guardar la fila y [Esc] para cancelar la edici&oacute;n.</li>
+		<li>oneditfunc: disparado despu&eacute;s de acceder exitosamente a la edici&oacute;n de una fila, antes de permitir 
+			acceso al usuario a campos de entrada. El id de la fila es pasado como parametro a esta funci&oacute;n.</li>
+	</ul>
+	
+	<p>Si la llave es true, entonces las configuraciones restantes -- succesfunc, url, extraparam, 
+		aftersavefunc and onerrorfunc -- son pasadas como par&aacute;metros al m&eacute;todo saveRow 
+		cuando la tecla [Enter] es presionada (saveRow no necesita ser definida, ya que jqGrid la usa autom&aacute;ticamente). 
+		Para mas informaci&oacute;n vea el m&eacute;todo saveRow a continuaci&oacute;n. 
+		Cuando este m&eacute;todo es llamado en una fila en particular, jqGrid le los datos para los campos 
+		editables y construye los elementos apropiados definidos en edittype y editoptions.</p>
+	<br>
+	
+		
+	<h5>saveRow</h5>
+	<code>Convensi&oacute;n del llamado: saveRow (rowid, succesfunc, url, extraparam, aftersavefunc, onerrorfunc)</code>
+	<p><b>donde</b></p>
+	<ul>
+		<li>rowid: el id de la fila a guardar</li>
+		<li>succesfunc: si est&aacute; definido, esta funci&oacute;n es llamada inmediatamente
+			despu&eacute;s de que la solicitud es exitosa. A esta funci&oacute;n es pasada la informaci&oacute;n
+			regresada del servidor. Dependiendo de la informaci&oacute;n del servidor esta
+			funci&oacute;n debe regresar true o false.</li>
+		<li>url: si est&aacute; definido, este parametro reemplaza a editurl
+			del arreglo de opciones. Si configuramos a clientArray  la informaci&oacute;n
+			no es subida al servidor pero es guardada solamente en el grid (presumiblemente para
+			para despu&eacute;s salvarla manualmente).</li>
+		<li>extraparam: un arreglo de tipo name: value. Cuando configura estos valores
+			son subidos junto con otros valores al servidor.</li>
+		<li>aftersavefunc: si est&aacute; definido, esta funci&oacute;n es llamada despu&eacute;s de que
+			la informaci&oacute;n es guardada al servidor. Los par&aacute;metros pasados al servidor son
+			el rowid y el result de la petici&oacute;n.</li>
+		<li>onerrorfunc: si est&aacute; definido, esta funci&oacute;n es llamada despu&eacute;s de que
+			la informaci&oacute;n es guardada al servidor. Los par&aacute;metros pasados a esta funci&oacute;n
+			son el rowid y el result de la petici&oacute;n.</li>
+	</ul>
+
+
+	<p>Excepto cuando la url (o editurl) es 'clientArray', cuando este m&eacute;todo
+		es llamado la informaci&oacute;n de una fila particular es SUBIDA al servidor en
+		formato name: value, donde name es de colModel y 
+		value es new value. jqGrid adem&aacute;s agrega, a la informaci&oacute;n subida el par
+		id: rowid. Por Ejemplo,</p>			
+	<code>jQuery("#grid_id").saveRow("rowid", false);</code>
+	
+	<p>Salvar&aacute; la informaci&oacute;n al grid y el servidor, mientras</p>
+	<code>jQuery("#grid_id").saveRow("rowid", false, 'clientArray');</code>
+	
+	<p>Salvar&aacute; la informaci&oacute;n en el grid sin hacer una llamada ajax al servidor.</p>
+	<br>
+	
+	<h5>restoreRow</h5>
+	<p>Convensi&oacute;n de llamada:</p>
+	<code>restoreRow(rowid)</code>
+	
+	<p>donde</p>
+	<ul>
+		<li>rowid es la fila a restaurar</li>
+	</ul>
+	
+	<p>Este m&eacute;todo restaura la informaci&oacute;n a los valores originales antes de la edici&oacute;n de la fila.</p>
+	<br>
+		
+</div>
+

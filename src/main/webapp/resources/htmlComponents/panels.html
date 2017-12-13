@@ -1,0 +1,193 @@
+<div id="panels">
+	
+	<h3>Paneles</h3>
+	
+	
+	<div class="panel-group" id="accordion">	<!-- inicio acordeon -->
+		
+		<div class="panel panel-default">	<!-- panel 1 -->
+						
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Panel b&aacute;sico</a>
+				</h3>
+			</div>
+			
+			<div id="collapse1" class="panel-collapse collapse in">
+				<div class="panel-body"><!-- contenido del panel -->
+					<div id ="panels1">		
+			
+	<!-- panel basico -->
+	<div class="panel panel-default">	
+		<div class="panel-body">Un panel b&aacute;sico</div>
+	</div>
+	<!-- panel basico -->
+			
+		
+	<!-- panel con encabezado -->	
+	<div class="panel panel-default">
+		<div class="panel-heading">Encabezado de panel</div>	<!-- encabezado -->
+		<div class="panel-body">Contenido del panel 2</div>
+	</div>
+	<!-- panel con encabezado -->
+		
+	
+	<!-- panel con pie de pagina -->
+	<div class="panel panel-default">
+		<div class="panel-body">Contenido del panel 3</div>
+		<div class="panel-footer">Pie de panel</div>		<!-- pie del panel -->
+	</div>
+	<!-- panel con pie de pagina -->
+	
+							
+</div>
+				</div>					<!-- contenido del panel -->
+			
+			</div>									
+		</div>							<!-- panel 1 -->
+		
+		
+		
+		<div class="panel panel-default">	<!-- panel 2 -->
+						
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Agrupamiento de panel</a>
+				</h3>
+			</div>
+			
+			<div id="collapse2" class="panel-collapse collapse">
+				<div class="panel-body"><!-- contenido del panel -->
+					<div id ="panels2">
+						
+	<!-- panel agrupado -->
+	<div class="panel-group">
+		<!-- panel 1 -->
+		<div class="panel panel-default">
+			<div class="panel-body">Contenido del panel 1</div>
+		</div>
+		
+		<!-- panel 2 -->
+		<div class="panel panel-default">
+			<div class="panel-body">Contenido del panel 2</div>
+		</div>
+	</div>
+	<!-- panel agrupado -->
+
+</div>
+				</div>					<!-- contenido del panel -->
+			
+			</div>									
+		</div>							<!-- panel 2 -->
+		
+		
+		
+		
+		<div class="panel panel-default">	<!-- panel 3 -->
+						
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Paneles con clases contextuales</a>
+				</h3>
+			</div>
+			
+			<div id="collapse3" class="panel-collapse collapse">
+				<div class="panel-body"><!-- contenido del panel -->
+					<div id ="panels3">
+	
+	<!-- Paneles con clases contextuales -->		
+	<!-- panel-default -->			
+	<div class="panel-group">
+	 <div class="panel panel-default">
+	    <div class="panel-heading">Panel con la clase: panel-default</div>
+	    <div class="panel-body">Contenido del panel</div>
+	  </div>
+		
+		
+		<!-- panel-primary -->	
+	  <div class="panel panel-primary">
+	    <div class="panel-heading">Panel con la clase: panel-primary</div>
+	    <div class="panel-body">Contenido del panel</div>
+	  </div>
+		
+		<!-- panel-success -->
+	  <div class="panel panel-success">
+	    <div class="panel-heading">Panel con la clase: panel-success</div>
+	    <div class="panel-body">Contenido del panel</div>
+	  </div>
+		
+		<!-- panel-info -->
+	  <div class="panel panel-info">
+	    <div class="panel-heading">Panel con la clase: panel-info</div>
+	    <div class="panel-body">Contenido del panel</div>
+	  </div>
+		
+		<!-- panel-warning -->
+	  <div class="panel panel-warning">
+	    <div class="panel-heading">Panel con la clase: panel-warning</div>
+	    <div class="panel-body">Contenido del panel</div>
+	  </div>
+	
+		<!-- panel-danger -->
+  		<div class="panel panel-danger" style="margin-bottom:-19px;">
+		    <div class="panel-heading">Panel con la clase: panel-danger</div>
+		    <div class="panel-body">Contenido del panel</div>
+ 	    </div>
+	</div>
+							
+</div>
+				</div>					<!-- contenido del panel -->
+			
+			</div>									
+		</div>							<!-- panel 3 -->
+		
+		
+		
+	</div>		<!-- fin del acordeon -->
+	
+</div>
+	
+	
+	
+
+
+
+<div id="panelsDoc">
+	
+	<h3>Paneles</h3>
+
+	<p>Un panel en Bootstrap es una caja con bordes con un poco de espaciado alrededor conteni&eacute;ndola.
+	Los paneles son creados con la clase <code>.panel</code> y el contenido dentro del panel con una clase <code>.panel-body</code>.
+	
+	<br />
+	
+	La clase <code>.panel-default</code> es usada para agregar estilo de color al panel.
+	</p>
+	
+	<br/>
+	<br/>
+	<h4>Encabezado de panel</h4>
+	<p>La clase <code>.panel-heading</code> agrega un encabezado al panel.</p>
+	
+	
+	<br/>
+	<br/>
+	<h4>Pie de panel</h4>
+	<p>La clase <code>.panel-footer</code> agrega un pie de p&aacute;gina al panel.</p>
+	
+	
+	<br/>
+	<br/>
+	<h4>Agrupamiento de paneles</h4>
+	<p>Para agrupar muchos paneles juntos envolver con la etiqueta <code>&lt;div&gt;</code> y usando la clase <code>.panel-group</code>.
+
+		La clase <code>.panel-group</code> elimina el margen inferior de cada panel.</p>
+	
+	
+	<br/>
+	<br/>
+	<h4>Paneles con clases contextuales</h4>
+	<p>Para colorear el panel use las clases contextuales (<code>.panel-default</code>, <code>.panel-primary</code>, <code>.panel-success</code>, 
+				<code>.panel-info</code>, <code>.panel-warning</code>, o <code>.panel-danger</code>).</p>
+			
+</div>
